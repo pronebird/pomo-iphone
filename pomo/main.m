@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "PO.h"
 
 int main (int argc, const char * argv[])
 {
@@ -15,6 +16,12 @@ int main (int argc, const char * argv[])
 
 	// insert code here...
 	NSLog(@"Hello, World!");
+	
+	PO* pomo = [[PO alloc] init];
+	
+	[pomo importFileAtPath:@"/Users/pronebird/dev/cocoa-pomo/pomo/ru_RU.po"];
+	
+	[pomo release];
 
 	[pool drain];
     return 0;

@@ -19,12 +19,13 @@
 - (id) init;
 - (void) dealloc;
 
-- (bool) import : (NSString*)filename;
+- (bool) importFileAtPath : (NSString*)filename;
 
 @end
 
 @interface PO (ProtectedMethods)
 
-- (TranslationEntry*) readEntry: (NSFileHandle*)file;
+- (NSString*) readLine : (FILE*)file encoding: (NSStringEncoding)encoding;
+- (TranslationEntry*) readEntry : (NSFileHandle*)file;
 
 @end
