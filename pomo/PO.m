@@ -7,7 +7,6 @@
 //
 
 #import "PO.h"
-#import "NSStringExt.h"
 
 #define PO_LINE_BUF 100
 
@@ -118,7 +117,7 @@
 		if([str characterAtIndex:0] == '"' && [str characterAtIndex:str.length-1] == '"')
 		{
 			str = [str substringWithRange:NSMakeRange(1, str.length - 2)];
-			NSArray* arr = [str split:@":"];
+			NSArray* arr = [self splitString:str separator:@":"];
 			
 			if(arr.count < 2)
 				continue;
@@ -131,7 +130,7 @@
 		}
 		else // parse actual entry
 		{
-			NSArray* arr = [str split:@" "];
+			NSArray* arr = [self splitString:str separator:@" "];
 			NSString* key, *value;
 			NSUInteger keylen = 0;
 			unichar c;
@@ -245,6 +244,26 @@
 	string = [string stringByReplacingOccurrencesOfString:@"\"" withString:@"\\\""];
 
 	return string;
+}
+
+- (NSArray*) splitString : (NSString*) string separator:(NSString*)separator 
+{
+	NSScanner* scan = [NSScanner scannerWithString:string];
+	NSString* token = nil;
+	NSMutableArray* array = [[[NSMutableArray alloc] initWithCapacity:2] autorelease];
+	
+	if([scan scanUpToString:separator intoString:&token])
+	{
+		[array addObject:token];
+		
+		NSUInteger pos = [scan scanLocation]+1;
+		
+		if(pos < string.length)
+			[array addObject:[string substringFromIndex:pos]];
+	}
+	
+	
+	return [NSArray arrayWithArray:array];	
 }
 
 @end

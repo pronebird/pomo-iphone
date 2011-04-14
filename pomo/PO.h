@@ -32,4 +32,5 @@
 - (NSString*) decodePOString : (NSString*)string;
 - (NSString*) encodePOString : (NSString*)string;
 
+- (NSArray*) splitString : (NSString*) string separator:(NSString*)separator;
 @end
