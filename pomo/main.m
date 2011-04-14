@@ -19,7 +19,7 @@ int main (int argc, const char * argv[])
 	
 	PO* pomo = [[PO alloc] init];
 	
-	[pomo importFileAtPath:@"/Users/pronebird/dev/cocoa-pomo/pomo/ru_RU.po"];
+	[pomo importFileAtPath:@"/Users/pronebird/dev/cocoa-pomo/test.po"];
 	
 	[pomo release];
 

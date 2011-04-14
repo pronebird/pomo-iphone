@@ -26,6 +26,10 @@
 @interface PO (ProtectedMethods)
 
 - (NSString*) readLine : (FILE*)file encoding: (NSStringEncoding)encoding;
-- (TranslationEntry*) readEntry : (NSFileHandle*)file;
+- (TranslationEntry*) readEntry : (FILE*)file;
+- (NSString*) decodeValueAndRemoveQuotes : (NSString*)string;
+
+- (NSString*) decodePOString : (NSString*)string;
+- (NSString*) encodePOString : (NSString*)string;
 
 @end
