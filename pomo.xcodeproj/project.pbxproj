@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		587DA48713411D49001D60FA /* Gettext_Translations.m in Sources */ = {isa = PBXBuildFile; fileRef = 587DA48613411D49001D60FA /* Gettext_Translations.m */; };
-		587DA48B13411EC8001D60FA /* PO.m in Sources */ = {isa = PBXBuildFile; fileRef = 587DA48A13411EC8001D60FA /* PO.m */; };
+		587DA48713411D49001D60FA /* AMGettextTranslations.m in Sources */ = {isa = PBXBuildFile; fileRef = 587DA48613411D49001D60FA /* AMGettextTranslations.m */; };
+		587DA48B13411EC8001D60FA /* AMPOParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 587DA48A13411EC8001D60FA /* AMPOParser.m */; };
 		5887CAE013410B89005CA69C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5887CADF13410B89005CA69C /* Foundation.framework */; };
 		5887CAE313410B89005CA69C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5887CAE213410B89005CA69C /* main.m */; };
-		5887CAEE13410C0A005CA69C /* Translations.m in Sources */ = {isa = PBXBuildFile; fileRef = 5887CAED13410C0A005CA69C /* Translations.m */; };
-		5887CAF113410F17005CA69C /* TranslationEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 5887CAF013410F17005CA69C /* TranslationEntry.m */; };
+		5887CAEE13410C0A005CA69C /* AMTranslations.m in Sources */ = {isa = PBXBuildFile; fileRef = 5887CAED13410C0A005CA69C /* AMTranslations.m */; };
+		5887CAF113410F17005CA69C /* AMTranslationEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 5887CAF013410F17005CA69C /* AMTranslationEntry.m */; };
+		58B02481135C7491006F3917 /* AML10n.m in Sources */ = {isa = PBXBuildFile; fileRef = 58B02480135C7491006F3917 /* AML10n.m */; };
+		58B02485135C793F006F3917 /* AMNOOPTranslations.m in Sources */ = {isa = PBXBuildFile; fileRef = 58B02484135C793F006F3917 /* AMNOOPTranslations.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,19 +30,24 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		587DA48513411D49001D60FA /* Gettext_Translations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gettext_Translations.h; sourceTree = "<group>"; };
-		587DA48613411D49001D60FA /* Gettext_Translations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Gettext_Translations.m; sourceTree = "<group>"; };
-		587DA48913411EC8001D60FA /* PO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PO.h; sourceTree = "<group>"; };
-		587DA48A13411EC8001D60FA /* PO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PO.m; sourceTree = "<group>"; };
+		587DA48513411D49001D60FA /* AMGettextTranslations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMGettextTranslations.h; sourceTree = "<group>"; };
+		587DA48613411D49001D60FA /* AMGettextTranslations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMGettextTranslations.m; sourceTree = "<group>"; };
+		587DA48913411EC8001D60FA /* AMPOParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMPOParser.h; sourceTree = "<group>"; };
+		587DA48A13411EC8001D60FA /* AMPOParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMPOParser.m; sourceTree = "<group>"; };
 		5887CADB13410B89005CA69C /* pomo */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = pomo; sourceTree = BUILT_PRODUCTS_DIR; };
 		5887CADF13410B89005CA69C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5887CAE213410B89005CA69C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5887CAE513410B89005CA69C /* pomo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "pomo-Prefix.pch"; sourceTree = "<group>"; };
 		5887CAE613410B89005CA69C /* pomo.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = pomo.1; sourceTree = "<group>"; };
-		5887CAEC13410C0A005CA69C /* Translations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Translations.h; sourceTree = "<group>"; };
-		5887CAED13410C0A005CA69C /* Translations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Translations.m; sourceTree = "<group>"; };
-		5887CAEF13410F17005CA69C /* TranslationEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TranslationEntry.h; sourceTree = "<group>"; };
-		5887CAF013410F17005CA69C /* TranslationEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TranslationEntry.m; sourceTree = "<group>"; };
+		5887CAEC13410C0A005CA69C /* AMTranslations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMTranslations.h; sourceTree = "<group>"; };
+		5887CAED13410C0A005CA69C /* AMTranslations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMTranslations.m; sourceTree = "<group>"; };
+		5887CAEF13410F17005CA69C /* AMTranslationEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMTranslationEntry.h; sourceTree = "<group>"; };
+		5887CAF013410F17005CA69C /* AMTranslationEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMTranslationEntry.m; sourceTree = "<group>"; };
+		58B0247F135C7491006F3917 /* AML10n.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AML10n.h; sourceTree = "<group>"; };
+		58B02480135C7491006F3917 /* AML10n.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AML10n.m; sourceTree = "<group>"; };
+		58B02482135C777D006F3917 /* AMTranslationsProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMTranslationsProtocol.h; sourceTree = "<group>"; };
+		58B02483135C793F006F3917 /* AMNOOPTranslations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMNOOPTranslations.h; sourceTree = "<group>"; };
+		58B02484135C793F006F3917 /* AMNOOPTranslations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMNOOPTranslations.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +66,7 @@
 			isa = PBXGroup;
 			children = (
 				5887CAE113410B89005CA69C /* pomo */,
+				5887CAE413410B89005CA69C /* Supporting Files */,
 				5887CADE13410B89005CA69C /* Frameworks */,
 				5887CADC13410B89005CA69C /* Products */,
 			);
@@ -85,15 +93,19 @@
 			children = (
 				5887CAE213410B89005CA69C /* main.m */,
 				5887CAE613410B89005CA69C /* pomo.1 */,
-				5887CAE413410B89005CA69C /* Supporting Files */,
-				5887CAEC13410C0A005CA69C /* Translations.h */,
-				5887CAED13410C0A005CA69C /* Translations.m */,
-				587DA48513411D49001D60FA /* Gettext_Translations.h */,
-				587DA48613411D49001D60FA /* Gettext_Translations.m */,
-				5887CAEF13410F17005CA69C /* TranslationEntry.h */,
-				5887CAF013410F17005CA69C /* TranslationEntry.m */,
-				587DA48913411EC8001D60FA /* PO.h */,
-				587DA48A13411EC8001D60FA /* PO.m */,
+				5887CAEC13410C0A005CA69C /* AMTranslations.h */,
+				5887CAED13410C0A005CA69C /* AMTranslations.m */,
+				587DA48513411D49001D60FA /* AMGettextTranslations.h */,
+				587DA48613411D49001D60FA /* AMGettextTranslations.m */,
+				5887CAEF13410F17005CA69C /* AMTranslationEntry.h */,
+				5887CAF013410F17005CA69C /* AMTranslationEntry.m */,
+				587DA48913411EC8001D60FA /* AMPOParser.h */,
+				587DA48A13411EC8001D60FA /* AMPOParser.m */,
+				58B0247F135C7491006F3917 /* AML10n.h */,
+				58B02480135C7491006F3917 /* AML10n.m */,
+				58B02482135C777D006F3917 /* AMTranslationsProtocol.h */,
+				58B02483135C793F006F3917 /* AMNOOPTranslations.h */,
+				58B02484135C793F006F3917 /* AMNOOPTranslations.m */,
 			);
 			path = pomo;
 			sourceTree = "<group>";
@@ -104,6 +116,7 @@
 				5887CAE513410B89005CA69C /* pomo-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			path = pomo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -154,10 +167,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				5887CAE313410B89005CA69C /* main.m in Sources */,
-				5887CAEE13410C0A005CA69C /* Translations.m in Sources */,
-				5887CAF113410F17005CA69C /* TranslationEntry.m in Sources */,
-				587DA48713411D49001D60FA /* Gettext_Translations.m in Sources */,
-				587DA48B13411EC8001D60FA /* PO.m in Sources */,
+				5887CAEE13410C0A005CA69C /* AMTranslations.m in Sources */,
+				5887CAF113410F17005CA69C /* AMTranslationEntry.m in Sources */,
+				587DA48713411D49001D60FA /* AMGettextTranslations.m in Sources */,
+				587DA48B13411EC8001D60FA /* AMPOParser.m in Sources */,
+				58B02481135C7491006F3917 /* AML10n.m in Sources */,
+				58B02485135C793F006F3917 /* AMNOOPTranslations.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
