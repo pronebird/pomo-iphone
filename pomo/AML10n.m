@@ -12,7 +12,6 @@
 #import "AMNOOPTranslations.h"
 #import "AMPOParser.h"
 
-
 static AML10n* sharedAML10n = nil;
 static AMNOOPTranslations* sharedNOOPTranslations = nil;
 
@@ -37,14 +36,14 @@ static AMNOOPTranslations* sharedNOOPTranslations = nil;
 	return sharedAML10n;
 }
 
-+ (NSString*) stringFullPath : (NSString*)path forDomain : (NSString*)domain locale: (NSString*)locale
++ (NSString*)stringFullPath:(NSString*)path forDomain:(NSString*)domain locale:(NSString*)locale
 {
 	return [path stringByAppendingPathComponent:
 				[NSString stringWithFormat:@"%@-%@.po", domain, locale]
 			];
 }
 
-- (id) init
+- (id)init
 {
 	self = [super init];
 	
@@ -64,18 +63,17 @@ static AMNOOPTranslations* sharedNOOPTranslations = nil;
 	return self;
 }
 
-- (void) dealloc
+- (void)dealloc
 {
 	self.domains = nil;
 }
 
-- (bool) loadTextDomain : (NSString*) domain
+- (bool)loadTextDomain:(NSString*)domain
 {
-	
 	return [self loadTextDomain:domain path:[AML10n stringFullPath:self.defaultPath forDomain:domain locale:self.locale]];
 }
 
-- (bool) loadTextDomain : (NSString*) domain path: (NSString*)path
+- (bool)loadTextDomain:(NSString*)domain path:(NSString*)path
 {
 	AMPOParser* po = [[[AMPOParser alloc] init] autorelease];
 	
@@ -89,7 +87,7 @@ static AMNOOPTranslations* sharedNOOPTranslations = nil;
 	return false;
 }
 
-- (bool) unloadTextDomain : (NSString*) domain
+- (bool)unloadTextDomain:(NSString*)domain
 {
 	id obj = [self.domains objectForKey:domain];
 	

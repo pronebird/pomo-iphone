@@ -12,23 +12,19 @@
 
 @implementation AMPOParser
 
-- (id) init
+- (id)init
 {
 	self = [super init];
-	
-	if(self) {
-		
-	}
 	
 	return self;
 }
 
-- (void) dealloc
+- (void)dealloc
 {
 	[super dealloc];
 }
 
-- (bool) importFileAtPath : (NSString*)filename
+- (bool)importFileAtPath:(NSString*)filename
 {
 	FILE* file;
 	const char* cstrFilename = [filename cStringUsingEncoding:NSUTF8StringEncoding];
@@ -57,7 +53,7 @@
 	return false;
 }
 
-- (NSString*) readLine : (FILE*)file encoding: (NSStringEncoding)encoding
+- (NSString*)readLine:(FILE*)file encoding:(NSStringEncoding)encoding
 {
 	char* buf;
 	char c;
@@ -80,7 +76,7 @@
 
 		if(strsz >= bufsz) {
 			bufsz += PO_LINE_BUF;
-			buf = realloc(buf, bufsz);
+			buf = (char*)realloc(buf, bufsz);
 			
 			assert(buf != NULL);
 		}
@@ -100,7 +96,7 @@
 	return ret;
 }
 
-- (AMTranslationEntry*) readEntry: (FILE*)file
+- (AMTranslationEntry*)readEntry:(FILE*)file
 {
 	AMTranslationEntry* entry = nil;
 	
@@ -121,9 +117,9 @@
 			if(arr.count < 2)
 				continue;
 			
-			NSString* value = [[arr objectAtIndex:1] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+			NSString* value = [[self decodePOString:[arr objectAtIndex:1]] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 			
-			NSLog(@"Header %@ found: %@", [arr objectAtIndex:0], [self decodePOString:value]);
+			//NSLog(@"Header %@ found: %@", [arr objectAtIndex:0], value);
 			
 			[self setHeader:[arr objectAtIndex:0] value:value];
 		}
@@ -203,7 +199,7 @@
 	return entry;
 }
 
-- (NSString*) decodeValueAndRemoveQuotes : (NSString*)string
+- (NSString*)decodeValueAndRemoveQuotes:(NSString*)string
 {
 	NSUInteger x = 0, y = 0;
 	
@@ -225,7 +221,7 @@
 	return string;
 }
 
-- (NSString*) decodePOString : (NSString*)string
+- (NSString*)decodePOString:(NSString*)string
 {
 	string = [string stringByReplacingOccurrencesOfString:@"\\\\" withString:@"\\"];
 	string = [string stringByReplacingOccurrencesOfString:@"\\t" withString:@"\t"];
@@ -235,7 +231,7 @@
 	return string;
 }
 
-- (NSString*) encodePOString : (NSString*)string
+- (NSString*)encodePOString:(NSString*)string
 {
 	string = [string stringByReplacingOccurrencesOfString:@"\\" withString:@"\\\\"];
 	string = [string stringByReplacingOccurrencesOfString:@"\\t" withString:@"\t"];
@@ -245,7 +241,7 @@
 	return string;
 }
 
-- (NSArray*) splitString : (NSString*) string separator:(NSString*)separator 
+- (NSArray*)splitString:(NSString*)string separator:(NSString*)separator 
 {
 	NSScanner* scan = [NSScanner scannerWithString:string];
 	NSString* token = nil;

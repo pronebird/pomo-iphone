@@ -21,7 +21,7 @@
 @synthesize references;
 @synthesize flags;
 
-- (id) init
+- (id)init
 {
 	self = [super init];
 	
@@ -41,7 +41,7 @@
 	return self;
 }
 
-- (void) dealloc
+- (void)dealloc
 {
 	self.context = nil;
 	self.singular = nil;
@@ -53,17 +53,17 @@
 	self.flags = nil;
 }
 
-- (NSString*) key 
+- (NSString*)key 
 {
 	return [AMTranslationEntry stringKey:self.singular context:self.context];
 }
 
-+ (NSString*) stringKey : (NSString*)singular
++ (NSString*)stringKey:(NSString*)singular
 {
 	return [self stringKey:singular context:nil];
 }
 
-+ (NSString*) stringKey : (NSString*)singular context: (NSString*)context
++ (NSString*)stringKey:(NSString*)singular context:(NSString*)context
 {
 	if(singular == nil)
 		return nil;

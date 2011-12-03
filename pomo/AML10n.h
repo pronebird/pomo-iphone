@@ -24,15 +24,15 @@
 @property (readwrite, nonatomic, retain) NSString* locale;
 @property (readonly, nonatomic, retain) NSMutableDictionary* domains;
 
-+ (id) singleton;
-+ (NSString*) stringFullPath : (NSString*)path forDomain : (NSString*) domain locale: (NSString*)locale;
++ (id)singleton;
++ (NSString*)stringFullPath:(NSString*)path forDomain:(NSString*)domain locale:(NSString*)locale;
 
-- (id) init;
-- (void) dealloc;
+- (id)init;
+- (void)dealloc;
 
-- (bool) loadTextDomain : (NSString*) domain;
-- (bool) loadTextDomain : (NSString*) domain path: (NSString*)path;
+- (bool)loadTextDomain:(NSString*)domain;
+- (bool)loadTextDomain:(NSString*)domain path:(NSString*)path;
 
-- (bool) unloadTextDomain : (NSString*) domain;
+- (bool)unloadTextDomain:(NSString*)domain;
 
 @end

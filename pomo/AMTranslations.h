@@ -18,18 +18,18 @@
 @property (readonly, nonatomic, retain) NSMutableDictionary* entries;
 @property (readonly, nonatomic, retain) NSMutableDictionary* headers;
 
-- (id) init;
-- (void) dealloc;
+- (id)init;
+- (void)dealloc;
 
-- (void) addEntry : (AMTranslationEntry*)entry;
-- (void) setHeader : (NSString*)header value: (NSString*)value;
-- (NSString*) header : (NSString*)header;
+- (void)addEntry:(AMTranslationEntry*)entry;
+- (void)setHeader:(NSString*)header value:(NSString*)value;
+- (NSString*)header:(NSString*)header;
 
-- (uint8) selectPluralForm : (NSInteger) count;
-- (uint8) getPluralFormsCount;
+- (uint8)selectPluralForm:(NSInteger)count;
+- (uint8)getPluralFormsCount;
 
-- (NSString*) translate : (NSString*)singular;
-- (NSString*) translate : (NSString*)singular context: (NSString*)context;
-- (NSString*) translatePlural : (NSString*)singular plural: (NSString*)plural count: (NSInteger)count context: (NSString*)context;
+- (NSString*)translate:(NSString*)singular;
+- (NSString*)translate:(NSString*)singular context:(NSString*)context;
+- (NSString*)translatePlural:(NSString*)singular plural:(NSString*)plural count:(NSInteger)count context:(NSString*)context;
 
 @end

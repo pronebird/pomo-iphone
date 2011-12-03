@@ -11,10 +11,17 @@
 
 
 @interface AMGettextTranslations : AMTranslations {
-    
+    NSUInteger numPlurals;
+	NSString* pluralRule;
 }
 
-- (void) setHeader : (NSString*)header value: (NSString*)value;
-- (uint8) gettext_selectPluralForm : (NSInteger)count;
+@property (readonly, assign) NSUInteger numPlurals;
+@property (readonly, retain) NSString* pluralRule;
+
+- (id)init;
+- (void)dealloc;
+
+- (void)setHeader:(NSString*)header value:(NSString*)value;
+- (uint8)gettext_selectPluralForm:(NSInteger)count;
 
 @end

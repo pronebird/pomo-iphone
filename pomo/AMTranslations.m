@@ -21,25 +21,25 @@
 @synthesize entries;
 @synthesize headers;
 
-- (id) init
+- (id)init
 {
 	self = [super init];
 	
 	if(self) {
-		entries = [[NSMutableDictionary alloc] initWithCapacity:50];
-		headers = [[NSMutableDictionary alloc] initWithCapacity:10];
+		self.entries = [[[NSMutableDictionary alloc] init] autorelease];
+		self.headers = [[[NSMutableDictionary alloc] init] autorelease];
 	}
 	
 	return self;
 }
 
-- (void) dealloc
+- (void)dealloc
 {
 	self.entries = nil;
 	self.headers = nil;
 }
 
-- (void) addEntry : (AMTranslationEntry*)entry
+- (void)addEntry:(AMTranslationEntry*)entry
 {
 	NSString* key = [entry key];
 	
@@ -49,32 +49,32 @@
 	[self.entries setObject:entry forKey:key];
 }
 
-- (void) setHeader : (NSString*)header value: (NSString*)value
+- (void)setHeader:(NSString*)header value:(NSString*)value
 {
 	[self.headers setObject:value forKey:header];
 }
 
-- (NSString*) header : (NSString*)header
+- (NSString*)header:(NSString*)header
 {
 	return [self.headers objectForKey:header];
 }
 
-- (uint8) selectPluralForm : (NSInteger) count
+- (uint8)selectPluralForm:(NSInteger)count
 {
 	return count == 1 ? 0 : 1;
 }
 
-- (uint8) getPluralFormsCount
+- (uint8)getPluralFormsCount
 {
 	return 2;
 }
 
-- (NSString*) translate : (NSString*)singular
+- (NSString*)translate:(NSString*)singular
 {
 	return [self translate:singular context:nil];
 }
 
-- (NSString*) translate : (NSString*)singular context: (NSString*)context
+- (NSString*)translate:(NSString*)singular context:(NSString*)context
 {
 	NSString* key = [AMTranslationEntry stringKey:singular context:context], *translated = nil;
 	AMTranslationEntry* entry = nil;
@@ -89,7 +89,7 @@
 	return translated ? translated : singular;
 }
 
-- (NSString*) translatePlural : (NSString*)singular plural: (NSString*)plural count: (NSInteger)count context: (NSString*)context
+- (NSString*)translatePlural:(NSString*)singular plural:(NSString*)plural count:(NSInteger)count context:(NSString*)context
 {
 	NSString* key = [AMTranslationEntry stringKey:singular context:context];
 	AMTranslationEntry* entry = nil;

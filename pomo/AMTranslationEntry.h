@@ -33,12 +33,12 @@
 @property (retain, nonatomic) NSMutableArray* references;
 @property (retain, nonatomic) NSMutableArray* flags;
 
-- (id) init;
-- (void) dealloc;
+- (id)init;
+- (void)dealloc;
 
-- (NSString*) key;
+- (NSString*)key;
 
-+ (NSString*) stringKey : (NSString*)singular;
-+ (NSString*) stringKey : (NSString*)singular context: (NSString*)context;
++ (NSString*)stringKey:(NSString*)singular;
++ (NSString*)stringKey:(NSString*)singular context:(NSString*)context;
 
 @end

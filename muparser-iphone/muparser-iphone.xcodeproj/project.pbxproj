@@ -1,0 +1,308 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		58CD866C148A414D00ED8EBC /* muParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58CD8663148A414D00ED8EBC /* muParser.cpp */; };
+		58CD866D148A414D00ED8EBC /* muParserBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58CD8664148A414D00ED8EBC /* muParserBase.cpp */; };
+		58CD866E148A414D00ED8EBC /* muParserBytecode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58CD8665148A414D00ED8EBC /* muParserBytecode.cpp */; };
+		58CD866F148A414D00ED8EBC /* muParserCallback.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58CD8666148A414D00ED8EBC /* muParserCallback.cpp */; };
+		58CD8670148A414D00ED8EBC /* muParserDLL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58CD8667148A414D00ED8EBC /* muParserDLL.cpp */; };
+		58CD8671148A414D00ED8EBC /* muParserError.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58CD8668148A414D00ED8EBC /* muParserError.cpp */; };
+		58CD8672148A414D00ED8EBC /* muParserInt.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58CD8669148A414D00ED8EBC /* muParserInt.cpp */; };
+		58CD8673148A414D00ED8EBC /* muParserTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58CD866A148A414D00ED8EBC /* muParserTest.cpp */; };
+		58CD8674148A414D00ED8EBC /* muParserTokenReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58CD866B148A414D00ED8EBC /* muParserTokenReader.cpp */; };
+		58CD8684148A417A00ED8EBC /* muParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 58CD8676148A417A00ED8EBC /* muParser.h */; };
+		58CD8685148A417A00ED8EBC /* muParserBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 58CD8677148A417A00ED8EBC /* muParserBase.h */; };
+		58CD8686148A417A00ED8EBC /* muParserBytecode.h in Headers */ = {isa = PBXBuildFile; fileRef = 58CD8678148A417A00ED8EBC /* muParserBytecode.h */; };
+		58CD8687148A417A00ED8EBC /* muParserCallback.h in Headers */ = {isa = PBXBuildFile; fileRef = 58CD8679148A417A00ED8EBC /* muParserCallback.h */; };
+		58CD8688148A417A00ED8EBC /* muParserDef.h in Headers */ = {isa = PBXBuildFile; fileRef = 58CD867A148A417A00ED8EBC /* muParserDef.h */; };
+		58CD8689148A417A00ED8EBC /* muParserDLL.h in Headers */ = {isa = PBXBuildFile; fileRef = 58CD867B148A417A00ED8EBC /* muParserDLL.h */; };
+		58CD868A148A417A00ED8EBC /* muParserError.h in Headers */ = {isa = PBXBuildFile; fileRef = 58CD867C148A417A00ED8EBC /* muParserError.h */; };
+		58CD868B148A417A00ED8EBC /* muParserFixes.h in Headers */ = {isa = PBXBuildFile; fileRef = 58CD867D148A417A00ED8EBC /* muParserFixes.h */; };
+		58CD868C148A417A00ED8EBC /* muParserInt.h in Headers */ = {isa = PBXBuildFile; fileRef = 58CD867E148A417A00ED8EBC /* muParserInt.h */; };
+		58CD868D148A417A00ED8EBC /* muParserStack.h in Headers */ = {isa = PBXBuildFile; fileRef = 58CD867F148A417A00ED8EBC /* muParserStack.h */; };
+		58CD868E148A417A00ED8EBC /* muParserTemplateMagic.h in Headers */ = {isa = PBXBuildFile; fileRef = 58CD8680148A417A00ED8EBC /* muParserTemplateMagic.h */; };
+		58CD868F148A417A00ED8EBC /* muParserTest.h in Headers */ = {isa = PBXBuildFile; fileRef = 58CD8681148A417A00ED8EBC /* muParserTest.h */; };
+		58CD8690148A417A00ED8EBC /* muParserToken.h in Headers */ = {isa = PBXBuildFile; fileRef = 58CD8682148A417A00ED8EBC /* muParserToken.h */; };
+		58CD8691148A417A00ED8EBC /* muParserTokenReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 58CD8683148A417A00ED8EBC /* muParserTokenReader.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		58CD8655148A412700ED8EBC /* libmuparser-iphone.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libmuparser-iphone.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		58CD8663148A414D00ED8EBC /* muParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = muParser.cpp; path = src/muParser.cpp; sourceTree = "<group>"; };
+		58CD8664148A414D00ED8EBC /* muParserBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = muParserBase.cpp; path = src/muParserBase.cpp; sourceTree = "<group>"; };
+		58CD8665148A414D00ED8EBC /* muParserBytecode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = muParserBytecode.cpp; path = src/muParserBytecode.cpp; sourceTree = "<group>"; };
+		58CD8666148A414D00ED8EBC /* muParserCallback.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = muParserCallback.cpp; path = src/muParserCallback.cpp; sourceTree = "<group>"; };
+		58CD8667148A414D00ED8EBC /* muParserDLL.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = muParserDLL.cpp; path = src/muParserDLL.cpp; sourceTree = "<group>"; };
+		58CD8668148A414D00ED8EBC /* muParserError.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = muParserError.cpp; path = src/muParserError.cpp; sourceTree = "<group>"; };
+		58CD8669148A414D00ED8EBC /* muParserInt.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = muParserInt.cpp; path = src/muParserInt.cpp; sourceTree = "<group>"; };
+		58CD866A148A414D00ED8EBC /* muParserTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = muParserTest.cpp; path = src/muParserTest.cpp; sourceTree = "<group>"; };
+		58CD866B148A414D00ED8EBC /* muParserTokenReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = muParserTokenReader.cpp; path = src/muParserTokenReader.cpp; sourceTree = "<group>"; };
+		58CD8676148A417A00ED8EBC /* muParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = muParser.h; path = include/muParser.h; sourceTree = "<group>"; };
+		58CD8677148A417A00ED8EBC /* muParserBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = muParserBase.h; path = include/muParserBase.h; sourceTree = "<group>"; };
+		58CD8678148A417A00ED8EBC /* muParserBytecode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = muParserBytecode.h; path = include/muParserBytecode.h; sourceTree = "<group>"; };
+		58CD8679148A417A00ED8EBC /* muParserCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = muParserCallback.h; path = include/muParserCallback.h; sourceTree = "<group>"; };
+		58CD867A148A417A00ED8EBC /* muParserDef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = muParserDef.h; path = include/muParserDef.h; sourceTree = "<group>"; };
+		58CD867B148A417A00ED8EBC /* muParserDLL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = muParserDLL.h; path = include/muParserDLL.h; sourceTree = "<group>"; };
+		58CD867C148A417A00ED8EBC /* muParserError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = muParserError.h; path = include/muParserError.h; sourceTree = "<group>"; };
+		58CD867D148A417A00ED8EBC /* muParserFixes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = muParserFixes.h; path = include/muParserFixes.h; sourceTree = "<group>"; };
+		58CD867E148A417A00ED8EBC /* muParserInt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = muParserInt.h; path = include/muParserInt.h; sourceTree = "<group>"; };
+		58CD867F148A417A00ED8EBC /* muParserStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = muParserStack.h; path = include/muParserStack.h; sourceTree = "<group>"; };
+		58CD8680148A417A00ED8EBC /* muParserTemplateMagic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = muParserTemplateMagic.h; path = include/muParserTemplateMagic.h; sourceTree = "<group>"; };
+		58CD8681148A417A00ED8EBC /* muParserTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = muParserTest.h; path = include/muParserTest.h; sourceTree = "<group>"; };
+		58CD8682148A417A00ED8EBC /* muParserToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = muParserToken.h; path = include/muParserToken.h; sourceTree = "<group>"; };
+		58CD8683148A417A00ED8EBC /* muParserTokenReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = muParserTokenReader.h; path = include/muParserTokenReader.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		58CD8652148A412700ED8EBC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		58CD864A148A412700ED8EBC = {
+			isa = PBXGroup;
+			children = (
+				58CD8675148A416D00ED8EBC /* Headers */,
+				58CD8662148A413700ED8EBC /* Source */,
+				58CD8656148A412700ED8EBC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		58CD8656148A412700ED8EBC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				58CD8655148A412700ED8EBC /* libmuparser-iphone.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		58CD8662148A413700ED8EBC /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				58CD8663148A414D00ED8EBC /* muParser.cpp */,
+				58CD8664148A414D00ED8EBC /* muParserBase.cpp */,
+				58CD8665148A414D00ED8EBC /* muParserBytecode.cpp */,
+				58CD8666148A414D00ED8EBC /* muParserCallback.cpp */,
+				58CD8667148A414D00ED8EBC /* muParserDLL.cpp */,
+				58CD8668148A414D00ED8EBC /* muParserError.cpp */,
+				58CD8669148A414D00ED8EBC /* muParserInt.cpp */,
+				58CD866A148A414D00ED8EBC /* muParserTest.cpp */,
+				58CD866B148A414D00ED8EBC /* muParserTokenReader.cpp */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		58CD8675148A416D00ED8EBC /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				58CD8676148A417A00ED8EBC /* muParser.h */,
+				58CD8677148A417A00ED8EBC /* muParserBase.h */,
+				58CD8678148A417A00ED8EBC /* muParserBytecode.h */,
+				58CD8679148A417A00ED8EBC /* muParserCallback.h */,
+				58CD867A148A417A00ED8EBC /* muParserDef.h */,
+				58CD867B148A417A00ED8EBC /* muParserDLL.h */,
+				58CD867C148A417A00ED8EBC /* muParserError.h */,
+				58CD867D148A417A00ED8EBC /* muParserFixes.h */,
+				58CD867E148A417A00ED8EBC /* muParserInt.h */,
+				58CD867F148A417A00ED8EBC /* muParserStack.h */,
+				58CD8680148A417A00ED8EBC /* muParserTemplateMagic.h */,
+				58CD8681148A417A00ED8EBC /* muParserTest.h */,
+				58CD8682148A417A00ED8EBC /* muParserToken.h */,
+				58CD8683148A417A00ED8EBC /* muParserTokenReader.h */,
+			);
+			name = Headers;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		58CD8653148A412700ED8EBC /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				58CD8684148A417A00ED8EBC /* muParser.h in Headers */,
+				58CD8685148A417A00ED8EBC /* muParserBase.h in Headers */,
+				58CD8686148A417A00ED8EBC /* muParserBytecode.h in Headers */,
+				58CD8687148A417A00ED8EBC /* muParserCallback.h in Headers */,
+				58CD8688148A417A00ED8EBC /* muParserDef.h in Headers */,
+				58CD8689148A417A00ED8EBC /* muParserDLL.h in Headers */,
+				58CD868A148A417A00ED8EBC /* muParserError.h in Headers */,
+				58CD868B148A417A00ED8EBC /* muParserFixes.h in Headers */,
+				58CD868C148A417A00ED8EBC /* muParserInt.h in Headers */,
+				58CD868D148A417A00ED8EBC /* muParserStack.h in Headers */,
+				58CD868E148A417A00ED8EBC /* muParserTemplateMagic.h in Headers */,
+				58CD868F148A417A00ED8EBC /* muParserTest.h in Headers */,
+				58CD8690148A417A00ED8EBC /* muParserToken.h in Headers */,
+				58CD8691148A417A00ED8EBC /* muParserTokenReader.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		58CD8654148A412700ED8EBC /* muparser-iphone */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 58CD8659148A412700ED8EBC /* Build configuration list for PBXNativeTarget "muparser-iphone" */;
+			buildPhases = (
+				58CD8651148A412700ED8EBC /* Sources */,
+				58CD8652148A412700ED8EBC /* Frameworks */,
+				58CD8653148A412700ED8EBC /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "muparser-iphone";
+			productName = "muparser-iphone";
+			productReference = 58CD8655148A412700ED8EBC /* libmuparser-iphone.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		58CD864C148A412700ED8EBC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = 58CD864F148A412700ED8EBC /* Build configuration list for PBXProject "muparser-iphone" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 58CD864A148A412700ED8EBC;
+			productRefGroup = 58CD8656148A412700ED8EBC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				58CD8654148A412700ED8EBC /* muparser-iphone */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		58CD8651148A412700ED8EBC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				58CD866C148A414D00ED8EBC /* muParser.cpp in Sources */,
+				58CD866D148A414D00ED8EBC /* muParserBase.cpp in Sources */,
+				58CD866E148A414D00ED8EBC /* muParserBytecode.cpp in Sources */,
+				58CD866F148A414D00ED8EBC /* muParserCallback.cpp in Sources */,
+				58CD8670148A414D00ED8EBC /* muParserDLL.cpp in Sources */,
+				58CD8671148A414D00ED8EBC /* muParserError.cpp in Sources */,
+				58CD8672148A414D00ED8EBC /* muParserInt.cpp in Sources */,
+				58CD8673148A414D00ED8EBC /* muParserTest.cpp in Sources */,
+				58CD8674148A414D00ED8EBC /* muParserTokenReader.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		58CD8657148A412700ED8EBC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				DYLIB_CURRENT_VERSION = 2.1.0;
+				"DYLIB_CURRENT_VERSION[sdk=*]" = 2.1.0;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		58CD8658148A412700ED8EBC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DYLIB_CURRENT_VERSION = 2.1.0;
+				"DYLIB_CURRENT_VERSION[sdk=*]" = 2.1.0;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		58CD865A148A412700ED8EBC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DYLIB_CURRENT_VERSION = 2.1.0;
+				"DYLIB_CURRENT_VERSION[sdk=*]" = 2.1.0;
+				EXECUTABLE_PREFIX = lib;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		58CD865B148A412700ED8EBC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DYLIB_CURRENT_VERSION = 2.1.0;
+				"DYLIB_CURRENT_VERSION[sdk=*]" = 2.1.0;
+				EXECUTABLE_PREFIX = lib;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		58CD864F148A412700ED8EBC /* Build configuration list for PBXProject "muparser-iphone" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				58CD8657148A412700ED8EBC /* Debug */,
+				58CD8658148A412700ED8EBC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		58CD8659148A412700ED8EBC /* Build configuration list for PBXNativeTarget "muparser-iphone" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				58CD865A148A412700ED8EBC /* Debug */,
+				58CD865B148A412700ED8EBC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 58CD864C148A412700ED8EBC /* Project object */;
+}

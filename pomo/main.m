@@ -11,11 +11,7 @@
 
 int main (int argc, const char * argv[])
 {
-
 	NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
-
-	// insert code here...
-	NSLog(@"Hello, World!");
 
 	AML10n* l10n = [AML10n singleton];
 	l10n.defaultPath = @"/Users/pronebird/dev/cocoa-pomo/";

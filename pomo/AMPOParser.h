@@ -16,21 +16,21 @@
     
 }
 
-- (id) init;
-- (void) dealloc;
+- (id)init;
+- (void)dealloc;
 
-- (bool) importFileAtPath : (NSString*)filename;
+- (bool)importFileAtPath:(NSString*)filename;
 
 @end
 
-@interface AMPOParser (ProtectedMethods)
+@interface AMPOParser(ProtectedMethods)
 
-- (NSString*) readLine : (FILE*)file encoding: (NSStringEncoding)encoding;
-- (AMTranslationEntry*) readEntry : (FILE*)file;
-- (NSString*) decodeValueAndRemoveQuotes : (NSString*)string;
+- (NSString*)readLine:(FILE*)file encoding:(NSStringEncoding)encoding;
+- (AMTranslationEntry*)readEntry:(FILE*)file;
+- (NSString*)decodeValueAndRemoveQuotes:(NSString*)string;
 
-- (NSString*) decodePOString : (NSString*)string;
-- (NSString*) encodePOString : (NSString*)string;
+- (NSString*)decodePOString:(NSString*)string;
+- (NSString*)encodePOString:(NSString*)string;
 
-- (NSArray*) splitString : (NSString*) string separator:(NSString*)separator;
+- (NSArray*)splitString:(NSString*)string separator:(NSString*)separator;
 @end
