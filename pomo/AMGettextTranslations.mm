@@ -8,14 +8,8 @@
 
 #import "AMGettextTranslations.h"
 #import "RegexKitLite.h"
-#include "muParserInt.h"
 
-mu::value_type mod_operator(mu::value_type v1, mu::value_type v2) 
-{
-	mu::value_type mod = fmod(v1, v2);
-	//std::cout << v1 << " % " << v2 << " = " << mod << std::endl;
-	return mod;
-}
+using namespace mu;
 
 @interface AMGettextTranslations()
 @property (readwrite, assign) NSUInteger numPlurals;
@@ -34,6 +28,10 @@ mu::value_type mod_operator(mu::value_type v1, mu::value_type v2)
 	if(self) {
 		self.numPlurals = 0;
 		self.pluralRule = nil;
+		
+		mParser = new ParserInt();
+		mParser->EnableBuiltInOprt();
+		mParser->DefineOprt("%", fmod, 5);
 	}
 	
 	return self;
@@ -41,59 +39,63 @@ mu::value_type mod_operator(mu::value_type v1, mu::value_type v2)
 
 - (void)dealloc {
 	self.pluralRule = nil;
+	
+	delete mParser;
+	mParser = NULL;
 }
 
 - (void)setHeader:(NSString*)header value:(NSString*)value
 {
 	[super setHeader:header value:value];
 	
-	if([header isEqualToString:@"Plural-Forms"]) {
-		NSString *regEx = @"^\\s*nplurals\\s*=\\s*(\\d+)\\s*;\\s+plural\\s*=\\s*(.+)$";
+	if([header isEqualToString:@"Plural-Forms"])
+	{
+		NSString *regEx = @"^\\s*nplurals\\s*=\\s*(\\d+)\\s*;\\s+plural\\s*=\\s*(.+)$",
+				*nplurals = nil, *rule = nil;
+		
 		value = [self header:header];
-		
-		NSString* nplurals =  [value stringByMatching:regEx capture:1];
-		NSString* rule =  [value stringByMatching:regEx capture:2];
-		
+		nplurals =  [value stringByMatching:regEx capture:1],
+		rule =  [value stringByMatching:regEx capture:2];
+
 		if(nplurals)
 			self.numPlurals = (NSUInteger)[nplurals integerValue];
+		else
+			self.numPlurals = 0;
 		
 		if(rule)
 		{
 			self.pluralRule = [rule stringByReplacingOccurrencesOfString:@";" withString:@""];
 
-			for(double x = 1; x <= 5; x++) 
-			{
-				mu::ParserInt parser;
-				double retval;
-				//(n % 10==1 && n % 100 != 11) ? 0 : ((n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20)) ? 1 : 2)
-
-				parser.EnableBuiltInOprt();
-				parser.DefineOprt("%", mod_operator, 5);
-				parser.DefineConst("n", x);
-				parser.SetExpr([self.pluralRule UTF8String]);
-				
-				try
-				{
-					retval = parser.Eval();
-					std::cout << "retval is: " << retval << std::endl;
-				}
-				catch (mu::ParserInt::exception_type &e)
-				{
-					std::cout << e.GetMsg() << std::endl;
-				}
-			}
-		} 
-		else 
-		{
-			self.pluralRule = nil;
+			mParser->SetExpr([self.pluralRule UTF8String]);
 		}
-		
+		else
+			self.pluralRule = nil;
+
 		NSLog(@"nplurals: %@. rule: %@", nplurals, rule);
 	}
 }
 
-- (uint8)gettext_selectPluralForm:(NSInteger)count
+- (uint8)selectPluralForm:(NSInteger)count
 {
+	double retval;
+
+	mParser->DefineConst("n", count);
+	
+	if(self.pluralRule)
+	{
+		try
+		{
+			retval = mParser->Eval();
+			std::cout << "retval for " << count << " is " << retval << std::endl;
+			
+			return retval;
+		}
+		catch (mu::ParserInt::exception_type &e)
+		{
+			std::cout << e.GetMsg() << std::endl;
+		}
+	}
+	
 	return [super selectPluralForm:count];
 }
 
