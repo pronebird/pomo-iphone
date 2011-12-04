@@ -7,17 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		587DA48713411D49001D60FA /* AMGettextTranslations.mm in Sources */ = {isa = PBXBuildFile; fileRef = 587DA48613411D49001D60FA /* AMGettextTranslations.mm */; };
-		587DA48B13411EC8001D60FA /* AMPOParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 587DA48A13411EC8001D60FA /* AMPOParser.m */; };
+		587DA48713411D49001D60FA /* GettextTranslations.mm in Sources */ = {isa = PBXBuildFile; fileRef = 587DA48613411D49001D60FA /* GettextTranslations.mm */; };
 		5887CAE013410B89005CA69C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5887CADF13410B89005CA69C /* Foundation.framework */; };
 		5887CAE313410B89005CA69C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5887CAE213410B89005CA69C /* main.m */; };
-		5887CAEE13410C0A005CA69C /* AMTranslations.m in Sources */ = {isa = PBXBuildFile; fileRef = 5887CAED13410C0A005CA69C /* AMTranslations.m */; };
-		5887CAF113410F17005CA69C /* AMTranslationEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 5887CAF013410F17005CA69C /* AMTranslationEntry.m */; };
-		58B02481135C7491006F3917 /* AML10n.m in Sources */ = {isa = PBXBuildFile; fileRef = 58B02480135C7491006F3917 /* AML10n.m */; };
-		58B02485135C793F006F3917 /* AMNOOPTranslations.m in Sources */ = {isa = PBXBuildFile; fileRef = 58B02484135C793F006F3917 /* AMNOOPTranslations.m */; };
+		5887CAEE13410C0A005CA69C /* Translations.m in Sources */ = {isa = PBXBuildFile; fileRef = 5887CAED13410C0A005CA69C /* Translations.m */; };
+		5887CAF113410F17005CA69C /* TranslationEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 5887CAF013410F17005CA69C /* TranslationEntry.m */; };
+		58B02481135C7491006F3917 /* TranslationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 58B02480135C7491006F3917 /* TranslationCenter.m */; };
+		58B02485135C793F006F3917 /* NOOPTranslations.m in Sources */ = {isa = PBXBuildFile; fileRef = 58B02484135C793F006F3917 /* NOOPTranslations.m */; };
 		58CD85D6148A2A0700ED8EBC /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 58CD85CF148A2A0700ED8EBC /* RegexKitLite.m */; };
 		58CD85DB148A2BA800ED8EBC /* libicucore.A.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 58CD85DA148A2BA800ED8EBC /* libicucore.A.dylib */; };
 		58CD86AA148A4A2400ED8EBC /* libmuparser-iphone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58CD86A9148A4A2400ED8EBC /* libmuparser-iphone.a */; };
+		58CD86AD148B92FF00ED8EBC /* MOParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 58CD86AC148B92FE00ED8EBC /* MOParser.m */; };
+		58CD86AF148BC6B000ED8EBC /* POParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 58CD86AE148BC6AF00ED8EBC /* POParser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -33,28 +34,30 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		587DA48513411D49001D60FA /* AMGettextTranslations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMGettextTranslations.h; sourceTree = "<group>"; };
-		587DA48613411D49001D60FA /* AMGettextTranslations.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AMGettextTranslations.mm; sourceTree = "<group>"; };
-		587DA48913411EC8001D60FA /* AMPOParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMPOParser.h; sourceTree = "<group>"; };
-		587DA48A13411EC8001D60FA /* AMPOParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMPOParser.m; sourceTree = "<group>"; };
+		587DA48513411D49001D60FA /* GettextTranslations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GettextTranslations.h; sourceTree = "<group>"; };
+		587DA48613411D49001D60FA /* GettextTranslations.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GettextTranslations.mm; sourceTree = "<group>"; };
+		587DA48913411EC8001D60FA /* POParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POParser.h; sourceTree = "<group>"; };
 		5887CADB13410B89005CA69C /* pomo */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = pomo; sourceTree = BUILT_PRODUCTS_DIR; };
 		5887CADF13410B89005CA69C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5887CAE213410B89005CA69C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5887CAE513410B89005CA69C /* pomo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "pomo-Prefix.pch"; sourceTree = "<group>"; };
 		5887CAE613410B89005CA69C /* pomo.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = pomo.1; sourceTree = "<group>"; };
-		5887CAEC13410C0A005CA69C /* AMTranslations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMTranslations.h; sourceTree = "<group>"; };
-		5887CAED13410C0A005CA69C /* AMTranslations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMTranslations.m; sourceTree = "<group>"; };
-		5887CAEF13410F17005CA69C /* AMTranslationEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMTranslationEntry.h; sourceTree = "<group>"; };
-		5887CAF013410F17005CA69C /* AMTranslationEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMTranslationEntry.m; sourceTree = "<group>"; };
-		58B0247F135C7491006F3917 /* AML10n.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AML10n.h; sourceTree = "<group>"; };
-		58B02480135C7491006F3917 /* AML10n.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AML10n.m; sourceTree = "<group>"; };
+		5887CAEC13410C0A005CA69C /* Translations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Translations.h; sourceTree = "<group>"; };
+		5887CAED13410C0A005CA69C /* Translations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Translations.m; sourceTree = "<group>"; };
+		5887CAEF13410F17005CA69C /* TranslationEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TranslationEntry.h; sourceTree = "<group>"; };
+		5887CAF013410F17005CA69C /* TranslationEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TranslationEntry.m; sourceTree = "<group>"; };
+		58B0247F135C7491006F3917 /* TranslationCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; path = TranslationCenter.h; sourceTree = "<group>"; };
+		58B02480135C7491006F3917 /* TranslationCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TranslationCenter.m; sourceTree = "<group>"; };
 		58B02482135C777D006F3917 /* AMTranslationsProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMTranslationsProtocol.h; sourceTree = "<group>"; };
-		58B02483135C793F006F3917 /* AMNOOPTranslations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMNOOPTranslations.h; sourceTree = "<group>"; };
-		58B02484135C793F006F3917 /* AMNOOPTranslations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMNOOPTranslations.m; sourceTree = "<group>"; };
+		58B02483135C793F006F3917 /* NOOPTranslations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NOOPTranslations.h; sourceTree = "<group>"; };
+		58B02484135C793F006F3917 /* NOOPTranslations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NOOPTranslations.m; sourceTree = "<group>"; };
 		58CD85CD148A2A0700ED8EBC /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
 		58CD85CF148A2A0700ED8EBC /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
 		58CD85DA148A2BA800ED8EBC /* libicucore.A.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.A.dylib; path = usr/lib/libicucore.A.dylib; sourceTree = SDKROOT; };
 		58CD86A9148A4A2400ED8EBC /* libmuparser-iphone.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libmuparser-iphone.a"; path = "/tmp/xcode-build/cocoa-pomo-guktahbddsxhthbwmuhbrrfwgmpj/Build/Products/Debug/libmuparser-iphone.a"; sourceTree = "<absolute>"; };
+		58CD86AB148B92FE00ED8EBC /* MOParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOParser.h; sourceTree = "<group>"; };
+		58CD86AC148B92FE00ED8EBC /* MOParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOParser.m; sourceTree = "<group>"; };
+		58CD86AE148BC6AF00ED8EBC /* POParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POParser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,19 +108,21 @@
 			children = (
 				5887CAE213410B89005CA69C /* main.m */,
 				5887CAE613410B89005CA69C /* pomo.1 */,
-				5887CAEC13410C0A005CA69C /* AMTranslations.h */,
-				5887CAED13410C0A005CA69C /* AMTranslations.m */,
-				587DA48513411D49001D60FA /* AMGettextTranslations.h */,
-				587DA48613411D49001D60FA /* AMGettextTranslations.mm */,
-				5887CAEF13410F17005CA69C /* AMTranslationEntry.h */,
-				5887CAF013410F17005CA69C /* AMTranslationEntry.m */,
-				587DA48913411EC8001D60FA /* AMPOParser.h */,
-				587DA48A13411EC8001D60FA /* AMPOParser.m */,
-				58B0247F135C7491006F3917 /* AML10n.h */,
-				58B02480135C7491006F3917 /* AML10n.m */,
+				5887CAEC13410C0A005CA69C /* Translations.h */,
+				5887CAED13410C0A005CA69C /* Translations.m */,
+				587DA48513411D49001D60FA /* GettextTranslations.h */,
+				587DA48613411D49001D60FA /* GettextTranslations.mm */,
+				5887CAEF13410F17005CA69C /* TranslationEntry.h */,
+				5887CAF013410F17005CA69C /* TranslationEntry.m */,
+				587DA48913411EC8001D60FA /* POParser.h */,
+				58CD86AE148BC6AF00ED8EBC /* POParser.m */,
+				58B0247F135C7491006F3917 /* TranslationCenter.h */,
+				58B02480135C7491006F3917 /* TranslationCenter.m */,
 				58B02482135C777D006F3917 /* AMTranslationsProtocol.h */,
-				58B02483135C793F006F3917 /* AMNOOPTranslations.h */,
-				58B02484135C793F006F3917 /* AMNOOPTranslations.m */,
+				58B02483135C793F006F3917 /* NOOPTranslations.h */,
+				58B02484135C793F006F3917 /* NOOPTranslations.m */,
+				58CD86AB148B92FE00ED8EBC /* MOParser.h */,
+				58CD86AC148B92FE00ED8EBC /* MOParser.m */,
 			);
 			path = pomo;
 			sourceTree = "<group>";
@@ -191,13 +196,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				5887CAE313410B89005CA69C /* main.m in Sources */,
-				5887CAEE13410C0A005CA69C /* AMTranslations.m in Sources */,
-				5887CAF113410F17005CA69C /* AMTranslationEntry.m in Sources */,
-				587DA48713411D49001D60FA /* AMGettextTranslations.mm in Sources */,
-				587DA48B13411EC8001D60FA /* AMPOParser.m in Sources */,
-				58B02481135C7491006F3917 /* AML10n.m in Sources */,
-				58B02485135C793F006F3917 /* AMNOOPTranslations.m in Sources */,
+				5887CAEE13410C0A005CA69C /* Translations.m in Sources */,
+				5887CAF113410F17005CA69C /* TranslationEntry.m in Sources */,
+				587DA48713411D49001D60FA /* GettextTranslations.mm in Sources */,
+				58B02481135C7491006F3917 /* TranslationCenter.m in Sources */,
+				58B02485135C793F006F3917 /* NOOPTranslations.m in Sources */,
 				58CD85D6148A2A0700ED8EBC /* RegexKitLite.m in Sources */,
+				58CD86AD148B92FF00ED8EBC /* MOParser.m in Sources */,
+				58CD86AF148BC6B000ED8EBC /* POParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

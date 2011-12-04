@@ -1,22 +1,22 @@
 //
-//  Gettext_Translations.m
+//  GettextTranslations.mm
 //  pomo
 //
 //  Created by pronebird on 3/28/11.
 //  Copyright 2011 Andrew Mikhailov. All rights reserved.
 //
 
-#import "AMGettextTranslations.h"
+#import "GettextTranslations.h"
 #import "RegexKitLite.h"
 
 using namespace mu;
 
-@interface AMGettextTranslations()
-@property (readwrite, assign) NSUInteger numPlurals;
+@interface GettextTranslations()
+@property (readwrite, assign) u_short numPlurals;
 @property (readwrite, retain) NSString* pluralRule;
 @end
 
-@implementation AMGettextTranslations
+@implementation GettextTranslations
 
 @synthesize numPlurals;
 @synthesize pluralRule;
@@ -58,7 +58,7 @@ using namespace mu;
 		rule =  [value stringByMatching:regEx capture:2];
 
 		if(nplurals)
-			self.numPlurals = (NSUInteger)[nplurals integerValue];
+			self.numPlurals = (u_short)[nplurals integerValue];
 		else
 			self.numPlurals = 0;
 		
@@ -75,7 +75,7 @@ using namespace mu;
 	}
 }
 
-- (uint8)selectPluralForm:(NSInteger)count
+- (u_short)selectPluralForm:(NSInteger)count
 {
 	double retval;
 
@@ -88,11 +88,11 @@ using namespace mu;
 			retval = mParser->Eval();
 			std::cout << "retval for " << count << " is " << retval << std::endl;
 			
-			return retval;
+			return (short)retval;
 		}
 		catch (mu::ParserInt::exception_type &e)
 		{
-			std::cout << e.GetMsg() << std::endl;
+			std::cout << "Gettext parser error: " << e.GetMsg() << std::endl;
 		}
 	}
 	

@@ -1,45 +1,43 @@
 //
-//  AML10n.m
+//  TranslationCenter.m
 //  pomo
 //
 //  Created by pronebird on 4/18/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Copyright 2011 Andrei Mikhailov. All rights reserved.
 //
 
-#import "AML10n.h"
-#import "AMTranslations.h"
-#import "AMGettextTranslations.h"
-#import "AMNOOPTranslations.h"
-#import "AMPOParser.h"
+#import "TranslationCenter.h"
+#import "Translations.h"
+#import "GettextTranslations.h"
+#import "NOOPTranslations.h"
+#import "POParser.h"
+#import "MOParser.h"
 
-static AML10n* sharedAML10n = nil;
-static AMNOOPTranslations* sharedNOOPTranslations = nil;
+static TranslationCenter* sharedPtr = nil;
+static NOOPTranslations* sharedNOOPTranslations = nil;
 
-@interface AML10n()
-
+@interface TranslationCenter()
 @property (readwrite, nonatomic, retain) NSMutableDictionary* domains;
-
 @end
 
 
-@implementation AML10n
-
+@implementation TranslationCenter
 @synthesize defaultPath;
 @synthesize domains;
 @synthesize locale;
 
-+ (id) singleton
++ (id)sharedCenter
 {
-	if(sharedAML10n == nil)
-		sharedAML10n = [[AML10n alloc] init];
+	if(sharedPtr == nil)
+		sharedPtr = [[TranslationCenter alloc] init];
 	
-	return sharedAML10n;
+	return sharedPtr;
 }
 
 + (NSString*)stringFullPath:(NSString*)path forDomain:(NSString*)domain locale:(NSString*)locale
 {
 	return [path stringByAppendingPathComponent:
-				[NSString stringWithFormat:@"%@-%@.po", domain, locale]
+				[NSString stringWithFormat:@"%@-%@.mo", domain, locale]
 			];
 }
 
@@ -49,13 +47,12 @@ static AMNOOPTranslations* sharedNOOPTranslations = nil;
 	
 	if(self) 
 	{
-		// pre-create noop
 		if(sharedNOOPTranslations == nil)
-			sharedNOOPTranslations = [[AMNOOPTranslations alloc] init];
+			sharedNOOPTranslations = [[NOOPTranslations alloc] init];
 		
 		CFLocaleRef lc = CFLocaleCopyCurrent();
 		self.locale = (NSString*)CFLocaleGetIdentifier(lc);
-		self.domains = [[NSMutableDictionary alloc] initWithCapacity:10];
+		self.domains = [[[NSMutableDictionary alloc] initWithCapacity:10] autorelease];
 		
 		CFRelease(lc);
 	}
@@ -70,12 +67,12 @@ static AMNOOPTranslations* sharedNOOPTranslations = nil;
 
 - (bool)loadTextDomain:(NSString*)domain
 {
-	return [self loadTextDomain:domain path:[AML10n stringFullPath:self.defaultPath forDomain:domain locale:self.locale]];
+	return [self loadTextDomain:domain path:[TranslationCenter stringFullPath:self.defaultPath forDomain:domain locale:self.locale]];
 }
 
 - (bool)loadTextDomain:(NSString*)domain path:(NSString*)path
 {
-	AMPOParser* po = [[[AMPOParser alloc] init] autorelease];
+	MOParser* po = [[[MOParser alloc] init] autorelease];
 	
 	if([po importFileAtPath:path]) {
 		

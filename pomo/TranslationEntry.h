@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface AMTranslationEntry : NSObject {
+@interface TranslationEntry : NSObject {
 	
     bool is_plural;
 	

@@ -1,5 +1,5 @@
 //
-//  PO.h
+//  POParser.h
 //  pomo
 //
 //  Created by pronebird on 3/28/11.
@@ -7,26 +7,19 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AMGettextTranslations.h"
+#import "GettextTranslations.h"
 
-#define PO_MAX_LINE_LEN 79
-
-
-@interface AMPOParser : AMGettextTranslations {
-    
-}
+@interface POParser : GettextTranslations
 
 - (id)init;
 - (void)dealloc;
-
-- (bool)importFileAtPath:(NSString*)filename;
+- (BOOL)importFileAtPath:(NSString*)filename;
 
 @end
 
-@interface AMPOParser(ProtectedMethods)
+@interface POParser(ProtectedMethods)
 
-- (NSString*)readLine:(FILE*)file encoding:(NSStringEncoding)encoding;
-- (AMTranslationEntry*)readEntry:(FILE*)file;
+- (TranslationEntry*)readEntry:(NSString*)entryString;
 - (NSString*)decodeValueAndRemoveQuotes:(NSString*)string;
 
 - (NSString*)decodePOString:(NSString*)string;

@@ -1,5 +1,5 @@
 //
-//  Gettext_Translations.h
+//  GettextTranslations.h
 //  pomo
 //
 //  Created by pronebird on 3/28/11.
@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AMTranslations.h"
+#import "Translations.h"
 
 #ifdef __cplusplus
 #define OPAQUE_MU_PARSER mu::ParserInt
@@ -19,21 +19,21 @@
 #include "muParserInt.h"
 #endif
 
-@interface AMGettextTranslations : AMTranslations {
-    NSUInteger numPlurals;
+@interface GettextTranslations : Translations {
+    u_short numPlurals;
 	NSString* pluralRule;
 	
 @private
 	OPAQUE_MU_PARSER * mParser;
 }
 
-@property (readonly, assign) NSUInteger numPlurals;
+@property (readonly, assign) u_short numPlurals;
 @property (readonly, retain) NSString* pluralRule;
 
 - (id)init;
 - (void)dealloc;
 
 - (void)setHeader:(NSString*)header value:(NSString*)value;
-- (uint8)selectPluralForm:(NSInteger)count;
+- (u_short)selectPluralForm:(NSInteger)count;
 
 @end

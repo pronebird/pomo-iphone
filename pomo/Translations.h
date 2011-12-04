@@ -6,11 +6,11 @@
 //  Copyright 2011 Andrew Mikhailov. All rights reserved.
 //
 
-#import "AMTranslationEntry.h"
+#import "TranslationEntry.h"
 #import "AMTranslationsProtocol.h"
 
 
-@interface AMTranslations : NSObject<AMTranslationsProtocol> {
+@interface Translations : NSObject<TranslationsProtocol> {
 	NSMutableDictionary* entries;
     NSMutableDictionary* headers;
 }
@@ -21,12 +21,12 @@
 - (id)init;
 - (void)dealloc;
 
-- (void)addEntry:(AMTranslationEntry*)entry;
+- (void)addEntry:(TranslationEntry*)entry;
 - (void)setHeader:(NSString*)header value:(NSString*)value;
 - (NSString*)header:(NSString*)header;
 
-- (uint8)selectPluralForm:(NSInteger)count;
-- (uint8)getPluralFormsCount;
+- (u_short)selectPluralForm:(NSInteger)count;
+- (u_short)numPlurals;
 
 - (NSString*)translate:(NSString*)singular;
 - (NSString*)translate:(NSString*)singular context:(NSString*)context;

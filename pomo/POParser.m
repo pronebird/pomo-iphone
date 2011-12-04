@@ -1,16 +1,14 @@
 //
-//  PO.m
+//  POParser.m
 //  pomo
 //
 //  Created by pronebird on 3/28/11.
 //  Copyright 2011 Andrew Mikhailov. All rights reserved.
 //
 
-#import "AMPOParser.h"
+#import "POParser.h"
 
-#define PO_LINE_BUF 100
-
-@implementation AMPOParser
+@implementation POParser
 
 - (id)init
 {
@@ -24,89 +22,60 @@
 	[super dealloc];
 }
 
-- (bool)importFileAtPath:(NSString*)filename
+- (BOOL)importFileAtPath:(NSString*)filename
 {
-	FILE* file;
-	const char* cstrFilename = [filename cStringUsingEncoding:NSUTF8StringEncoding];
+	TranslationEntry* entry = nil;
+	NSArray* split = nil;
+	NSError* err = nil;
+	NSString* fileContents = [NSString stringWithContentsOfFile:filename encoding:NSUTF8StringEncoding error:&err];
 
-	if((file = fopen(cstrFilename, "rb")) != NULL) {
-		
-		AMTranslationEntry* entry = nil;
-		
-		while((entry = [self readEntry:file]) != nil)
-		{ 
-			NSLog(@"new entry\nsingular: %@\nplural: %@\nis_plural: %d\ntranslations:\n", entry.singular, entry.plural, entry.is_plural);
+	split = [fileContents componentsSeparatedByString:@"\n\n"];
+
+	for(NSString* str in split)
+	{
+		if((entry = [self readEntry:str]) != nil)
+		{
+			NSLog(@"new entry\nsingular: %@\nplural: %@\nis_plural: %d\ntranslator comments:%@\n", entry.singular, entry.plural, entry.is_plural, entry.translator_comments);
 			
+			NSLog(@"translations:\n");
 			NSUInteger i = 0;
 			for(NSString* tr in entry.translations) {
 				NSLog(@"[%lu] %@\n", i++, tr);
 			}
 			
+			NSLog(@"references:\n");
+			i = 0;
+			for(NSString* ref in entry.references) {
+				NSLog(@"[%lu] %@\n", i++, ref);
+			}
+			
+			NSLog(@"flags:\n");
+			i = 0;
+			for(NSString* flag in entry.flags) {
+				NSLog(@"[%lu] %@\n", i++, flag);
+			}
+			
+			NSLog(@"--");
+			
 			[self addEntry:entry];
 		}
-		
-		fclose(file);
-		
-		return true;
 	}
-	
-	return false;
+
+	return TRUE;
 }
 
-- (NSString*)readLine:(FILE*)file encoding:(NSStringEncoding)encoding
+- (TranslationEntry*)readEntry:(NSString*)entryString
 {
-	char* buf;
-	char c;
-	size_t bufsz = PO_LINE_BUF;
-	size_t strsz = 0;
-	size_t readlen = 0;
+	TranslationEntry* entry = nil;
+	NSArray* strings = [entryString componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
 	
-	NSString* ret = nil;
-	
-	buf = (char*)malloc(bufsz * sizeof(c));
-	
-	assert(buf != NULL);
-	
-	while (!feof(file))
+	for(NSString* str in strings)
 	{
-		readlen = fread(&c, sizeof(c), 1, file);
-		
-		if(readlen < 1)
-			c = '\n';
-
-		if(strsz >= bufsz) {
-			bufsz += PO_LINE_BUF;
-			buf = (char*)realloc(buf, bufsz);
+		if(!str.length)
+			continue;
 			
-			assert(buf != NULL);
-		}
-		
-		buf[strsz++] = c;
-		
-		if(c == '\n')
-		{
-			buf[strsz-1] = '\0';
-			ret = [NSString stringWithCString:buf encoding:encoding];
-			break;
-		}
-	}
-	
-	free(buf);
-
-	return ret;
-}
-
-- (AMTranslationEntry*)readEntry:(FILE*)file
-{
-	AMTranslationEntry* entry = nil;
-	
-	NSString* str = nil;
-	
-	while((str = [self readLine:file encoding:NSUTF8StringEncoding]) != nil && str.length)
-	{
-		if(!entry) {
-			entry = [[[AMTranslationEntry alloc] init] autorelease];
-		}
+		if(!entry)
+			entry = [[[TranslationEntry alloc] init] autorelease];
 		
 		// parse header
 		if([str characterAtIndex:0] == '"' && [str characterAtIndex:str.length-1] == '"')
@@ -140,10 +109,9 @@
 			
 			if([str characterAtIndex:0] == '#') // #. section
 			{
-				if(keylen < 2)
-					continue;
-				
-				c = [key characterAtIndex:1];
+				// don't use "key" here because of #_ (space) format 
+				// for translator comments
+				c = [str characterAtIndex:1];
 				
 				switch(c) 
 				{
@@ -166,6 +134,10 @@
 					case '.':
 						entry.extracted_comments = value;
 					break;
+					
+					// previous message, not implemented
+					case '|':
+						break;
 						
 					default:
 						continue;

@@ -6,9 +6,9 @@
 //  Copyright 2011 Andrew Mikhailov. All rights reserved.
 //
 
-#import "AMTranslations.h"
+#import "Translations.h"
 
-@interface AMTranslations()
+@interface Translations()
 
 @property (readwrite, nonatomic, retain) NSMutableDictionary* entries;
 @property (readwrite, nonatomic, retain) NSMutableDictionary* headers;
@@ -16,7 +16,7 @@
 @end
 
 
-@implementation AMTranslations
+@implementation Translations
 
 @synthesize entries;
 @synthesize headers;
@@ -39,7 +39,7 @@
 	self.headers = nil;
 }
 
-- (void)addEntry:(AMTranslationEntry*)entry
+- (void)addEntry:(TranslationEntry*)entry
 {
 	NSString* key = [entry key];
 	
@@ -59,12 +59,12 @@
 	return [self.headers objectForKey:header];
 }
 
-- (uint8)selectPluralForm:(NSInteger)count
+- (u_short)selectPluralForm:(NSInteger)count
 {
 	return count == 1 ? 0 : 1;
 }
 
-- (uint8)getPluralFormsCount
+- (u_short)numPlurals
 {
 	return 2;
 }
@@ -76,8 +76,8 @@
 
 - (NSString*)translate:(NSString*)singular context:(NSString*)context
 {
-	NSString* key = [AMTranslationEntry stringKey:singular context:context], *translated = nil;
-	AMTranslationEntry* entry = nil;
+	NSString* key = [TranslationEntry stringKey:singular context:context], *translated = nil;
+	TranslationEntry* entry = nil;
 	
 	if(key != nil && 
 	   (entry = [self.entries objectForKey:key]) != nil && 
@@ -91,19 +91,15 @@
 
 - (NSString*)translatePlural:(NSString*)singular plural:(NSString*)plural count:(NSInteger)count context:(NSString*)context
 {
-	NSString* key = [AMTranslationEntry stringKey:singular context:context];
-	AMTranslationEntry* entry = nil;
+	NSString* key = [TranslationEntry stringKey:singular context:context];
+	TranslationEntry* entry = nil;
 	
-	uint8 index = [self selectPluralForm:count];
-	uint8 total_plural_forms = [self getPluralFormsCount];
+	u_short index = [self selectPluralForm:count];
+	u_short nplurals = [self numPlurals];
 	
-	if(key != nil && 
-	   (entry = [self.entries objectForKey:key]) != nil && 
-	   index >= 0 && index < total_plural_forms && 
-	   index < entry.translations.count)
-	{
+	if(key != nil && (entry = [self.entries objectForKey:key]) != nil && 
+	   index < nplurals && index < entry.translations.count)
 		return [entry.translations objectAtIndex:index];
-	}
 	
 	return 1 == count ? singular : plural;
 }

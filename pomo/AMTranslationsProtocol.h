@@ -1,21 +1,21 @@
 //
-//  AMTranslationsProtocol.h
+//  TranslationsProtocol.h
 //  pomo
 //
 //  Created by pronebird on 4/18/11.
 //  Copyright 2011 Andrew Mikhailov. All rights reserved.
 //
 
-#import "AMTranslationEntry.h"
+#import "TranslationEntry.h"
 
-@protocol AMTranslationsProtocol <NSObject>
+@protocol TranslationsProtocol <NSObject>
 
-- (void)addEntry:(AMTranslationEntry*)entry;
+- (void)addEntry:(TranslationEntry*)entry;
 - (void)setHeader:(NSString*)header value:(NSString*)value;
 - (NSString*)header:(NSString*)header;
 
-- (uint8)selectPluralForm:(NSInteger)count;
-- (uint8)getPluralFormsCount;
+- (u_short)selectPluralForm:(NSInteger)count;
+- (u_short)numPlurals;
 
 - (NSString*)translate:(NSString*)singular;
 - (NSString*)translate:(NSString*)singular context:(NSString*)context;

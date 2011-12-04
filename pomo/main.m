@@ -7,17 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AML10n.h"
+#import "TranslationCenter.h"
 
 int main (int argc, const char * argv[])
 {
 	NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
 
-	AML10n* l10n = [AML10n singleton];
-	l10n.defaultPath = @"/Users/pronebird/dev/cocoa-pomo/";
-	l10n.locale = @"ru_RU";
+	TranslationCenter* translator = [TranslationCenter sharedCenter];
+	translator.defaultPath = @"/Users/pronebird/dev/cocoa-pomo/";
+	translator.locale = @"ru_RU";
 
-	[l10n loadTextDomain:@"textdomain"];
+	[translator loadTextDomain:@"textdomain"];
 
 	[pool drain];
     return 0;

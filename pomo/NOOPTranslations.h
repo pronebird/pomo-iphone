@@ -1,14 +1,14 @@
 //
-//  AMNOOPTranslations.h
+//  NOOPTranslations.h
 //  pomo
 //
 //  Created by pronebird on 4/18/11.
 //  Copyright 2011 Andrew Mikhailov. All rights reserved.
 //
 
-#import "AMTranslations.h"
+#import "Translations.h"
 
-@interface AMNOOPTranslations : AMTranslations {
+@interface NOOPTranslations : Translations {
     
 }
 

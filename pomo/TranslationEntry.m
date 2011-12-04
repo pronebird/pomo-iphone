@@ -6,10 +6,10 @@
 //  Copyright 2011 Andrew Mikhailov. All rights reserved.
 //
 
-#import "AMTranslationEntry.h"
+#import "TranslationEntry.h"
 
 
-@implementation AMTranslationEntry
+@implementation TranslationEntry
 
 @synthesize is_plural;
 @synthesize context;
@@ -31,11 +31,11 @@
 		self.context = nil;
 		self.singular = nil;
 		self.plural = nil;
-		self.translations = [[NSMutableArray alloc] init];
+		self.translations = [[[NSMutableArray alloc] init] autorelease];
 		self.translator_comments = nil;
 		self.extracted_comments = nil;
-		self.references = [[NSMutableArray alloc] init];
-		self.flags = [[NSMutableArray alloc] init];
+		self.references = [[[NSMutableArray alloc] init] autorelease];
+		self.flags = [[[NSMutableArray alloc] init] autorelease];
 	}
 	
 	return self;
@@ -55,7 +55,7 @@
 
 - (NSString*)key 
 {
-	return [AMTranslationEntry stringKey:self.singular context:self.context];
+	return [TranslationEntry stringKey:self.singular context:self.context];
 }
 
 + (NSString*)stringKey:(NSString*)singular

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Cocoa \"POMO\" 'test'\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-04-14 19:38+0300\n"
+"POT-Creation-Date: 2011-12-04 14:59+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Andrew Mikhaylov <and.mikhaylov@gmail.com>\n"
 "Language-Team: Andrew <and@codeispoetry.ru>\n"
@@ -17,15 +17,16 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: /Users/pronebird/dev/cocoa-pomo\n"
 
-#: /Users/pronebird/dev/cocoa-pomo/test.php:5
-msgid "test"
-msgstr "\"тест\""
-
 #: /Users/pronebird/dev/cocoa-pomo/test.php:6
+msgid "hello world2"
+msgstr ""
+
+# super comment
+#: /Users/pronebird/dev/cocoa-pomo/test.php:7
 #, php-format
 msgid "%d test"
 msgid_plural "%d tests"
-msgstr[0] "%d \"тест\" \\ or something"
+msgstr[0] "%d тест"
 msgstr[1] "%d теста"
 msgstr[2] "%d тестов"
 
