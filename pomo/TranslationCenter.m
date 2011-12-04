@@ -52,6 +52,7 @@ static NOOPTranslations* sharedNOOPTranslations = nil;
 		
 		CFLocaleRef lc = CFLocaleCopyCurrent();
 		self.locale = (NSString*)CFLocaleGetIdentifier(lc);
+		self.defaultPath = nil;
 		self.domains = [[[NSMutableDictionary alloc] initWithCapacity:10] autorelease];
 		
 		CFRelease(lc);
@@ -63,38 +64,38 @@ static NOOPTranslations* sharedNOOPTranslations = nil;
 - (void)dealloc
 {
 	self.domains = nil;
+	self.defaultPath = nil;
+	self.locale = nil;
 }
 
-- (bool)loadTextDomain:(NSString*)domain
+- (BOOL)loadTextDomain:(NSString*)domain
 {
 	return [self loadTextDomain:domain path:[TranslationCenter stringFullPath:self.defaultPath forDomain:domain locale:self.locale]];
 }
 
-- (bool)loadTextDomain:(NSString*)domain path:(NSString*)path
+- (BOOL)loadTextDomain:(NSString*)domain path:(NSString*)path
 {
 	MOParser* po = [[[MOParser alloc] init] autorelease];
 	
 	if([po importFileAtPath:path]) {
-		
 		[self.domains setObject:po forKey:domain];
-		
-		return true;
+		return TRUE;
 	}
 	
-	return false;
+	return FALSE;
 }
 
-- (bool)unloadTextDomain:(NSString*)domain
+- (BOOL)unloadTextDomain:(NSString*)domain
 {
 	id obj = [self.domains objectForKey:domain];
-	
-	if(obj != nil) {
+
+	if(obj != nil) 
+	{
 		[self.domains removeObjectForKey:domain];
-		
-		return true;
+		return TRUE;
 	}
-	
-	return false;
+
+	return FALSE;
 }
 
 @end

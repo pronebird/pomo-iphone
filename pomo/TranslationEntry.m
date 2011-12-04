@@ -71,4 +71,28 @@
 	return context == nil ? singular : [NSString stringWithFormat:@"%@%c%@", context, '\4', singular];	
 }
 
+- (void)debugPrint {
+	NSLog(@"new entry\nsingular: %@\nplural: %@\nis_plural: %d\ntranslator comments:%@\n", self.singular, self.plural, self.is_plural, self.translator_comments);
+	
+	NSLog(@"translations:\n");
+	NSUInteger i = 0;
+	for(NSString* tr in self.translations) {
+		NSLog(@"[%lu] %@\n", i++, tr);
+	}
+	
+	NSLog(@"references:\n");
+	i = 0;
+	for(NSString* ref in self.references) {
+		NSLog(@"[%lu] %@\n", i++, ref);
+	}
+	
+	NSLog(@"flags:\n");
+	i = 0;
+	for(NSString* flag in self.flags) {
+		NSLog(@"[%lu] %@\n", i++, flag);
+	}
+	
+	NSLog(@"--");
+}
+
 @end

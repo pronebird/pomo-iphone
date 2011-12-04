@@ -35,28 +35,7 @@
 	{
 		if((entry = [self readEntry:str]) != nil)
 		{
-			NSLog(@"new entry\nsingular: %@\nplural: %@\nis_plural: %d\ntranslator comments:%@\n", entry.singular, entry.plural, entry.is_plural, entry.translator_comments);
-			
-			NSLog(@"translations:\n");
-			NSUInteger i = 0;
-			for(NSString* tr in entry.translations) {
-				NSLog(@"[%lu] %@\n", i++, tr);
-			}
-			
-			NSLog(@"references:\n");
-			i = 0;
-			for(NSString* ref in entry.references) {
-				NSLog(@"[%lu] %@\n", i++, ref);
-			}
-			
-			NSLog(@"flags:\n");
-			i = 0;
-			for(NSString* flag in entry.flags) {
-				NSLog(@"[%lu] %@\n", i++, flag);
-			}
-			
-			NSLog(@"--");
-			
+			[entry debugPrint];
 			[self addEntry:entry];
 		}
 	}

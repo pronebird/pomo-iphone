@@ -2,7 +2,7 @@
 
 $count = 5;
 
-echo __('hello world2');
+echo __('Hello world!');
 echo _n('%d test', '%d tests', $count);
 
 ?>

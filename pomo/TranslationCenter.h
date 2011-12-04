@@ -8,12 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-#ifndef AM_I18N_NOMACRO
-
-//define __(a) [[AML10n singleton] translate]
-
-#endif
-
 @interface TranslationCenter : NSObject {
     NSMutableDictionary* domains;
 	NSString* defaultPath;
@@ -30,9 +24,8 @@
 - (id)init;
 - (void)dealloc;
 
-- (bool)loadTextDomain:(NSString*)domain;
-- (bool)loadTextDomain:(NSString*)domain path:(NSString*)path;
-
-- (bool)unloadTextDomain:(NSString*)domain;
+- (BOOL)loadTextDomain:(NSString*)domain;
+- (BOOL)loadTextDomain:(NSString*)domain path:(NSString*)path;
+- (BOOL)unloadTextDomain:(NSString*)domain;
 
 @end

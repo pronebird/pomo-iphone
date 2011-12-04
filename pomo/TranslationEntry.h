@@ -41,4 +41,6 @@
 + (NSString*)stringKey:(NSString*)singular;
 + (NSString*)stringKey:(NSString*)singular context:(NSString*)context;
 
+- (void)debugPrint;
+
 @end

@@ -42,6 +42,8 @@ using namespace mu;
 	
 	delete mParser;
 	mParser = NULL;
+	
+	[super dealloc];
 }
 
 - (void)setHeader:(NSString*)header value:(NSString*)value
