@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		58540AF6153063A200677F53 /* GettextHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 58540AF5153063A100677F53 /* GettextHelpers.m */; };
 		587DA48713411D49001D60FA /* GettextTranslations.mm in Sources */ = {isa = PBXBuildFile; fileRef = 587DA48613411D49001D60FA /* GettextTranslations.mm */; };
 		5887CAE013410B89005CA69C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5887CADF13410B89005CA69C /* Foundation.framework */; };
 		5887CAE313410B89005CA69C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5887CAE213410B89005CA69C /* main.m */; };
@@ -34,6 +35,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		58540AF315305F3E00677F53 /* ParserProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParserProtocol.h; sourceTree = "<group>"; };
+		58540AF4153063A100677F53 /* GettextHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GettextHelpers.h; sourceTree = "<group>"; };
+		58540AF5153063A100677F53 /* GettextHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GettextHelpers.m; sourceTree = "<group>"; };
 		587DA48513411D49001D60FA /* GettextTranslations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GettextTranslations.h; sourceTree = "<group>"; };
 		587DA48613411D49001D60FA /* GettextTranslations.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GettextTranslations.mm; sourceTree = "<group>"; };
 		587DA48913411EC8001D60FA /* POParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POParser.h; sourceTree = "<group>"; };
@@ -46,9 +50,9 @@
 		5887CAED13410C0A005CA69C /* Translations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Translations.m; sourceTree = "<group>"; };
 		5887CAEF13410F17005CA69C /* TranslationEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TranslationEntry.h; sourceTree = "<group>"; };
 		5887CAF013410F17005CA69C /* TranslationEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TranslationEntry.m; sourceTree = "<group>"; };
-		58B0247F135C7491006F3917 /* TranslationCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; path = TranslationCenter.h; sourceTree = "<group>"; };
+		58B0247F135C7491006F3917 /* TranslationCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TranslationCenter.h; sourceTree = "<group>"; };
 		58B02480135C7491006F3917 /* TranslationCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TranslationCenter.m; sourceTree = "<group>"; };
-		58B02482135C777D006F3917 /* AMTranslationsProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMTranslationsProtocol.h; sourceTree = "<group>"; };
+		58B02482135C777D006F3917 /* TranslationsProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TranslationsProtocol.h; sourceTree = "<group>"; };
 		58B02483135C793F006F3917 /* NOOPTranslations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NOOPTranslations.h; sourceTree = "<group>"; };
 		58B02484135C793F006F3917 /* NOOPTranslations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NOOPTranslations.m; sourceTree = "<group>"; };
 		58CD85CD148A2A0700ED8EBC /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
@@ -118,11 +122,14 @@
 				58CD86AE148BC6AF00ED8EBC /* POParser.m */,
 				58B0247F135C7491006F3917 /* TranslationCenter.h */,
 				58B02480135C7491006F3917 /* TranslationCenter.m */,
-				58B02482135C777D006F3917 /* AMTranslationsProtocol.h */,
+				58B02482135C777D006F3917 /* TranslationsProtocol.h */,
 				58B02483135C793F006F3917 /* NOOPTranslations.h */,
 				58B02484135C793F006F3917 /* NOOPTranslations.m */,
 				58CD86AB148B92FE00ED8EBC /* MOParser.h */,
 				58CD86AC148B92FE00ED8EBC /* MOParser.m */,
+				58540AF315305F3E00677F53 /* ParserProtocol.h */,
+				58540AF4153063A100677F53 /* GettextHelpers.h */,
+				58540AF5153063A100677F53 /* GettextHelpers.m */,
 			);
 			path = pomo;
 			sourceTree = "<group>";
@@ -171,7 +178,7 @@
 		5887CAD213410B88005CA69C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0430;
 			};
 			buildConfigurationList = 5887CAD513410B88005CA69C /* Build configuration list for PBXProject "pomo" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -204,6 +211,7 @@
 				58CD85D6148A2A0700ED8EBC /* RegexKitLite.m in Sources */,
 				58CD86AD148B92FF00ED8EBC /* MOParser.m in Sources */,
 				58CD86AF148BC6B000ED8EBC /* POParser.m in Sources */,
+				58540AF6153063A200677F53 /* GettextHelpers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,6 +261,7 @@
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "pomo/pomo-Prefix.pch";
+				HEADER_SEARCH_PATHS = "muparser-iphone/include";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"/tmp/xcode-build/cocoa-pomo-guktahbddsxhthbwmuhbrrfwgmpj/Build/Products/Debug\"",
@@ -272,6 +281,7 @@
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "pomo/pomo-Prefix.pch";
+				HEADER_SEARCH_PATHS = "muparser-iphone/include";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"/tmp/xcode-build/cocoa-pomo-guktahbddsxhthbwmuhbrrfwgmpj/Build/Products/Debug\"",

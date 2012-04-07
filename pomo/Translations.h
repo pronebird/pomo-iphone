@@ -7,7 +7,7 @@
 //
 
 #import "TranslationEntry.h"
-#import "AMTranslationsProtocol.h"
+#import "TranslationsProtocol.h"
 
 
 @interface Translations : NSObject<TranslationsProtocol> {

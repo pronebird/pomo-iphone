@@ -19,7 +19,10 @@
 @property (readonly, nonatomic, retain) NSMutableDictionary* domains;
 
 + (id)sharedCenter;
-+ (NSString*)stringFullPath:(NSString*)path forDomain:(NSString*)domain locale:(NSString*)locale;
++ (NSString*)stringFullPath:(NSString*)path 
+				  forDomain:(NSString*)domain 
+					 locale:(NSString*)locale 
+					   type:(NSString*)ext;
 
 - (id)init;
 - (void)dealloc;
@@ -27,5 +30,16 @@
 - (BOOL)loadTextDomain:(NSString*)domain;
 - (BOOL)loadTextDomain:(NSString*)domain path:(NSString*)path;
 - (BOOL)unloadTextDomain:(NSString*)domain;
+
+- (NSString*)translate:(NSString*)singular 
+				domain:(NSString*)domain;
+- (NSString*)translate:(NSString*)singular 
+			   context:(NSString*)context 
+				domain:(NSString*)domain;
+- (NSString*)translatePlural:(NSString*)singular 
+					  plural:(NSString*)plural 
+					   count:(NSInteger)count 
+					 context:(NSString*)context 
+					  domain:(NSString*)domain;
 
 @end

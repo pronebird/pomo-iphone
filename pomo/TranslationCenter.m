@@ -34,11 +34,14 @@ static NOOPTranslations* sharedNOOPTranslations = nil;
 	return sharedPtr;
 }
 
-+ (NSString*)stringFullPath:(NSString*)path forDomain:(NSString*)domain locale:(NSString*)locale
++ (NSString*)stringFullPath:(NSString*)path 
+				  forDomain:(NSString*)domain 
+					 locale:(NSString*)locale 
+					   type:(NSString*)ext
 {
 	return [path stringByAppendingPathComponent:
-				[NSString stringWithFormat:@"%@-%@.mo", domain, locale]
-			];
+				[NSString stringWithFormat:@"%@-%@.%@", domain, locale, 
+				 ext ? [ext lowercaseString] : @"mo"]];
 }
 
 - (id)init
@@ -66,19 +69,39 @@ static NOOPTranslations* sharedNOOPTranslations = nil;
 	self.domains = nil;
 	self.defaultPath = nil;
 	self.locale = nil;
+	
+	[super dealloc];
 }
 
 - (BOOL)loadTextDomain:(NSString*)domain
 {
-	return [self loadTextDomain:domain path:[TranslationCenter stringFullPath:self.defaultPath forDomain:domain locale:self.locale]];
+	NSFileManager* fileManager = [NSFileManager defaultManager];
+	NSString* path = [TranslationCenter stringFullPath:self.defaultPath forDomain:domain locale:self.locale type:@"mo"];
+	
+	if(![fileManager fileExistsAtPath:path]) {
+		path = [TranslationCenter stringFullPath:self.defaultPath forDomain:domain locale:self.locale type:@"po"];
+		if(![fileManager fileExistsAtPath:path])
+			return FALSE;
+	}
+	
+	return [self loadTextDomain:domain path:path];
 }
 
 - (BOOL)loadTextDomain:(NSString*)domain path:(NSString*)path
 {
-	MOParser* po = [[[MOParser alloc] init] autorelease];
+	id<ParserProtocol> parser;
 	
-	if([po importFileAtPath:path]) {
-		[self.domains setObject:po forKey:domain];
+	if([path.pathExtension isEqualToString:@"mo"]) 
+		parser = [[[MOParser alloc] init] autorelease];
+	else if([path.pathExtension isEqualToString:@"po"]) 
+		parser = [[[POParser alloc] init] autorelease];
+	else
+		return FALSE;
+	
+	NSLog(@"Loading %@ using %@", path, NSStringFromClass([parser class]));
+	
+	if([parser importFileAtPath:path]) {
+		[self.domains setObject:parser forKey:domain];
 		return TRUE;
 	}
 	
@@ -96,6 +119,46 @@ static NOOPTranslations* sharedNOOPTranslations = nil;
 	}
 
 	return FALSE;
+}
+
+- (NSString*)translate:(NSString*)singular 
+				domain:(NSString*)domain 
+{
+	GettextTranslations* obj = [self.domains objectForKey:domain];
+	
+	if(obj != nil) {
+		return [obj translate:singular];
+	}
+	
+	return singular;
+}
+
+- (NSString*)translate:(NSString*)singular 
+			   context:(NSString*)context 
+				domain:(NSString*)domain 
+{
+	GettextTranslations* obj = [self.domains objectForKey:domain];
+	
+	if(obj != nil) {
+		return [obj translate:singular context:context];
+	}
+	
+	return singular;	
+}
+
+- (NSString*)translatePlural:(NSString*)singular 
+					  plural:(NSString*)plural 
+					   count:(NSInteger)count 
+					 context:(NSString*)context 
+					  domain:(NSString*)domain 
+{
+	GettextTranslations* obj = [self.domains objectForKey:domain];
+	
+	if(obj != nil) {
+		return [obj translatePlural:singular plural:plural count:count context:context];
+	}
+	
+	return singular;
 }
 
 @end

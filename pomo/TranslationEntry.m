@@ -51,6 +51,8 @@
 	self.extracted_comments = nil;
 	self.references = nil;
 	self.flags = nil;
+	
+	[super dealloc];
 }
 
 - (NSString*)key 
@@ -68,7 +70,7 @@
 	if(singular == nil)
 		return nil;
 	
-	return context == nil ? singular : [NSString stringWithFormat:@"%@%c%@", context, '\4', singular];	
+	return (context == nil || [context isEqualToString:@""]) ? singular : [NSString stringWithFormat:@"%@%c%@", context, '\4', singular];	
 }
 
 - (void)debugPrint {

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Cocoa \"POMO\" 'test'\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-12-05 01:46+0300\n"
+"POT-Creation-Date: 2012-04-07 14:18+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Andrew Mikhaylov <and.mikhaylov@gmail.com>\n"
 "Language-Team: Andrew <and@codeispoetry.ru>\n"
@@ -18,16 +18,18 @@ msgstr ""
 "X-Poedit-SearchPath-0: /Users/pronebird/dev/cocoa-pomo\n"
 
 # comment
-#: /Users/pronebird/dev/cocoa-pomo/test.php:5
+#: /Users/pronebird/dev/cocoa-pomo/pomo/main.m:26
 msgid "Hello world!"
 msgstr "Привет мир!"
 
-# super comment
-#: /Users/pronebird/dev/cocoa-pomo/test.php:6
-#, php-format
-msgid "%d test"
-msgid_plural "%d tests"
-msgstr[0] "%d тест"
-msgstr[1] "%d теста"
-msgstr[2] "%d тестов"
+#: /Users/pronebird/dev/cocoa-pomo/pomo/main.m:33
+#: /Users/pronebird/dev/cocoa-pomo/pomo/main.m:34
+#: /Users/pronebird/dev/cocoa-pomo/pomo/main.m:35
+#: /Users/pronebird/dev/cocoa-pomo/pomo/main.m:36
+#, c-format
+msgid "%d apple"
+msgid_plural "%d apples"
+msgstr[0] "%d яблоко"
+msgstr[1] "%d яблока"
+msgstr[2] "%d яблок"
 

@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "GettextTranslations.h"
+#import "ParserProtocol.h"
 
-@interface MOParser : GettextTranslations {
+@interface MOParser : GettextTranslations<ParserProtocol> {
 	
 }
 

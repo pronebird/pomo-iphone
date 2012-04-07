@@ -37,6 +37,8 @@
 {
 	self.entries = nil;
 	self.headers = nil;
+	
+	[super dealloc];
 }
 
 - (void)addEntry:(TranslationEntry*)entry

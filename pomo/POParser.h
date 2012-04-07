@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "GettextTranslations.h"
+#import "ParserProtocol.h"
 
-@interface POParser : GettextTranslations
+@interface POParser : GettextTranslations<ParserProtocol>
 
 - (id)init;
 - (void)dealloc;
