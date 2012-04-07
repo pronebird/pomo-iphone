@@ -174,7 +174,7 @@
 		58CD864C148A412700ED8EBC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0430;
 			};
 			buildConfigurationList = 58CD864F148A412700ED8EBC /* Build configuration list for PBXProject "muparser-iphone" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -301,6 +301,7 @@
 				58CD865B148A412700ED8EBC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
