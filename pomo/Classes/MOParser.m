@@ -3,7 +3,7 @@
 //  pomo
 //
 //  Created by pronebird on 12/4/11.
-//  Copyright (c) 2011 Andrei Mikhailov. All rights reserved.
+//  Copyright (c) 2011 Andrej Mihajlov. All rights reserved.
 //
 
 #import "MOParser.h"
@@ -55,14 +55,14 @@ typedef struct _mo_position {
 		return FALSE;
 	
 	if(fread(&mo, sizeof(mo), 1, fp) != 1) {
-		NSLog(@"Cannot read file header. File probably corrupted.");
+		//NSLog(@"Cannot read file header. File probably corrupted.");
 		goto cleanup;
 	}
 
 	is_little_endian = mo.magic == OSSwapInt32(magic);
 
 	if(mo.magic != magic && !is_little_endian) {
-		NSLog(@"Magic number mismatch. File probably corrupted.");
+		//NSLog(@"Magic number mismatch. File probably corrupted.");
 		goto cleanup;
 	}
 		
@@ -77,9 +77,11 @@ typedef struct _mo_position {
 		mo.hash_table_addr = OSSwapInt32(mo.hash_table_addr);
 	}
 	
-	// support revision 0 of MO format specs, only
-	if(mo.revision != 0)
+	// support revision 0 of MO format specs only
+	if(mo.revision != 0) {
+		//NSLog(@"Unsupported mo.revision: %d", mo.revision);
 		goto cleanup;
+	}
 
 	if(fseek(fp, mo.orig_strings_addr, SEEK_SET) != 0)
 		goto cleanup;
@@ -150,8 +152,47 @@ typedef struct _mo_position {
 				entry.is_plural = TRUE;
 			}
 			
-			[entry debugPrint];
+			//[entry debugPrint];
 			[self addEntry:entry];
+		}
+	}
+	
+	// read headers
+	int headers_start_pos = ftell(fp)+1;
+	fseek(fp, 0, SEEK_END);
+	int headers_end_pos = ftell(fp),
+		headers_length = headers_end_pos - headers_start_pos;
+	
+	fseek(fp, headers_start_pos, SEEK_SET); // pass \0 to read headers
+	if(headers_length && !feof(fp))
+	{
+		if(bufsize < headers_length) {
+			bufsize = headers_length + 1;
+			if(buf)
+				buf = realloc(buf, bufsize);
+			else
+				buf = malloc(bufsize);
+		}
+		// there supposed to be some trash at the end of file
+		// however it's separated from headers by \0
+		// so we have small overhead..
+		fread(buf, 1, headers_length, fp);
+		buf[headers_length] = '\0';
+		
+		NSArray* strings = [[NSString stringWithCString:buf encoding:NSUTF8StringEncoding] componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
+		
+		for(NSString* str in strings)
+		{
+			NSArray* arr = [self splitString:str separator:@":"];
+			
+			if(arr.count < 2)
+				continue;
+			
+			NSString* value = [[arr objectAtIndex:1] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+			
+			//NSLog(@"Header %@ found: %@", [arr objectAtIndex:0], value);
+			
+			[self setHeader:[arr objectAtIndex:0] value:value];
 		}
 	}
 	
@@ -166,6 +207,26 @@ cleanup:
 	fclose(fp);
 	
 	return retval;
+}
+
+- (NSArray*)splitString:(NSString*)string separator:(NSString*)separator 
+{
+	NSScanner* scan = [NSScanner scannerWithString:string];
+	NSString* token = nil;
+	NSMutableArray* array = [[[NSMutableArray alloc] initWithCapacity:2] autorelease];
+	
+	if([scan scanUpToString:separator intoString:&token])
+	{
+		[array addObject:token];
+		
+		NSUInteger pos = [scan scanLocation]+1;
+		
+		if(pos < string.length)
+			[array addObject:[string substringFromIndex:pos]];
+	}
+	
+	
+	return [NSArray arrayWithArray:array];	
 }
 
 @end

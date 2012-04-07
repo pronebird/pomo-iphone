@@ -3,7 +3,7 @@
 //  pomo
 //
 //  Created by pronebird on 3/28/11.
-//  Copyright 2011 Andrew Mikhailov. All rights reserved.
+//  Copyright 2011 Andrej Mihajlov. All rights reserved.
 //
 
 #import "GettextTranslations.h"
@@ -80,15 +80,15 @@ using namespace mu;
 - (u_short)selectPluralForm:(NSInteger)count
 {
 	double retval;
-
-	mParser->DefineConst("n", count);
 	
 	if(self.pluralRule)
 	{
+		mParser->DefineConst("n", count);
+		
 		try
 		{
 			retval = mParser->Eval();
-			std::cout << "retval for " << count << " is " << retval << std::endl;
+			//std::cout << "retval for " << count << " is " << retval << std::endl;
 			
 			return (short)retval;
 		}
