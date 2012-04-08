@@ -210,7 +210,7 @@ cleanup:
 	return retval;
 }
 
-- (NSArray*)splitString:(NSString*)string separator:(NSString*)separator 
+- (NSArray*)splitString:(NSString*)string separator:(NSString*)separator
 {
 	NSScanner* scan = [NSScanner scannerWithString:string];
 	NSString* token = nil;

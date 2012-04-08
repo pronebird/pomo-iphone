@@ -10,13 +10,17 @@
 #import "GettextTranslations.h"
 #import "ParserProtocol.h"
 
-@interface MOParser : GettextTranslations<ParserProtocol> {
-	
-}
+@interface MOParser : GettextTranslations<ParserProtocol>
 
 - (id)init;
 - (void)dealloc;
-
 - (BOOL)importFileAtPath:(NSString*)filename;
+
+@end
+
+
+@interface MOParser(ProtectedMethods)
+
+- (NSArray*)splitString:(NSString*)string separator:(NSString*)separator;
 
 @end
