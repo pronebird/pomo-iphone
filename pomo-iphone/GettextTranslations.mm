@@ -7,7 +7,7 @@
 //
 
 #import "GettextTranslations.h"
-#import "RegexKitLite.h"
+#import "CSRegex.h"
 
 using namespace mu;
 
@@ -52,12 +52,17 @@ using namespace mu;
 	
 	if([header isEqualToString:@"Plural-Forms"])
 	{
-		NSString *regEx = @"^\\s*nplurals\\s*=\\s*(\\d+)\\s*;\\s+plural\\s*=\\s*(.+)$",
+		NSString *pattern = @"^\\s*nplurals\\s*=\\s*(\\d+)\\s*;\\s+plural\\s*=\\s*(.+)$",
 				*nplurals = nil, *rule = nil;
 		
 		value = [self header:header];
-		nplurals =  [value stringByMatching:regEx capture:1];
-		rule =  [value stringByMatching:regEx capture:2];
+		
+		CSRegex *re = [CSRegex regexWithPattern:pattern options:0];
+		NSArray* matches = [re capturedSubstringsOfString:value];
+		NSLog(@"%@", matches);
+		
+		nplurals = [matches objectAtIndex:0];
+		rule = [matches objectAtIndex:1];
 
 		if(nplurals)
 			self.numPlurals = (u_short)[nplurals integerValue];
