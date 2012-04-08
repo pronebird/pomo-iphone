@@ -27,10 +27,10 @@
 		58540DA51530B61300677F53 /* Translations.h in Headers */ = {isa = PBXBuildFile; fileRef = 58540D891530B61300677F53 /* Translations.h */; };
 		58540DA61530B61300677F53 /* Translations.m in Sources */ = {isa = PBXBuildFile; fileRef = 58540D8A1530B61300677F53 /* Translations.m */; };
 		58540DA71530B61300677F53 /* TranslationsProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 58540D8B1530B61300677F53 /* TranslationsProtocol.h */; };
-		58540E5C1531C37E00677F53 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 58540E5B1531C37E00677F53 /* libicucore.dylib */; };
 		5877C32715321ACB00B732FB /* RegexKitLite.h in Headers */ = {isa = PBXBuildFile; fileRef = 5877C31D15321ACB00B732FB /* RegexKitLite.h */; };
 		5877C32815321ACB00B732FB /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 5877C31F15321ACB00B732FB /* RegexKitLite.m */; };
 		5894999915322E8200770CCD /* libmuparser-iphone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5894999815322E8200770CCD /* libmuparser-iphone.a */; };
+		58D6A77D15325175008DFB9F /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 58540E5B1531C37E00677F53 /* libicucore.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,8 +66,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58D6A77D15325175008DFB9F /* libicucore.dylib in Frameworks */,
 				5894999915322E8200770CCD /* libmuparser-iphone.a in Frameworks */,
-				58540E5C1531C37E00677F53 /* libicucore.dylib in Frameworks */,
 				58540D631530B4FA00677F53 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
