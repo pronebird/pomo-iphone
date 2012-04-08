@@ -79,19 +79,19 @@
 	NSLog(@"translations:\n");
 	NSUInteger i = 0;
 	for(NSString* tr in self.translations) {
-		NSLog(@"[%lu] %@\n", i++, tr);
+		NSLog(@"[%u] %@\n", i++, tr);
 	}
 	
 	NSLog(@"references:\n");
 	i = 0;
 	for(NSString* ref in self.references) {
-		NSLog(@"[%lu] %@\n", i++, ref);
+		NSLog(@"[%u] %@\n", i++, ref);
 	}
 	
 	NSLog(@"flags:\n");
 	i = 0;
 	for(NSString* flag in self.flags) {
-		NSLog(@"[%lu] %@\n", i++, flag);
+		NSLog(@"[%u] %@\n", i++, flag);
 	}
 	
 	NSLog(@"--");

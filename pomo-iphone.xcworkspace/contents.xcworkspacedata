@@ -2,9 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:CocoaPOMOFramework.xcodeproj">
+      location = "group:muparser-iphone/muparser-iphone.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:muparser-iphone/muparser-iphone.xcodeproj">
+      location = "group:pomo-iphone.xcodeproj">
    </FileRef>
 </Workspace>
