@@ -27,6 +27,8 @@
 - (id)init;
 - (void)dealloc;
 
+- (BOOL)isValidTextDomain:(NSString*)domain;
+
 - (BOOL)loadTextDomain:(NSString*)domain;
 - (BOOL)loadTextDomain:(NSString*)domain path:(NSString*)path;
 - (BOOL)unloadTextDomain:(NSString*)domain;

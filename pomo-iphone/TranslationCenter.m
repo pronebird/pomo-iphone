@@ -70,6 +70,10 @@ static NOOPTranslations* sharedNOOPTranslations = nil;
 	[super dealloc];
 }
 
+- (BOOL)isValidTextDomain:(NSString*)domain {
+	return domain != nil && ![domain isEqualToString:@""];
+}
+
 - (BOOL)loadTextDomain:(NSString*)domain
 {
 	NSFileManager* fileManager = [NSFileManager defaultManager];
@@ -121,26 +125,34 @@ static NOOPTranslations* sharedNOOPTranslations = nil;
 - (NSString*)translate:(NSString*)singular 
 				domain:(NSString*)domain 
 {
-	GettextTranslations* obj = [self.domains objectForKey:domain];
+	GettextTranslations* obj;
 	
-	if(obj != nil) {
-		return [obj translate:singular];
+	if([self isValidTextDomain:domain])
+	{
+		obj = [self.domains objectForKey:domain];
+		
+		if(obj)
+			return [obj translate:singular];
 	}
 	
-	return singular;
+	return [sharedNOOPTranslations translate:singular];
 }
 
 - (NSString*)translate:(NSString*)singular 
 			   context:(NSString*)context 
 				domain:(NSString*)domain 
 {
-	GettextTranslations* obj = [self.domains objectForKey:domain];
+	GettextTranslations* obj;
 	
-	if(obj != nil) {
-		return [obj translate:singular context:context];
+	if([self isValidTextDomain:domain])
+	{
+		obj = [self.domains objectForKey:domain];
+		
+		if(obj)
+			return [obj translate:singular context:context];
 	}
 	
-	return singular;	
+	return [sharedNOOPTranslations translate:singular context:context];	
 }
 
 - (NSString*)translatePlural:(NSString*)singular 
@@ -149,13 +161,17 @@ static NOOPTranslations* sharedNOOPTranslations = nil;
 					 context:(NSString*)context 
 					  domain:(NSString*)domain 
 {
-	GettextTranslations* obj = [self.domains objectForKey:domain];
+	GettextTranslations* obj;
 	
-	if(obj != nil) {
-		return [obj translatePlural:singular plural:plural count:count context:context];
+	if([self isValidTextDomain:domain]) 
+	{
+		obj = [self.domains objectForKey:domain];
+		
+		if(obj)
+			return [obj translatePlural:singular plural:plural count:count context:context];
 	}
 	
-	return singular;
+	return [sharedNOOPTranslations translatePlural:singular plural:plural count:count context:context];
 }
 
 @end

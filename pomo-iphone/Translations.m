@@ -103,7 +103,7 @@
 	   index < nplurals && index < entry.translations.count)
 		return [entry.translations objectAtIndex:index];
 	
-	return 1 == count ? singular : plural;
+	return count == 1 ? singular : plural;
 }
 
 @end
