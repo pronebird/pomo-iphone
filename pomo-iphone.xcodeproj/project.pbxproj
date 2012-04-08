@@ -29,7 +29,8 @@
 		58540DA51530B61300677F53 /* Translations.h in Headers */ = {isa = PBXBuildFile; fileRef = 58540D891530B61300677F53 /* Translations.h */; };
 		58540DA61530B61300677F53 /* Translations.m in Sources */ = {isa = PBXBuildFile; fileRef = 58540D8A1530B61300677F53 /* Translations.m */; };
 		58540DA71530B61300677F53 /* TranslationsProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 58540D8B1530B61300677F53 /* TranslationsProtocol.h */; };
-		58540DB41530B6C500677F53 /* libmuparser-iphone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58540DB31530B6C500677F53 /* libmuparser-iphone.a */; };
+		58540E411531C11200677F53 /* libmuparser-iphone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58540E401531C11200677F53 /* libmuparser-iphone.a */; };
+		58540E5C1531C37E00677F53 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 58540E5B1531C37E00677F53 /* libicucore.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,7 +58,8 @@
 		58540D891530B61300677F53 /* Translations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Translations.h; path = "pomo-iphone/Translations.h"; sourceTree = SOURCE_ROOT; };
 		58540D8A1530B61300677F53 /* Translations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Translations.m; path = "pomo-iphone/Translations.m"; sourceTree = SOURCE_ROOT; };
 		58540D8B1530B61300677F53 /* TranslationsProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TranslationsProtocol.h; path = "pomo-iphone/TranslationsProtocol.h"; sourceTree = SOURCE_ROOT; };
-		58540DB31530B6C500677F53 /* libmuparser-iphone.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libmuparser-iphone.a"; path = "/tmp/xcode-build/pomo-iphone-dvrjfbgrsjigkigxekbtlaklpsty/Build/Products/Debug-iphoneos/libmuparser-iphone.a"; sourceTree = "<absolute>"; };
+		58540E401531C11200677F53 /* libmuparser-iphone.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libmuparser-iphone.a"; path = "/tmp/xcode-build/Release-iphoneos/libmuparser-iphone.a"; sourceTree = "<absolute>"; };
+		58540E5B1531C37E00677F53 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,7 +67,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				58540DB41530B6C500677F53 /* libmuparser-iphone.a in Frameworks */,
+				58540E5C1531C37E00677F53 /* libicucore.dylib in Frameworks */,
+				58540E411531C11200677F53 /* libmuparser-iphone.a in Frameworks */,
 				58540D631530B4FA00677F53 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -93,7 +96,8 @@
 		58540D011530B33C00677F53 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				58540DB31530B6C500677F53 /* libmuparser-iphone.a */,
+				58540E5B1531C37E00677F53 /* libicucore.dylib */,
+				58540E401531C11200677F53 /* libmuparser-iphone.a */,
 				58540D041530B33C00677F53 /* Other Frameworks */,
 			);
 			name = Frameworks;
@@ -245,7 +249,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = (
+					"$(ARCHS_STANDARD_32_BIT)",
+					armv7,
+					armv6,
+				);
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -262,7 +270,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "muparser-iphone/include";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -273,7 +281,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = (
+					"$(ARCHS_STANDARD_32_BIT)",
+					armv7,
+					armv6,
+				);
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -284,7 +296,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "muparser-iphone/include";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				SDKROOT = iphoneos;
 			};
