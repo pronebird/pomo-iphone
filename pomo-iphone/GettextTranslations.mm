@@ -56,7 +56,7 @@ using namespace mu;
 				*nplurals = nil, *rule = nil;
 		
 		value = [self header:header];
-		nplurals =  [value stringByMatching:regEx capture:1],
+		nplurals =  [value stringByMatching:regEx capture:1];
 		rule =  [value stringByMatching:regEx capture:2];
 
 		if(nplurals)

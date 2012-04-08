@@ -52,8 +52,8 @@ static NOOPTranslations* sharedNOOPTranslations = nil;
 	{
 		if(sharedNOOPTranslations == nil)
 			sharedNOOPTranslations = [[NOOPTranslations alloc] init];
-		
-		self.locale = [[NSLocale currentLocale] localeIdentifier];
+
+		self.locale = [[NSLocale preferredLanguages] objectAtIndex:0];
 		self.defaultPath = [[NSBundle mainBundle] bundlePath];
 		self.domains = [[[NSMutableDictionary alloc] initWithCapacity:10] autorelease];
 	}

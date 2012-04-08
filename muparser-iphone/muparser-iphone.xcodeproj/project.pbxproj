@@ -234,6 +234,7 @@
 					"$(inherited)",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
@@ -261,6 +262,7 @@
 				"DYLIB_CURRENT_VERSION[sdk=*]" = 2.1.0;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
@@ -278,6 +280,7 @@
 				DYLIB_CURRENT_VERSION = 2.1.0;
 				"DYLIB_CURRENT_VERSION[sdk=*]" = 2.1.0;
 				EXECUTABLE_PREFIX = lib;
+				GCC_THUMB_SUPPORT = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -288,6 +291,7 @@
 				DYLIB_CURRENT_VERSION = 2.1.0;
 				"DYLIB_CURRENT_VERSION[sdk=*]" = 2.1.0;
 				EXECUTABLE_PREFIX = lib;
+				GCC_THUMB_SUPPORT = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
