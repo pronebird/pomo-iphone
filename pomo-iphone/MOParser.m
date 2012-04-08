@@ -46,7 +46,7 @@ typedef struct _mo_position {
 	int32_t magic = 0x950412de, bufsize = 0, newbufsize, originals_lengths_length, translations_lenghts_length;
 	char* buf = NULL;
 	BOOL is_little_endian = FALSE, retval = FALSE;
-	NSString* original_string = nil, *translation_string = nil;
+	NSString* original_string = nil;//, *translation_string = nil;
 	TranslationEntry* entry;
 
 	FILE* fp = fopen([filename cStringUsingEncoding:NSUTF8StringEncoding], "rb");
@@ -132,7 +132,8 @@ typedef struct _mo_position {
 		// parse header from translation string
 		if(originals[i].length == 0)
 		{
-			translation_string = [NSString stringWithUTF8String:buf];
+			// @TODO: figure out what it means and why it's here
+			//translation_string = [NSString stringWithUTF8String:buf];
 		} 
 		else // otherwise build entry
 		{
@@ -164,9 +165,9 @@ typedef struct _mo_position {
 		headers_length = headers_end_pos - headers_start_pos;
 	
 	fseek(fp, headers_start_pos, SEEK_SET); // pass \0 to read headers
-	if(headers_length && !feof(fp))
+	if(headers_length > 0 && !feof(fp))
 	{
-		if(bufsize < headers_length) {
+		if(bufsize < headers_length + 1) {
 			bufsize = headers_length + 1;
 			if(buf)
 				buf = realloc(buf, bufsize);
