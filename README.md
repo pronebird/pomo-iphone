@@ -7,20 +7,17 @@ POMO-iphone is a gettext reader for iPhone written in Obj-C/C++. It supposed to 
 See GettextHelpers.h and TranslationCenter.h
 
 `
+// we import TranslationCenter only to load textdomain, 
+// so you'll need it probably once
 #import "TranslationCenter.h"
-#import "GettextHelpers.h"
 
-// this is your app domain
-// you can have multiple domains within app
-#define TEXTDOMAIN @"domain"
+#import "GettextHelpers.h"
 
 ...
 
 TranslationCenter* translator = [TranslationCenter sharedCenter];
-translator.defaultPath = @"/path/to/translations/folder/"; // bundle path by default
-translator.locale = @"en_US"; // current locale by default
 
-// will load domain-en_US.mo or domain-en_US.po if there no .mo available
+// here we load default textdomain, TEXTDOMAIN constant defined in GettextHelpers.h
 [translator loadTextDomain:TEXTDOMAIN];
 
 int num_apples = 10;
@@ -29,9 +26,20 @@ NSLog(@"Gettext translated string: %@", ___(@"Hi, this is gettext!", TEXTDOMAIN)
 NSLog(@"Gettext translated plural: %@", __n(@"%d apple", @"%d apples", num_apples, TEXTDOMAIN));
 `
 
+= TranslationCenter =
+
+TranslationCenter used to load textdomains and translate strings, it has few options that you can override, to obtain shared center use following code:
+
+`TranslationCenter* translator = [TranslationCenter sharedCenter];`
+
+`translator.defaultPath` - by default it contains path to your app bundle
+`translator.locale` - by default it contains current UI language
+
+You can use TranslationCenter directly to translate strings, however it's not really pleasant, so I suggest to use GettextHelpers which provide bunch of shorthandle functions.
+
 = Single textdomain shorthandles =
 
-Single textdomain shorthandles use DEFAULT_TEXTDOMAIN ('default') for textdomain
+Single textdomain shorthandles use default textdomain and help you to keep your code shorter if you don't need more than one textdomain in your app.
 
 `__(singular)` - single string translation
 `_n(singular, plural, number)` - plural translation
@@ -40,7 +48,7 @@ Single textdomain shorthandles use DEFAULT_TEXTDOMAIN ('default') for textdomain
 
 = Other shorthandles with custom textdomain =
 
-Using these functions you must explicitly specify textdomain, useful if you have many textdomains, for example, translation splitted on many .po files.
+Using following functions you must explicitly specify textdomain, useful if you have many textdomains in your app:
 
 `___(singular, textdomain)` - single string translation
 `__n(singular, plural, number, textdomain)` - plural translation
@@ -49,12 +57,17 @@ Using these functions you must explicitly specify textdomain, useful if you have
 
 == Textdomain lookup alghorithm ==
 
-If you don't need more than one textdomain in your app then you can use Single textdomain shorthandles to make your life easier, in this case, by default, TranslationCenter will be looking for .mo or .po files with the following pattern: 
+TranslationCenter looks for .mo or .po files with the following pattern: 
 
-`%{app-bundle-path}/default-%{language}.%{format}.`
+`%{app-bundle-path}/${textdomain}-%{language}.%{format}.`
 
 where %{language} is two letter code (e.g. ru, en, es, etc..)
-%{format} is "mo" or "po". Mo files have bigger priority since it's more compact format and supposed to be used for distribution with apps.
+%{format} is "mo" or "po". Mo files have bigger priority since it's more compact format and supposed to be used for distribution.
+${textdomain} - default or your own textdomain that you specify in your source code
+
+Example path may look like that:
+
+`/MyApp.app/default-es.mo`
 
 == Compilation notes ==
 
@@ -72,28 +85,28 @@ More info here: https://developer.apple.com/library/mac/#qa/qa2006/qa1490.html
 
 == Poedit Settings ==
 
-If you use Poedit, follow the instructions below to setup Objective-C parser for it:
+If you use Poedit, follow the instructions below to setup Objective-C parser. 
 
-Go to Poedit > Preferences and add new parser, I use similar parser as C/C++ that's already there.
+1. Go to Poedit > Preferences and add new parser with the following settings:
 
-List of extensions:
+2. List of extensions:
 `*.m;*.mm;*.c;*.h;`
 
-Parser command:
+3. Parser command:
 `xgettext --force-po -o %o %C %K %F -L ObjectiveC`
 
-An item in keywords list:
+4. An item in keywords list:
 `-k%k`
 
-An item in input files:
+5. An item in input files:
 `%f`
 
-Source code charset:
+6. Source code charset:
 `--from-code=%c`
 
-== Catalog Settings ==
+== Poedit Catalog Settings ==
 
-Setup the following keywords:
+Setup the following keywords for your catalog to make Poedit work with your source code:
 
 `
 __
