@@ -7,7 +7,7 @@ POMO-iphone is a gettext reader for iPhone written in Obj-C/C++. It supposed to 
 See GettextHelpers.h and TranslationCenter.h
 
 `
-// we import TranslationCenter only to load textdomain, 
+// we import TranslationCenter only to load textdomain,
 // so you'll need it probably once
 #import "TranslationCenter.h"
 
@@ -32,8 +32,8 @@ TranslationCenter used to load textdomains and translate strings, it has few opt
 
 `TranslationCenter* translator = [TranslationCenter sharedCenter];`
 
-`translator.defaultPath` - by default it contains path to your app bundle
-`translator.locale` - by default it contains current UI language
+`translator.defaultPath` - by default it's path to your app bundle
+`translator.language` - by default it's current UI language
 
 You can use TranslationCenter directly to translate strings, however it's not really pleasant, so I suggest to use GettextHelpers which provide bunch of shorthandle functions.
 
@@ -57,7 +57,7 @@ Using following functions you must explicitly specify textdomain, useful if you 
 
 == Textdomain lookup alghorithm ==
 
-TranslationCenter looks for .mo or .po files with the following pattern: 
+TranslationCenter looks for .mo or .po files with the following pattern:
 
 `%{app-bundle-path}/${textdomain}-%{language}.%{format}.`
 
@@ -71,7 +71,7 @@ Example path may look like that:
 
 == Compilation notes ==
 
-1. It's necessary to use additional linker flag for your project otherwise you'll catch crash on first invocation, for some reason RegexKitLite NSString category doesn't exist after compilation. Add this to other linker flags of your app: 
+1. It's necessary to use additional linker flag for your project otherwise you'll catch crash on first invocation, for some reason RegexKitLite NSString category doesn't exist after compilation. Add this to other linker flags of your app:
 
 `-ObjC`
 
@@ -81,11 +81,11 @@ More info here: https://developer.apple.com/library/mac/#qa/qa2006/qa1490.html
 
 3. Link your app against libstdc++.dylib, there are bits of C++ inside.
 
-4. Pomo-iphone depends on muparser-iphone. So at the end you'll have a workspace with muparser-iphone and pomo-iphone compiled in the same order. 
+4. Pomo-iphone depends on muparser-iphone. So at the end you'll have a workspace with muparser-iphone and pomo-iphone compiled in the same order.
 
 == Poedit Settings ==
 
-If you use Poedit, follow the instructions below to setup Objective-C parser. 
+If you use Poedit, follow the instructions below to setup Objective-C parser.
 
 1. Go to Poedit > Preferences and add new parser with the following settings:
 
