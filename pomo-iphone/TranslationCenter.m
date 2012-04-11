@@ -22,9 +22,9 @@ static NOOPTranslations* sharedNOOPTranslations = nil;
 
 
 @implementation TranslationCenter
-@synthesize defaultPath;
-@synthesize domains;
-@synthesize locale;
+@synthesize defaultPath = _defaultPath;
+@synthesize domains = _domains;
+@synthesize language = _language;
 
 + (id)sharedCenter
 {
@@ -36,11 +36,11 @@ static NOOPTranslations* sharedNOOPTranslations = nil;
 
 + (NSString*)stringFullPath:(NSString*)path 
 				  forDomain:(NSString*)domain 
-					 locale:(NSString*)locale 
+					 language:(NSString*)language 
 					   type:(NSString*)ext
 {
 	return [path stringByAppendingPathComponent:
-				[NSString stringWithFormat:@"%@-%@.%@", domain, locale, 
+				[NSString stringWithFormat:@"%@-%@.%@", domain, language, 
 				 ext ? [ext lowercaseString] : @"mo"]];
 }
 
@@ -53,7 +53,7 @@ static NOOPTranslations* sharedNOOPTranslations = nil;
 		if(sharedNOOPTranslations == nil)
 			sharedNOOPTranslations = [[NOOPTranslations alloc] init];
 
-		self.locale = [[NSLocale preferredLanguages] objectAtIndex:0];
+		self.language = [[NSLocale preferredLanguages] objectAtIndex:0];
 		self.defaultPath = [[NSBundle mainBundle] bundlePath];
 		self.domains = [[[NSMutableDictionary alloc] initWithCapacity:10] autorelease];
 	}
@@ -65,7 +65,7 @@ static NOOPTranslations* sharedNOOPTranslations = nil;
 {
 	self.domains = nil;
 	self.defaultPath = nil;
-	self.locale = nil;
+	self.language = nil;
 	
 	[super dealloc];
 }
@@ -77,10 +77,10 @@ static NOOPTranslations* sharedNOOPTranslations = nil;
 - (BOOL)loadTextDomain:(NSString*)domain
 {
 	NSFileManager* fileManager = [NSFileManager defaultManager];
-	NSString* path = [TranslationCenter stringFullPath:self.defaultPath forDomain:domain locale:self.locale type:@"mo"];
+	NSString* path = [TranslationCenter stringFullPath:self.defaultPath forDomain:domain language:self.language type:@"mo"];
 	
 	if(![fileManager fileExistsAtPath:path]) {
-		path = [TranslationCenter stringFullPath:self.defaultPath forDomain:domain locale:self.locale type:@"po"];
+		path = [TranslationCenter stringFullPath:self.defaultPath forDomain:domain language:self.language type:@"po"];
 		if(![fileManager fileExistsAtPath:path])
 			return FALSE;
 	}

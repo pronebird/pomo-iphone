@@ -9,19 +9,19 @@
 #import <Foundation/Foundation.h>
 
 @interface TranslationCenter : NSObject {
-    NSMutableDictionary* domains;
-	NSString* defaultPath;
-	NSString* locale;
+    NSMutableDictionary* _domains;
+	NSString* _defaultPath;
+	NSString* _language;
 }
 
 @property (readwrite, nonatomic, retain) NSString* defaultPath;
-@property (readwrite, nonatomic, retain) NSString* locale;
+@property (readwrite, nonatomic, retain) NSString* language;
 @property (readonly, nonatomic, retain) NSMutableDictionary* domains;
 
 + (id)sharedCenter;
 + (NSString*)stringFullPath:(NSString*)path 
 				  forDomain:(NSString*)domain 
-					 locale:(NSString*)locale 
+					 language:(NSString*)language 
 					   type:(NSString*)ext;
 
 - (id)init;
