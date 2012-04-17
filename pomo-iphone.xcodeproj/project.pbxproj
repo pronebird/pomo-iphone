@@ -261,6 +261,7 @@
 					"$(inherited)",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = "";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -290,6 +291,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = "";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -311,6 +313,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "pomo-iphone/pomo-iphone-Prefix.pch";
+				GCC_THUMB_SUPPORT = NO;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"/tmp/xcode-build/libcocoapomo-eajutlollfdvurgdrmmuhernzqiz/Build/Products/Debug\"",
@@ -326,6 +329,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "pomo-iphone/pomo-iphone-Prefix.pch";
+				GCC_THUMB_SUPPORT = NO;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"/tmp/xcode-build/libcocoapomo-eajutlollfdvurgdrmmuhernzqiz/Build/Products/Debug\"",
