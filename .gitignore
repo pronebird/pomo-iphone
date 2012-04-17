@@ -1,0 +1,7 @@
+build/
+*.pbxuser
+*.perspectivev3
+xcuserdata
+*.xcscheme
+*.xcsettings
+.DS_Store
