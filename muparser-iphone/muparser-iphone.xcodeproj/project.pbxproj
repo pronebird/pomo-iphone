@@ -291,6 +291,7 @@
 				EXECUTABLE_PREFIX = lib;
 				GCC_THUMB_SUPPORT = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};

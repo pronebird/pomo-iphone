@@ -29,7 +29,7 @@
 		58540DA71530B61300677F53 /* TranslationsProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 58540D8B1530B61300677F53 /* TranslationsProtocol.h */; };
 		5877C32715321ACB00B732FB /* RegexKitLite.h in Headers */ = {isa = PBXBuildFile; fileRef = 5877C31D15321ACB00B732FB /* RegexKitLite.h */; };
 		5877C32815321ACB00B732FB /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 5877C31F15321ACB00B732FB /* RegexKitLite.m */; };
-		5894999915322E8200770CCD /* libmuparser-iphone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5894999815322E8200770CCD /* libmuparser-iphone.a */; };
+		58B5D860153F733900D2AB33 /* libmuparser-iphone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58B5D85F153F733900D2AB33 /* libmuparser-iphone.a */; };
 		58D6A77D15325175008DFB9F /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 58540E5B1531C37E00677F53 /* libicucore.dylib */; };
 /* End PBXBuildFile section */
 
@@ -58,7 +58,7 @@
 		58540E5B1531C37E00677F53 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		5877C31D15321ACB00B732FB /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
 		5877C31F15321ACB00B732FB /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
-		5894999815322E8200770CCD /* libmuparser-iphone.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libmuparser-iphone.a"; path = "/tmp/xcode-build/VKAudio-bydicldaloefoocxxkurpqnjkxam/Build/Products/Debug-iphoneos/libmuparser-iphone.a"; sourceTree = "<absolute>"; };
+		58B5D85F153F733900D2AB33 /* libmuparser-iphone.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libmuparser-iphone.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,8 +66,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58B5D860153F733900D2AB33 /* libmuparser-iphone.a in Frameworks */,
 				58D6A77D15325175008DFB9F /* libicucore.dylib in Frameworks */,
-				5894999915322E8200770CCD /* libmuparser-iphone.a in Frameworks */,
 				58540D631530B4FA00677F53 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -95,8 +95,8 @@
 		58540D011530B33C00677F53 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5894999815322E8200770CCD /* libmuparser-iphone.a */,
 				58540E5B1531C37E00677F53 /* libicucore.dylib */,
+				58B5D85F153F733900D2AB33 /* libmuparser-iphone.a */,
 				58540D041530B33C00677F53 /* Other Frameworks */,
 			);
 			name = Frameworks;
@@ -319,6 +319,7 @@
 					"\"/tmp/xcode-build/libcocoapomo-eajutlollfdvurgdrmmuhernzqiz/Build/Products/Debug\"",
 					"\"/tmp/xcode-build/pomo-iphone-dvrjfbgrsjigkigxekbtlaklpsty/Build/Products/Debug-iphoneos\"",
 					"\"/tmp/xcode-build/VKAudio-bydicldaloefoocxxkurpqnjkxam/Build/Products/Debug-iphoneos\"",
+					"\"/tmp/xcode-build/pomo-iphone-aggcmxuaupmicsgpozhyiqxuyyxf/Build/Products/Debug-iphoneos\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -335,8 +336,10 @@
 					"\"/tmp/xcode-build/libcocoapomo-eajutlollfdvurgdrmmuhernzqiz/Build/Products/Debug\"",
 					"\"/tmp/xcode-build/pomo-iphone-dvrjfbgrsjigkigxekbtlaklpsty/Build/Products/Debug-iphoneos\"",
 					"\"/tmp/xcode-build/VKAudio-bydicldaloefoocxxkurpqnjkxam/Build/Products/Debug-iphoneos\"",
+					"\"/tmp/xcode-build/pomo-iphone-aggcmxuaupmicsgpozhyiqxuyyxf/Build/Products/Debug-iphoneos\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
