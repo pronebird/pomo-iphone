@@ -314,13 +314,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "pomo-iphone/pomo-iphone-Prefix.pch";
 				GCC_THUMB_SUPPORT = NO;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"/tmp/xcode-build/libcocoapomo-eajutlollfdvurgdrmmuhernzqiz/Build/Products/Debug\"",
-					"\"/tmp/xcode-build/pomo-iphone-dvrjfbgrsjigkigxekbtlaklpsty/Build/Products/Debug-iphoneos\"",
-					"\"/tmp/xcode-build/VKAudio-bydicldaloefoocxxkurpqnjkxam/Build/Products/Debug-iphoneos\"",
-					"\"/tmp/xcode-build/pomo-iphone-aggcmxuaupmicsgpozhyiqxuyyxf/Build/Products/Debug-iphoneos\"",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -331,13 +325,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "pomo-iphone/pomo-iphone-Prefix.pch";
 				GCC_THUMB_SUPPORT = NO;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"/tmp/xcode-build/libcocoapomo-eajutlollfdvurgdrmmuhernzqiz/Build/Products/Debug\"",
-					"\"/tmp/xcode-build/pomo-iphone-dvrjfbgrsjigkigxekbtlaklpsty/Build/Products/Debug-iphoneos\"",
-					"\"/tmp/xcode-build/VKAudio-bydicldaloefoocxxkurpqnjkxam/Build/Products/Debug-iphoneos\"",
-					"\"/tmp/xcode-build/pomo-iphone-aggcmxuaupmicsgpozhyiqxuyyxf/Build/Products/Debug-iphoneos\"",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
