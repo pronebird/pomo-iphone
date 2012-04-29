@@ -68,7 +68,7 @@ Using following functions you must explicitly specify textdomain, useful if you 
 
 TranslationCenter looks for .mo or .po files with the following pattern:
 
-`%{app-bundle-path}/%{textdomain}-%{language}.%{format}.`
+`%{app-bundle-path}/%{textdomain}-%{language}.%{format}`
 
 where %{language} is two letter code (e.g. ru, en, es, etc..)
 %{format} is "mo" or "po". Mo files have bigger priority since it's more compact format and supposed to be used for distribution.
