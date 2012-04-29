@@ -64,7 +64,7 @@ Using following functions you must explicitly specify textdomain, useful if you 
 
 `__nx(singular, plural, number, context, textdomain)` - plural translation with context
 
-## Textdomain lookup alghorithm
+## Textdomain lookup algorithm
 
 TranslationCenter looks for .mo or .po files with the following pattern:
 
