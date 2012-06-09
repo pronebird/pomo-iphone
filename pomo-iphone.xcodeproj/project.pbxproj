@@ -27,8 +27,6 @@
 		58540DA51530B61300677F53 /* Translations.h in Headers */ = {isa = PBXBuildFile; fileRef = 58540D891530B61300677F53 /* Translations.h */; };
 		58540DA61530B61300677F53 /* Translations.m in Sources */ = {isa = PBXBuildFile; fileRef = 58540D8A1530B61300677F53 /* Translations.m */; };
 		58540DA71530B61300677F53 /* TranslationsProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 58540D8B1530B61300677F53 /* TranslationsProtocol.h */; };
-		5877C32715321ACB00B732FB /* RegexKitLite.h in Headers */ = {isa = PBXBuildFile; fileRef = 5877C31D15321ACB00B732FB /* RegexKitLite.h */; };
-		5877C32815321ACB00B732FB /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 5877C31F15321ACB00B732FB /* RegexKitLite.m */; };
 		58B5D860153F733900D2AB33 /* libmuparser-iphone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58B5D85F153F733900D2AB33 /* libmuparser-iphone.a */; };
 		58D6A77D15325175008DFB9F /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 58540E5B1531C37E00677F53 /* libicucore.dylib */; };
 /* End PBXBuildFile section */
@@ -56,8 +54,6 @@
 		58540D8A1530B61300677F53 /* Translations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Translations.m; path = "pomo-iphone/Translations.m"; sourceTree = SOURCE_ROOT; };
 		58540D8B1530B61300677F53 /* TranslationsProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TranslationsProtocol.h; path = "pomo-iphone/TranslationsProtocol.h"; sourceTree = SOURCE_ROOT; };
 		58540E5B1531C37E00677F53 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
-		5877C31D15321ACB00B732FB /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
-		5877C31F15321ACB00B732FB /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
 		58B5D85F153F733900D2AB33 /* libmuparser-iphone.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libmuparser-iphone.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -113,7 +109,6 @@
 		58540D081530B33C00677F53 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				5877C31215321ACB00B732FB /* RegexKitLite */,
 				58540D6C1530B61300677F53 /* GettextHelpers.h */,
 				58540D6D1530B61300677F53 /* GettextHelpers.m */,
 				58540D6E1530B61300677F53 /* GettextTranslations.h */,
@@ -146,16 +141,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		5877C31215321ACB00B732FB /* RegexKitLite */ = {
-			isa = PBXGroup;
-			children = (
-				5877C31D15321ACB00B732FB /* RegexKitLite.h */,
-				5877C31F15321ACB00B732FB /* RegexKitLite.m */,
-			);
-			name = RegexKitLite;
-			path = "pomo-iphone/RegexKitLite";
-			sourceTree = SOURCE_ROOT;
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -174,7 +159,6 @@
 				58540DA31530B61300677F53 /* TranslationEntry.h in Headers */,
 				58540DA51530B61300677F53 /* Translations.h in Headers */,
 				58540DA71530B61300677F53 /* TranslationsProtocol.h in Headers */,
-				5877C32715321ACB00B732FB /* RegexKitLite.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,7 +220,6 @@
 				58540DA21530B61300677F53 /* TranslationCenter.m in Sources */,
 				58540DA41530B61300677F53 /* TranslationEntry.m in Sources */,
 				58540DA61530B61300677F53 /* Translations.m in Sources */,
-				5877C32815321ACB00B732FB /* RegexKitLite.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

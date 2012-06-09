@@ -7,7 +7,6 @@
 //
 
 #import "GettextTranslations.h"
-#import "RegexKitLite.h"
 
 using namespace mu;
 
@@ -46,19 +45,37 @@ using namespace mu;
 	[super dealloc];
 }
 
+- (NSDictionary*)_scanPluralFormsString:(NSString*)src
+{
+	NSMutableDictionary* result = [[[NSMutableDictionary alloc] init] autorelease];
+	NSArray* strings = [src componentsSeparatedByString:@";"];
+	NSCharacterSet* charset = [NSCharacterSet whitespaceAndNewlineCharacterSet];
+	
+	for(NSString* str in strings) 
+	{
+		NSScanner* scanner = [NSScanner scannerWithString:str];
+		NSString* key = nil;
+		
+		if([scanner scanUpToString:@"=" intoString:&key]) 
+		{
+			[result setObject:[[str substringFromIndex:scanner.scanLocation+1] stringByTrimmingCharactersInSet:charset] 
+					   forKey:[key stringByTrimmingCharactersInSet:charset]];
+		}
+	}
+	
+	return result;
+}
+
 - (void)setHeader:(NSString*)header value:(NSString*)value
 {
 	[super setHeader:header value:value];
 	
 	if([header isEqualToString:@"Plural-Forms"])
 	{
-		NSString *regEx = @"^\\s*nplurals\\s*=\\s*(\\d+)\\s*;\\s+plural\\s*=\\s*(.+)$",
-				*nplurals = nil, *rule = nil;
+		NSDictionary* dict = [self _scanPluralFormsString:[self header:header]];		
+		NSString* nplurals = [dict objectForKey:@"nplurals"];
+		NSString* rule = [dict objectForKey:@"plural"];
 		
-		value = [self header:header];
-		nplurals =  [value stringByMatching:regEx capture:1];
-		rule =  [value stringByMatching:regEx capture:2];
-
 		if(nplurals)
 			self.numPlurals = (NSUInteger)[nplurals integerValue];
 		else
@@ -71,8 +88,10 @@ using namespace mu;
 			mParser->SetExpr([self.pluralRule UTF8String]);
 		}
 		else
+		{
 			self.pluralRule = nil;
-
+		}
+		
 		NSLog(@"nplurals: %@. rule: %@", nplurals, rule);
 	}
 }

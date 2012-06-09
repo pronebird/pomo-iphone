@@ -189,7 +189,7 @@ typedef struct _mo_position {
 		fread(headers_buf, 1, headers_length, fp);
 		headers_buf[headers_length] = '\0';
 		
-		headersArray = [[NSString stringWithCString:buf encoding:NSUTF8StringEncoding] 
+		headersArray = [[NSString stringWithCString:headers_buf encoding:NSUTF8StringEncoding] 
 				   componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
 		
 		for(NSString* str in headersArray)
