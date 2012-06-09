@@ -12,7 +12,7 @@
 using namespace mu;
 
 @interface GettextTranslations()
-@property (readwrite, assign) u_short numPlurals;
+@property (readwrite, assign) NSUInteger numPlurals;
 @property (readwrite, retain) NSString* pluralRule;
 @end
 
@@ -60,7 +60,7 @@ using namespace mu;
 		rule =  [value stringByMatching:regEx capture:2];
 
 		if(nplurals)
-			self.numPlurals = (u_short)[nplurals integerValue];
+			self.numPlurals = (NSUInteger)[nplurals integerValue];
 		else
 			self.numPlurals = 0;
 		
@@ -77,7 +77,7 @@ using namespace mu;
 	}
 }
 
-- (u_short)selectPluralForm:(NSInteger)count
+- (NSUInteger)selectPluralForm:(NSInteger)count
 {
 	double retval;
 	
@@ -90,7 +90,7 @@ using namespace mu;
 			retval = mParser->Eval();
 			//std::cout << "retval for " << count << " is " << retval << std::endl;
 			
-			return (short)retval;
+			return (NSUInteger)retval;
 		}
 		catch (mu::ParserInt::exception_type &e)
 		{

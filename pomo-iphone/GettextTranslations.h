@@ -20,20 +20,20 @@
 #endif
 
 @interface GettextTranslations : Translations {
-    u_short numPlurals;
+    NSUInteger numPlurals;
 	NSString* pluralRule;
 	
 @private
 	OPAQUE_MU_PARSER * mParser;
 }
 
-@property (readonly, assign) u_short numPlurals;
+@property (readonly, assign) NSUInteger numPlurals;
 @property (readonly, retain) NSString* pluralRule;
 
 - (id)init;
 - (void)dealloc;
 
 - (void)setHeader:(NSString*)header value:(NSString*)value;
-- (u_short)selectPluralForm:(NSInteger)count;
+- (NSUInteger)selectPluralForm:(NSInteger)count;
 
 @end

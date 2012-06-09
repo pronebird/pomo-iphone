@@ -61,12 +61,12 @@
 	return [self.headers objectForKey:header];
 }
 
-- (u_short)selectPluralForm:(NSInteger)count
+- (NSUInteger)selectPluralForm:(NSInteger)count
 {
 	return count == 1 ? 0 : 1;
 }
 
-- (u_short)numPlurals
+- (NSUInteger)numPlurals
 {
 	return 2;
 }
@@ -96,8 +96,8 @@
 	NSString* key = [TranslationEntry stringKey:singular context:context];
 	TranslationEntry* entry = nil;
 	
-	u_short index = [self selectPluralForm:count];
-	u_short nplurals = [self numPlurals];
+	NSUInteger index = [self selectPluralForm:count], 
+			nplurals = [self numPlurals];
 	
 	if(key != nil && (entry = [self.entries objectForKey:key]) != nil && 
 	   index < nplurals && index < entry.translations.count)

@@ -25,8 +25,8 @@
 - (void)setHeader:(NSString*)header value:(NSString*)value;
 - (NSString*)header:(NSString*)header;
 
-- (u_short)selectPluralForm:(NSInteger)count;
-- (u_short)numPlurals;
+- (NSUInteger)selectPluralForm:(NSInteger)count;
+- (NSUInteger)numPlurals;
 
 - (NSString*)translate:(NSString*)singular;
 - (NSString*)translate:(NSString*)singular context:(NSString*)context;

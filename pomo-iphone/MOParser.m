@@ -41,13 +41,24 @@ typedef struct _mo_position {
 
 - (BOOL)importFileAtPath:(NSString*)filename
 {
-	mo_header mo;
-	mo_position* originals = NULL, *translations = NULL;
-	int32_t magic = 0x950412de, bufsize = 0, newbufsize, originals_lengths_length, translations_lenghts_length;
-	char* buf = NULL;
-	BOOL is_little_endian = FALSE, retval = FALSE;
-	NSString* original_string = nil;//, *translation_string = nil;
 	TranslationEntry* entry;
+	mo_header mo;
+	mo_position* originals = NULL, 
+				*translations = NULL;
+	char* buf = NULL, 
+		*headers_buf = NULL;
+	int32_t magic = 0x950412de, 
+			bufsize = 0, 
+			newbufsize = 0, 
+			originals_lengths_length = 0, 
+			translations_lenghts_length = 0,
+			headers_start_pos = 0, 
+			headers_end_pos = 0, 
+			headers_length = 0;
+	BOOL is_little_endian = FALSE, 
+		 retval = FALSE;
+	NSString* original_string = nil;//, *translation_string = nil;
+	NSArray* headersArray = nil;
 
 	FILE* fp = fopen([filename cStringUsingEncoding:NSUTF8StringEncoding], "rb");
 
@@ -77,7 +88,7 @@ typedef struct _mo_position {
 		mo.hash_table_addr = OSSwapInt32(mo.hash_table_addr);
 	}
 	
-	// support revision 0 of MO format specs only
+	// support revision 0 only
 	if(mo.revision != 0) {
 		//NSLog(@"Unsupported mo.revision: %d", mo.revision);
 		goto cleanup;
@@ -159,41 +170,39 @@ typedef struct _mo_position {
 	}
 	
 	// read headers
-	int headers_start_pos = ftell(fp)+1;
+	headers_start_pos = ftell(fp)+1;
+	
 	fseek(fp, 0, SEEK_END);
-	int headers_end_pos = ftell(fp),
-		headers_length = headers_end_pos - headers_start_pos;
+	
+	headers_end_pos = ftell(fp);
+	headers_length = headers_end_pos - headers_start_pos;
 	
 	fseek(fp, headers_start_pos, SEEK_SET); // pass \0 to read headers
+	
 	if(headers_length > 0 && !feof(fp))
 	{
-		if(bufsize < headers_length + 1) {
-			bufsize = headers_length + 1;
-			if(buf)
-				buf = realloc(buf, bufsize);
-			else
-				buf = malloc(bufsize);
-		}
+		headers_buf = malloc(headers_length + 1);
+		
 		// there supposed to be some trash at the end of file
 		// however it's separated from headers by \0
-		// so we have small overhead..
-		fread(buf, 1, headers_length, fp);
-		buf[headers_length] = '\0';
+		// so we have small overhead while reading all of this..
+		fread(headers_buf, 1, headers_length, fp);
+		headers_buf[headers_length] = '\0';
 		
-		NSArray* strings = [[NSString stringWithCString:buf encoding:NSUTF8StringEncoding] componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
+		headersArray = [[NSString stringWithCString:buf encoding:NSUTF8StringEncoding] 
+				   componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
 		
-		for(NSString* str in strings)
+		for(NSString* str in headersArray)
 		{
 			NSArray* arr = [self splitString:str separator:@":"];
 			
 			if(arr.count < 2)
 				continue;
 			
-			NSString* value = [[arr objectAtIndex:1] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-			
 			//NSLog(@"Header %@ found: %@", [arr objectAtIndex:0], value);
 			
-			[self setHeader:[arr objectAtIndex:0] value:value];
+			[self setHeader:[arr objectAtIndex:0] 
+					  value:[[arr objectAtIndex:1] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
 		}
 	}
 	
@@ -204,6 +213,7 @@ cleanup:
 	free(originals);
 	free(translations);
 	free(buf);
+	free(headers_buf);
 
 	fclose(fp);
 	
