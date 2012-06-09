@@ -14,8 +14,8 @@
 	NSString* _language;
 }
 
-@property (readwrite, nonatomic, retain) NSString* defaultPath;
-@property (readwrite, nonatomic, retain) NSString* language;
+@property (readwrite, nonatomic, copy) NSString* defaultPath;
+@property (readwrite, nonatomic, copy) NSString* language;
 @property (readonly, nonatomic, retain) NSMutableDictionary* domains;
 
 + (id)sharedCenter;
@@ -30,7 +30,8 @@
 - (BOOL)isValidTextDomain:(NSString*)domain;
 
 - (BOOL)loadTextDomain:(NSString*)domain;
-- (BOOL)loadTextDomain:(NSString*)domain path:(NSString*)path;
+- (BOOL)loadTextDomain:(NSString*)domain 
+				  path:(NSString*)path;
 - (BOOL)unloadTextDomain:(NSString*)domain;
 
 - (NSString*)translate:(NSString*)singular 

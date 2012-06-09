@@ -39,7 +39,8 @@
 - (NSString*)key;
 
 + (NSString*)stringKey:(NSString*)singular;
-+ (NSString*)stringKey:(NSString*)singular context:(NSString*)context;
++ (NSString*)stringKey:(NSString*)singular 
+			   context:(NSString*)context;
 
 - (void)debugPrint;
 

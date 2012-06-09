@@ -88,7 +88,8 @@ static NOOPTranslations* sharedNOOPTranslations = nil;
 	return [self loadTextDomain:domain path:path];
 }
 
-- (BOOL)loadTextDomain:(NSString*)domain path:(NSString*)path
+- (BOOL)loadTextDomain:(NSString*)domain 
+				  path:(NSString*)path
 {
 	id<ParserProtocol> parser;
 	

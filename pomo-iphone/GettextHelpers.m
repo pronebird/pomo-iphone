@@ -25,16 +25,26 @@ NSString* _n(NSString* singular, NSString* plural, NSInteger n) {
 	return __n(singular, plural, n, DEFAULT_TEXTDOMAIN);
 }
 
-NSString* ___(NSString* singular, NSString* domain) {
-	return [[TranslationCenter sharedCenter] translate:singular domain:domain];
+NSString* ___(NSString* singular, NSString* domain) 
+{
+	return [[TranslationCenter sharedCenter] translate:singular 
+												domain:domain];
 }
 
-NSString* __x(NSString* singular, NSString* context, NSString* domain) {
-	return [[TranslationCenter sharedCenter] translate:singular context:context domain:domain];
+NSString* __x(NSString* singular, NSString* context, NSString* domain) 
+{
+	return [[TranslationCenter sharedCenter] translate:singular 
+											   context:context 
+												domain:domain];
 }
 
-NSString* __nx(NSString* singular, NSString* plural, NSInteger n, NSString* context, NSString* domain) {
-	return [[TranslationCenter sharedCenter] translatePlural:singular plural:plural count:n context:context domain:domain];
+NSString* __nx(NSString* singular, NSString* plural, NSInteger n, NSString* context, NSString* domain) 
+{
+	return [[TranslationCenter sharedCenter] translatePlural:singular 
+													  plural:plural 
+													   count:n 
+													 context:context 
+													  domain:domain];
 }
 
 NSString* __n(NSString* singular, NSString* plural, NSInteger n, NSString* domain) {

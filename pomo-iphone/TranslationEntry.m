@@ -65,7 +65,8 @@
 	return [self stringKey:singular context:nil];
 }
 
-+ (NSString*)stringKey:(NSString*)singular context:(NSString*)context
++ (NSString*)stringKey:(NSString*)singular 
+			   context:(NSString*)context
 {
 	if(singular == nil)
 		return nil;

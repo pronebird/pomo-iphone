@@ -22,14 +22,19 @@
 - (void)dealloc;
 
 - (void)addEntry:(TranslationEntry*)entry;
-- (void)setHeader:(NSString*)header value:(NSString*)value;
+- (void)setHeader:(NSString*)header 
+			value:(NSString*)value;
 - (NSString*)header:(NSString*)header;
 
 - (NSUInteger)selectPluralForm:(NSInteger)count;
 - (NSUInteger)numPlurals;
 
 - (NSString*)translate:(NSString*)singular;
-- (NSString*)translate:(NSString*)singular context:(NSString*)context;
-- (NSString*)translatePlural:(NSString*)singular plural:(NSString*)plural count:(NSInteger)count context:(NSString*)context;
+- (NSString*)translate:(NSString*)singular 
+			   context:(NSString*)context;
+- (NSString*)translatePlural:(NSString*)singular 
+					  plural:(NSString*)plural 
+					   count:(NSInteger)count 
+					 context:(NSString*)context;
 
 @end

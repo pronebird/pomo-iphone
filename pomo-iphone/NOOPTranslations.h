@@ -8,8 +8,8 @@
 
 #import "Translations.h"
 
-@interface NOOPTranslations : Translations {
-    
-}
+@interface NOOPTranslations : Translations
+
+// Null and void is what you've become
 
 @end

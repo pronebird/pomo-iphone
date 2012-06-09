@@ -51,7 +51,8 @@
 	[self.entries setObject:entry forKey:key];
 }
 
-- (void)setHeader:(NSString*)header value:(NSString*)value
+- (void)setHeader:(NSString*)header 
+			value:(NSString*)value
 {
 	[self.headers setObject:value forKey:header];
 }
@@ -76,7 +77,8 @@
 	return [self translate:singular context:nil];
 }
 
-- (NSString*)translate:(NSString*)singular context:(NSString*)context
+- (NSString*)translate:(NSString*)singular 
+			   context:(NSString*)context
 {
 	NSString* key = [TranslationEntry stringKey:singular context:context], *translated = nil;
 	TranslationEntry* entry = nil;
@@ -91,7 +93,10 @@
 	return translated ? translated : singular;
 }
 
-- (NSString*)translatePlural:(NSString*)singular plural:(NSString*)plural count:(NSInteger)count context:(NSString*)context
+- (NSString*)translatePlural:(NSString*)singular 
+					  plural:(NSString*)plural 
+					   count:(NSInteger)count 
+					 context:(NSString*)context
 {
 	NSString* key = [TranslationEntry stringKey:singular context:context];
 	TranslationEntry* entry = nil;
