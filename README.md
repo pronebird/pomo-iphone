@@ -78,19 +78,13 @@ Example path may look like that:
 
 `/MyApp.app/default-es.mo`
 
-## Compilation notes
-
-- It's necessary to use additional linker flag for your project otherwise you'll catch crash on first invocation, for some reason RegexKitLite NSString category doesn't exist after compilation. Add this to other linker flags of your app:
-
-`-ObjC`
-
-More info here: https://developer.apple.com/library/mac/#qa/qa2006/qa1490.html
-
-- Your app must be linked against libicucore.dlyb because RegexKitLite uses this library internally.
+## Build notes
 
 - Link your app against libstdc++.dylib, there are bits of C++ inside.
 
-- Pomo-iphone depends on muparser-iphone. So at the end you'll have a workspace with muparser-iphone and pomo-iphone compiled in the same order.
+- Pomo-iphone depends on muparser-iphone. So at the end you'll have a workspace with muparser-iphone and pomo-iphone compiled in the same order as mentioned.
+
+- Link your app against libpomo-iphone
 
 ## Poedit Settings
 
