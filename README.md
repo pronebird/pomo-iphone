@@ -107,6 +107,8 @@ Go to Poedit > Preferences and add new parser with the following settings:
 - Source code charset:
 `--from-code=%c`
 
+Also you can use --add-comments=/ flag in Parser commands to enable translators' comments. In this example all comments starting with triple slash will be treated as translators' comments.
+
 ## Poedit Catalog Settings
 
 Setup the following keywords for your catalog to make Poedit work with your source code:
