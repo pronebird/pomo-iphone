@@ -71,7 +71,7 @@ TranslationCenter looks for .mo or .po files with the following pattern:
 `%{app-bundle-path}/%{textdomain}-%{language}.%{format}`
 
 where %{language} is two letter code (e.g. ru, en, es, etc..)
-%{format} is "mo" or "po". Mo files have bigger priority since it's more compact format and supposed to be used for distribution.
+%{format} is "mo" or "po". Mo files have higher priority since it's more compact format and supposed to be used for distribution.
 %{textdomain} - default or your own textdomain that you specify in your source code
 
 Example path may look like that:
