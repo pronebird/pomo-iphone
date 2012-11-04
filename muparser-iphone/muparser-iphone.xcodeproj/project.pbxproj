@@ -275,23 +275,35 @@
 		58CD865A148A412700ED8EBC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					armv7,
+					armv7s,
+					armv6,
+				);
 				DYLIB_CURRENT_VERSION = 2.1.0;
 				"DYLIB_CURRENT_VERSION[sdk=*]" = 2.1.0;
 				EXECUTABLE_PREFIX = lib;
 				GCC_THUMB_SUPPORT = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "armv7 armv7s armv6";
 			};
 			name = Debug;
 		};
 		58CD865B148A412700ED8EBC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					armv7,
+					armv7s,
+					armv6,
+				);
 				DYLIB_CURRENT_VERSION = 2.1.0;
 				"DYLIB_CURRENT_VERSION[sdk=*]" = 2.1.0;
 				EXECUTABLE_PREFIX = lib;
 				GCC_THUMB_SUPPORT = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				VALID_ARCHS = "armv7 armv7s armv6";
 			};
 			name = Release;
 		};
