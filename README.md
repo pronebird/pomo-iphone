@@ -35,8 +35,8 @@ TranslationCenter is a manager for textdomains and strings' translations, it has
 
     TranslationCenter* translator = [TranslationCenter sharedCenter];
 
-`translator.defaultPath` - by default it's path to your app bundle
-`translator.language` - by default it's current UI language
+- `translator.defaultPath` - by default it's path to your app bundle
+- `translator.language` - by default it's current UI language
 
 You can use TranslationCenter directly to translate strings, however it's not really handy, so I suggest to use GettextHelpers which provides shorthandles for most used functions.
 
