@@ -1,6 +1,6 @@
 # POMO-iphone
 
-POMO-iphone is a gettext reader for iPhone written in Obj-C/C++. It supposed to be a good substitution for outdated Apple translation system. However I still use default mechanisms to translate settings.bundle and views, so this solution is not 100% perfect.
+POMO-iphone is a gettext reader for iPhone written in Obj-C/C++. It supposed to be a good substitution for outdated Apple translations system. However I still use default mechanisms to translate settings.bundle and views, so this solution is not 100% perfect.
 
 ## Basic usage
 
@@ -31,14 +31,14 @@ See [GettextHelpers.h](https://github.com/pronebird/pomo-iphone/blob/master/pomo
 
 ## TranslationCenter
 
-TranslationCenter used to load textdomains and translate strings, it has few options that you can override, to obtain shared center use following code:
+TranslationCenter is a manager for textdomains and strings' translations, it has few options that you can override. To obtain a shared center use the following code:
 
     TranslationCenter* translator = [TranslationCenter sharedCenter];
 
 `translator.defaultPath` - by default it's path to your app bundle
 `translator.language` - by default it's current UI language
 
-You can use TranslationCenter directly to translate strings, however it's not really pleasant, so I suggest to use GettextHelpers which provide bunch of shorthandle functions.
+You can use TranslationCenter directly to translate strings, however it's not really handy, so I suggest to use GettextHelpers which provides shorthandles for most used functions.
 
 ## Single textdomain shorthandles
 
@@ -66,13 +66,13 @@ Using following functions you must explicitly specify textdomain, useful if you 
 
 ## Textdomain lookup algorithm
 
-TranslationCenter looks for .mo or .po files with the following pattern:
+TranslationCenter looks for `.mo` or `.po` files with the following pattern:
 
-`%{app-bundle-path}/%{textdomain}-%{language}.%{format}`
+`%app-bundle-path/%textdomain-%language.%extension`
 
-where %{language} is two letter code (e.g. ru, en, es, etc..)
-%{format} is "mo" or "po". Mo files have higher priority since it's more compact format and supposed to be used for distribution.
-%{textdomain} - default or your own textdomain that you specify in your source code
+where `%language` is a language two letter code (e.g. ru, en, es, etc..)
+`%extension` is usually `mo` or `po`. `mo` files have higher priority since it's more compact format and supposed to be used for distribution.
+`%textdomain` - default or your own textdomain that you specify in your source code.
 
 Example path may look like that:
 
@@ -80,11 +80,11 @@ Example path may look like that:
 
 ## Build notes
 
-- Link your app against libstdc++.dylib, there are bits of C++ inside.
+- Link your app against `libstdc++.dylib`
 
-- Pomo-iphone depends on muparser-iphone. So at the end you'll have a workspace with muparser-iphone and pomo-iphone compiled in the same order as mentioned.
+- Pomo-iphone depends on `muparser-iphone`. So at the end you'll have a workspace with `muparser-iphone` and `pomo-iphone` compiled in the same order as mentioned.
 
-- Link your app against libpomo-iphone
+- Link your app against `libpomo-iphone`
 
 ## Poedit Settings
 
