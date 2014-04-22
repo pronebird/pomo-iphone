@@ -12,8 +12,6 @@
 
 @interface POParser : GettextTranslations<ParserProtocol>
 
-- (id)init;
-- (void)dealloc;
 - (BOOL)importFileAtPath:(NSString*)filename;
 
 @end
@@ -26,6 +24,5 @@
 - (NSString*)decodePOString:(NSString*)string;
 - (NSString*)encodePOString:(NSString*)string;
 
-- (NSArray*)splitString:(NSString*)string 
-			  separator:(NSString*)separator;
+- (NSArray*)splitString:(NSString*)string separator:(NSString*)separator;
 @end

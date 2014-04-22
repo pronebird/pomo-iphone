@@ -13,163 +13,129 @@
 #import "POParser.h"
 #import "MOParser.h"
 
-static TranslationCenter* sharedPtr = nil;
-static NOOPTranslations* sharedNOOPTranslations = nil;
+static NOOPTranslations* sharedNOOPTranslations;
 
 @interface TranslationCenter()
-@property (readwrite, nonatomic, retain) NSMutableDictionary* domains;
+@property (readwrite, nonatomic, strong) NSMutableDictionary* domains;
 @end
 
 
 @implementation TranslationCenter
-@synthesize defaultPath = _defaultPath;
-@synthesize domains = _domains;
-@synthesize language = _language;
 
-+ (id)sharedCenter
-{
-	if(sharedPtr == nil)
-		sharedPtr = [[TranslationCenter alloc] init];
-	
-	return sharedPtr;
++ (id)sharedCenter {
+	static TranslationCenter* sharedInstance;
+	static dispatch_once_t onceToken;
+	dispatch_once(&onceToken, ^{
+		sharedInstance = [self new];
+		sharedNOOPTranslations = [NOOPTranslations new];
+	});
+	return sharedInstance;
 }
 
-+ (NSString*)stringFullPath:(NSString*)path 
-				  forDomain:(NSString*)domain 
-					 language:(NSString*)language 
-					   type:(NSString*)ext
-{
-	return [path stringByAppendingPathComponent:
-				[NSString stringWithFormat:@"%@-%@.%@", domain, language, 
-				 ext ? [ext lowercaseString] : @"mo"]];
++ (NSString*)textDomainFileWithBasePath:(NSString*)path forDomain:(NSString*)domain language:(NSString*)language type:(NSString*)ext {
+	NSString* filename = [NSString stringWithFormat:@"%@-%@.%@", domain, language, ext ? [ext lowercaseString] : @"mo"];
+	return [path stringByAppendingPathComponent:filename];
 }
 
-- (id)init
-{
-	self = [super init];
-	
-	if(self) 
-	{
-		if(sharedNOOPTranslations == nil)
-			sharedNOOPTranslations = [[NOOPTranslations alloc] init];
-
-		self.language = [[NSLocale preferredLanguages] objectAtIndex:0];
+- (id)init {
+	if(self = [super init]) {
+		self.language = [[NSLocale preferredLanguages] firstObject];
 		self.defaultPath = [[NSBundle mainBundle] bundlePath];
-		self.domains = [[[NSMutableDictionary alloc] initWithCapacity:10] autorelease];
+		self.domains = [NSMutableDictionary new];
 	}
-	
 	return self;
 }
 
-- (void)dealloc
-{
-	self.domains = nil;
-	self.defaultPath = nil;
-	self.language = nil;
-	
-	[super dealloc];
-}
 
 - (BOOL)isValidTextDomain:(NSString*)domain {
 	return domain != nil && ![domain isEqualToString:@""];
 }
 
-- (BOOL)loadTextDomain:(NSString*)domain
-{
+- (BOOL)loadTextDomain:(NSString*)domain {
 	NSFileManager* fileManager = [NSFileManager defaultManager];
-	NSString* path = [TranslationCenter stringFullPath:self.defaultPath forDomain:domain language:self.language type:@"mo"];
+	NSString* path = [TranslationCenter textDomainFileWithBasePath:self.defaultPath forDomain:domain language:self.language type:@"mo"];
 	
 	if(![fileManager fileExistsAtPath:path]) {
-		path = [TranslationCenter stringFullPath:self.defaultPath forDomain:domain language:self.language type:@"po"];
-		if(![fileManager fileExistsAtPath:path])
-			return FALSE;
+		path = [TranslationCenter textDomainFileWithBasePath:self.defaultPath forDomain:domain language:self.language type:@"po"];
+		if(![fileManager fileExistsAtPath:path]) {
+			return NO;
+		}
 	}
 	
 	return [self loadTextDomain:domain path:path];
 }
 
-- (BOOL)loadTextDomain:(NSString*)domain 
-				  path:(NSString*)path
-{
+- (BOOL)loadTextDomain:(NSString*)domain path:(NSString*)path {
 	id<ParserProtocol> parser;
 	
-	if([path.pathExtension isEqualToString:@"mo"]) 
-		parser = [[[MOParser alloc] init] autorelease];
-	else if([path.pathExtension isEqualToString:@"po"]) 
-		parser = [[[POParser alloc] init] autorelease];
-	else
-		return FALSE;
+	if([path.pathExtension isEqualToString:@"mo"]) {
+		parser = [MOParser new];
+	} else if([path.pathExtension isEqualToString:@"po"]) {
+		parser = [POParser new];
+	} else {
+		return NO;
+	}
 	
 	NSLog(@"Loading %@ using %@", path, NSStringFromClass([parser class]));
 	
 	if([parser importFileAtPath:path]) {
 		[self.domains setObject:parser forKey:domain];
-		return TRUE;
+		return YES;
 	}
 	
-	return FALSE;
+	return NO;
 }
 
-- (BOOL)unloadTextDomain:(NSString*)domain
-{
+- (BOOL)unloadTextDomain:(NSString*)domain {
 	id obj = [self.domains objectForKey:domain];
 
-	if(obj != nil) 
-	{
+	if(obj != nil) {
 		[self.domains removeObjectForKey:domain];
-		return TRUE;
+		return YES;
 	}
 
-	return FALSE;
+	return NO;
 }
 
-- (NSString*)translate:(NSString*)singular 
-				domain:(NSString*)domain 
+- (NSString*)translate:(NSString*)singular domain:(NSString*)domain
 {
 	GettextTranslations* obj;
 	
-	if([self isValidTextDomain:domain])
-	{
+	if([self isValidTextDomain:domain]) {
 		obj = [self.domains objectForKey:domain];
 		
-		if(obj)
+		if(obj) {
 			return [obj translate:singular];
+		}
 	}
 	
 	return [sharedNOOPTranslations translate:singular];
 }
 
-- (NSString*)translate:(NSString*)singular 
-			   context:(NSString*)context 
-				domain:(NSString*)domain 
-{
+- (NSString*)translate:(NSString*)singular context:(NSString*)context domain:(NSString*)domain {
 	GettextTranslations* obj;
 	
-	if([self isValidTextDomain:domain])
-	{
+	if([self isValidTextDomain:domain]) {
 		obj = [self.domains objectForKey:domain];
 		
-		if(obj)
+		if(obj) {
 			return [obj translate:singular context:context];
+		}
 	}
 	
 	return [sharedNOOPTranslations translate:singular context:context];	
 }
 
-- (NSString*)translatePlural:(NSString*)singular 
-					  plural:(NSString*)plural 
-					   count:(NSInteger)count 
-					 context:(NSString*)context 
-					  domain:(NSString*)domain 
+- (NSString*)translatePlural:(NSString*)singular plural:(NSString*)plural count:(NSInteger)count context:(NSString*)context domain:(NSString*)domain
 {
 	GettextTranslations* obj;
 	
-	if([self isValidTextDomain:domain]) 
-	{
+	if([self isValidTextDomain:domain]) {
 		obj = [self.domains objectForKey:domain];
 		
-		if(obj)
+		if(obj) {
 			return [obj translatePlural:singular plural:plural count:count context:context];
+		}
 	}
 	
 	return [sharedNOOPTranslations translatePlural:singular plural:plural count:count context:context];

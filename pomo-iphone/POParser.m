@@ -10,20 +10,7 @@
 
 @implementation POParser
 
-- (id)init
-{
-	self = [super init];
-	
-	return self;
-}
-
-- (void)dealloc
-{
-	[super dealloc];
-}
-
-- (BOOL)importFileAtPath:(NSString*)filename
-{
+- (BOOL)importFileAtPath:(NSString*)filename {
 	TranslationEntry* entry = nil;
 	NSArray* split = nil;
 	NSError* err = nil;
@@ -40,21 +27,24 @@
 		}
 	}
 
-	return TRUE;
+	return YES;
 }
 
-- (TranslationEntry*)readEntry:(NSString*)entryString
-{
+- (TranslationEntry*)readEntry:(NSString*)entryString {
 	TranslationEntry* entry = nil;
 	NSArray* strings = [entryString componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
 	
-	for(NSString* str in strings)
+	for(NSString* s in strings)
 	{
-		if(!str.length)
+		NSString* str = s;
+		
+		if(!str.length) {
 			continue;
+		}
 			
-		if(!entry)
-			entry = [[[TranslationEntry alloc] init] autorelease];
+		if(!entry) {
+			entry = [TranslationEntry new];
+		}
 		
 		// parse header
 		if([str characterAtIndex:0] == '"' && [str characterAtIndex:str.length-1] == '"')
@@ -138,7 +128,7 @@
 			else if([key isEqualToString:@"msgid_plural"]) // msgid
 			{
 				entry.plural = [self decodeValueAndRemoveQuotes:value];
-				entry.is_plural = true;
+				entry.is_plural = YES;
 			}
 			else if(keylen >= 8 && [[key substringWithRange:NSMakeRange(0, 7)] isEqualToString:@"msgstr["])
 			{
@@ -150,21 +140,21 @@
 	return entry;
 }
 
-- (NSString*)decodeValueAndRemoveQuotes:(NSString*)string
-{
+- (NSString*)decodeValueAndRemoveQuotes:(NSString*)string {
 	NSUInteger x = 0, y = 0;
 	
 	string = [self decodePOString:string];
 	
 	y = string.length;
 	
-	if(y) 
-	{
-		if([string characterAtIndex:0] == '"')
+	if(y) {
+		if([string characterAtIndex:0] == '"') {
 			x++;
+		}
 		
-		if(x < y && [string characterAtIndex:string.length-1] == '"')
+		if(x < y && [string characterAtIndex:string.length-1] == '"') {
 			y--;
+		}
 		
 		string = [string substringWithRange:NSMakeRange(x, y-x)];
 	}
@@ -172,8 +162,7 @@
 	return string;
 }
 
-- (NSString*)decodePOString:(NSString*)string
-{
+- (NSString*)decodePOString:(NSString*)string {
 	string = [string stringByReplacingOccurrencesOfString:@"\\\\" withString:@"\\"];
 	string = [string stringByReplacingOccurrencesOfString:@"\\t" withString:@"\t"];
 	string = [string stringByReplacingOccurrencesOfString:@"\\n" withString:@"\n"];
@@ -182,8 +171,7 @@
 	return string;
 }
 
-- (NSString*)encodePOString:(NSString*)string
-{
+- (NSString*)encodePOString:(NSString*)string {
 	string = [string stringByReplacingOccurrencesOfString:@"\\" withString:@"\\\\"];
 	string = [string stringByReplacingOccurrencesOfString:@"\\t" withString:@"\t"];
 	string = [string stringByReplacingOccurrencesOfString:@"\n" withString:@"\\n"];
@@ -192,23 +180,20 @@
 	return string;
 }
 
-- (NSArray*)splitString:(NSString*)string 
-			  separator:(NSString*)separator 
-{
+- (NSArray*)splitString:(NSString*)string separator:(NSString*)separator {
 	NSScanner* scan = [NSScanner scannerWithString:string];
 	NSString* token = nil;
-	NSMutableArray* array = [[[NSMutableArray alloc] initWithCapacity:2] autorelease];
+	NSMutableArray* array = [NSMutableArray new];
 	
-	if([scan scanUpToString:separator intoString:&token])
-	{
+	if([scan scanUpToString:separator intoString:&token]) {
 		[array addObject:token];
 		
 		NSUInteger pos = [scan scanLocation]+1;
 		
-		if(pos < string.length)
+		if(pos < string.length) {
 			[array addObject:[string substringFromIndex:pos]];
+		}
 	}
-	
 	
 	return [NSArray arrayWithArray:array];	
 }

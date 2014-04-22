@@ -10,31 +10,9 @@
 #import "TranslationsProtocol.h"
 
 
-@interface Translations : NSObject<TranslationsProtocol> {
-	NSMutableDictionary* entries;
-    NSMutableDictionary* headers;
-}
+@interface Translations : NSObject<TranslationsProtocol>
 
-@property (readonly, nonatomic, retain) NSMutableDictionary* entries;
-@property (readonly, nonatomic, retain) NSMutableDictionary* headers;
-
-- (id)init;
-- (void)dealloc;
-
-- (void)addEntry:(TranslationEntry*)entry;
-- (void)setHeader:(NSString*)header 
-			value:(NSString*)value;
-- (NSString*)header:(NSString*)header;
-
-- (NSUInteger)selectPluralForm:(NSInteger)count;
-- (NSUInteger)numPlurals;
-
-- (NSString*)translate:(NSString*)singular;
-- (NSString*)translate:(NSString*)singular 
-			   context:(NSString*)context;
-- (NSString*)translatePlural:(NSString*)singular 
-					  plural:(NSString*)plural 
-					   count:(NSInteger)count 
-					 context:(NSString*)context;
+@property (readonly, nonatomic, strong) NSMutableDictionary* entries;
+@property (readonly, nonatomic, strong) NSMutableDictionary* headers;
 
 @end

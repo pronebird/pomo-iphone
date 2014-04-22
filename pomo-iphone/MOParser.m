@@ -27,18 +27,6 @@ typedef struct _mo_position {
 
 @implementation MOParser
 
-- (id)init
-{
-	self = [super init];
-	
-	return self;
-}
-
-- (void)dealloc
-{
-	[super dealloc];
-}
-
 - (BOOL)importFileAtPath:(NSString*)filename
 {
 	TranslationEntry* entry;
@@ -55,15 +43,16 @@ typedef struct _mo_position {
 			headers_start_pos = 0, 
 			headers_end_pos = 0, 
 			headers_length = 0;
-	BOOL is_little_endian = FALSE, 
-		 retval = FALSE;
+	BOOL is_little_endian = NO,
+		 retval = NO;
 	NSString* original_string = nil;//, *translation_string = nil;
 	NSArray* headersArray = nil;
 
 	FILE* fp = fopen([filename cStringUsingEncoding:NSUTF8StringEncoding], "rb");
 
-	if(!fp)
-		return FALSE;
+	if(!fp) {
+		return NO;
+	}
 	
 	if(fread(&mo, sizeof(mo), 1, fp) != 1) {
 		//NSLog(@"Cannot read file header. File probably corrupted.");
@@ -148,7 +137,7 @@ typedef struct _mo_position {
 		} 
 		else // otherwise build entry
 		{
-			entry = [[[TranslationEntry alloc] init] autorelease];
+			entry = [TranslationEntry new];
 
 			for(char* p = buf; p - buf < translations[i].length; p += strlen(p) + 1)
 				[entry.translations addObject:[NSString stringWithUTF8String:p]];
@@ -161,7 +150,7 @@ typedef struct _mo_position {
 			entry.singular = original_string;
 			if(strlen(buf) < originals[i].length) {
 				entry.plural = [NSString stringWithUTF8String:buf + strlen(buf) + 1];
-				entry.is_plural = TRUE;
+				entry.is_plural = YES;
 			}
 			
 			//[entry debugPrint];
@@ -170,11 +159,11 @@ typedef struct _mo_position {
 	}
 	
 	// read headers
-	headers_start_pos = ftell(fp)+1;
+	headers_start_pos = (int32_t) ftell(fp) + 1;
 	
 	fseek(fp, 0, SEEK_END);
 	
-	headers_end_pos = ftell(fp);
+	headers_end_pos = (int32_t) ftell(fp);
 	headers_length = headers_end_pos - headers_start_pos;
 	
 	fseek(fp, headers_start_pos, SEEK_SET); // pass \0 to read headers
@@ -206,7 +195,7 @@ typedef struct _mo_position {
 		}
 	}
 	
-	retval = TRUE;
+	retval = YES;
 
 cleanup:
 	
@@ -224,7 +213,7 @@ cleanup:
 {
 	NSScanner* scan = [NSScanner scannerWithString:string];
 	NSString* token = nil;
-	NSMutableArray* array = [[[NSMutableArray alloc] initWithCapacity:2] autorelease];
+	NSMutableArray* array = [NSMutableArray new];
 	
 	if([scan scanUpToString:separator intoString:&token])
 	{

@@ -7,57 +7,46 @@
 //
 
 #import "GettextTranslations.h"
-
-using namespace mu;
+#import "muParserInt.h"
 
 @interface GettextTranslations()
+
 @property (readwrite, assign) NSUInteger numPlurals;
-@property (readwrite, retain) NSString* pluralRule;
+@property (readwrite, strong) NSString* pluralRule;
+
 @end
 
-@implementation GettextTranslations
+@implementation GettextTranslations {
+	mu::ParserInt * mParser;
+}
 
-@synthesize numPlurals;
-@synthesize pluralRule;
-
-- (id)init
-{
-	self = [super init];
-	
-	if(self) {
+- (id)init {
+	if(self = [super init]) {
 		self.numPlurals = 0;
 		self.pluralRule = nil;
 		
-		mParser = new ParserInt();
+		mParser = new mu::ParserInt();
 		mParser->EnableBuiltInOprt();
 		mParser->DefineOprt("%", fmod, 5);
 	}
-	
 	return self;
 }
 
 - (void)dealloc {
-	self.pluralRule = nil;
-	
 	delete mParser;
 	mParser = NULL;
-	
-	[super dealloc];
 }
 
-- (NSDictionary*)_scanPluralFormsString:(NSString*)src
-{
-	NSMutableDictionary* result = [[[NSMutableDictionary alloc] init] autorelease];
+- (NSDictionary*)_scanPluralFormsString:(NSString*)src {
+	NSMutableDictionary* result = [NSMutableDictionary new];
 	NSArray* strings = [src componentsSeparatedByString:@";"];
 	NSCharacterSet* charset = [NSCharacterSet whitespaceAndNewlineCharacterSet];
 	
-	for(NSString* str in strings) 
-	{
+	for(NSString* str in strings)  {
 		NSScanner* scanner = [NSScanner scannerWithString:str];
 		NSString* key = nil;
 		
-		if([scanner scanUpToString:@"=" intoString:&key]) 
-		{
+		if([scanner scanUpToString:@"=" intoString:&key]) {
 			[result setObject:[[str substringFromIndex:scanner.scanLocation+1] stringByTrimmingCharactersInSet:charset] 
 					   forKey:[key stringByTrimmingCharactersInSet:charset]];
 		}
@@ -66,12 +55,10 @@ using namespace mu;
 	return result;
 }
 
-- (void)setHeader:(NSString*)header value:(NSString*)value
-{
+- (void)setHeader:(NSString*)header value:(NSString*)value {
 	[super setHeader:header value:value];
 	
-	if([header isEqualToString:@"Plural-Forms"])
-	{
+	if([header isEqualToString:@"Plural-Forms"]) {
 		NSDictionary* dict = [self _scanPluralFormsString:[self header:header]];		
 		NSString* nplurals = [dict objectForKey:@"nplurals"];
 		NSString* rule = [dict objectForKey:@"plural"];
@@ -81,14 +68,11 @@ using namespace mu;
 		else
 			self.numPlurals = 0;
 		
-		if(rule)
-		{
+		if(rule) {
 			self.pluralRule = [rule stringByReplacingOccurrencesOfString:@";" withString:@""];
-
+			
 			mParser->SetExpr([self.pluralRule UTF8String]);
-		}
-		else
-		{
+		} else {
 			self.pluralRule = nil;
 		}
 		
@@ -96,16 +80,13 @@ using namespace mu;
 	}
 }
 
-- (NSUInteger)selectPluralForm:(NSInteger)count
-{
+- (NSUInteger)selectPluralForm:(NSInteger)count {
 	double retval;
 	
-	if(self.pluralRule)
-	{
+	if(self.pluralRule) {
 		mParser->DefineConst("n", count);
 		
-		try
-		{
+		try {
 			retval = mParser->Eval();
 			//std::cout << "retval for " << count << " is " << retval << std::endl;
 			

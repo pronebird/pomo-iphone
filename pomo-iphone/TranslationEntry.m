@@ -11,63 +11,32 @@
 
 @implementation TranslationEntry
 
-@synthesize is_plural;
-@synthesize context;
-@synthesize singular;
-@synthesize plural;
-@synthesize translations;
-@synthesize translator_comments;
-@synthesize extracted_comments;
-@synthesize references;
-@synthesize flags;
-
-- (id)init
-{
-	self = [super init];
-	
-	if(self)
-	{
-		self.is_plural = false;
+- (id)init {
+	if(self = [super init]) {
+		self.is_plural = NO;
 		self.context = nil;
 		self.singular = nil;
 		self.plural = nil;
-		self.translations = [[[NSMutableArray alloc] init] autorelease];
+		self.translations = [NSMutableArray new];
 		self.translator_comments = nil;
 		self.extracted_comments = nil;
-		self.references = [[[NSMutableArray alloc] init] autorelease];
-		self.flags = [[[NSMutableArray alloc] init] autorelease];
+		self.references = [NSMutableArray new];
+		self.flags = [NSMutableArray new];
 	}
 	
 	return self;
 }
 
-- (void)dealloc
-{
-	self.context = nil;
-	self.singular = nil;
-	self.plural = nil;
-	self.translations = nil;
-	self.translator_comments = nil;
-	self.extracted_comments = nil;
-	self.references = nil;
-	self.flags = nil;
-	
-	[super dealloc];
-}
 
-- (NSString*)key 
-{
+- (NSString*)key {
 	return [TranslationEntry stringKey:self.singular context:self.context];
 }
 
-+ (NSString*)stringKey:(NSString*)singular
-{
++ (NSString*)stringKey:(NSString*)singular {
 	return [self stringKey:singular context:nil];
 }
 
-+ (NSString*)stringKey:(NSString*)singular 
-			   context:(NSString*)context
-{
++ (NSString*)stringKey:(NSString*)singular context:(NSString*)context {
 	if(singular == nil)
 		return nil;
 	
@@ -80,19 +49,19 @@
 	NSLog(@"translations:\n");
 	NSUInteger i = 0;
 	for(NSString* tr in self.translations) {
-		NSLog(@"[%u] %@\n", i++, tr);
+		NSLog(@"[%lu] %@\n", (unsigned long)i++, tr);
 	}
 	
 	NSLog(@"references:\n");
 	i = 0;
 	for(NSString* ref in self.references) {
-		NSLog(@"[%u] %@\n", i++, ref);
+		NSLog(@"[%lu] %@\n", (unsigned long)i++, ref);
 	}
 	
 	NSLog(@"flags:\n");
 	i = 0;
 	for(NSString* flag in self.flags) {
-		NSLog(@"[%u] %@\n", i++, flag);
+		NSLog(@"[%lu] %@\n", (unsigned long)i++, flag);
 	}
 	
 	NSLog(@"--");

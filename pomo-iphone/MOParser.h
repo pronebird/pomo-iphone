@@ -12,8 +12,6 @@
 
 @interface MOParser : GettextTranslations<ParserProtocol>
 
-- (id)init;
-- (void)dealloc;
 - (BOOL)importFileAtPath:(NSString*)filename;
 
 @end

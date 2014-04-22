@@ -8,33 +8,19 @@
 
 #import <Foundation/Foundation.h>
 
+@interface TranslationEntry : NSObject
 
-@interface TranslationEntry : NSObject {
-	
-    bool is_plural;
-	
-	NSString* context;
-	NSString* singular;
-	NSString* plural;
-	NSMutableArray* translations;
-	NSString* translator_comments;
-	NSString* extracted_comments;
-	NSMutableArray* references;
-	NSMutableArray* flags;
-}
-
-@property (assign) bool is_plural;
-@property (retain, nonatomic) NSString* context;
-@property (retain, nonatomic) NSString* singular;
-@property (retain, nonatomic) NSString* plural;
-@property (retain, nonatomic) NSMutableArray* translations;
-@property (retain, nonatomic) NSString* translator_comments;
-@property (retain, nonatomic) NSString* extracted_comments;
-@property (retain, nonatomic) NSMutableArray* references;
-@property (retain, nonatomic) NSMutableArray* flags;
+@property (assign) BOOL is_plural;
+@property (strong, nonatomic) NSString* context;
+@property (strong, nonatomic) NSString* singular;
+@property (strong, nonatomic) NSString* plural;
+@property (strong, nonatomic) NSMutableArray* translations;
+@property (strong, nonatomic) NSString* translator_comments;
+@property (strong, nonatomic) NSString* extracted_comments;
+@property (strong, nonatomic) NSMutableArray* references;
+@property (strong, nonatomic) NSMutableArray* flags;
 
 - (id)init;
-- (void)dealloc;
 
 - (NSString*)key;
 

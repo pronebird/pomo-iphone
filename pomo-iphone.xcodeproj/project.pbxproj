@@ -28,7 +28,6 @@
 		58540DA61530B61300677F53 /* Translations.m in Sources */ = {isa = PBXBuildFile; fileRef = 58540D8A1530B61300677F53 /* Translations.m */; };
 		58540DA71530B61300677F53 /* TranslationsProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 58540D8B1530B61300677F53 /* TranslationsProtocol.h */; };
 		58B5D860153F733900D2AB33 /* libmuparser-iphone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58B5D85F153F733900D2AB33 /* libmuparser-iphone.a */; };
-		58D6A77D15325175008DFB9F /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 58540E5B1531C37E00677F53 /* libicucore.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,7 +52,6 @@
 		58540D891530B61300677F53 /* Translations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Translations.h; path = "pomo-iphone/Translations.h"; sourceTree = SOURCE_ROOT; };
 		58540D8A1530B61300677F53 /* Translations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Translations.m; path = "pomo-iphone/Translations.m"; sourceTree = SOURCE_ROOT; };
 		58540D8B1530B61300677F53 /* TranslationsProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TranslationsProtocol.h; path = "pomo-iphone/TranslationsProtocol.h"; sourceTree = SOURCE_ROOT; };
-		58540E5B1531C37E00677F53 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		58B5D85F153F733900D2AB33 /* libmuparser-iphone.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libmuparser-iphone.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -63,7 +61,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				58B5D860153F733900D2AB33 /* libmuparser-iphone.a in Frameworks */,
-				58D6A77D15325175008DFB9F /* libicucore.dylib in Frameworks */,
 				58540D631530B4FA00677F53 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -91,19 +88,10 @@
 		58540D011530B33C00677F53 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				58540E5B1531C37E00677F53 /* libicucore.dylib */,
+				58540D071530B33C00677F53 /* Foundation.framework */,
 				58B5D85F153F733900D2AB33 /* libmuparser-iphone.a */,
-				58540D041530B33C00677F53 /* Other Frameworks */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		58540D041530B33C00677F53 /* Other Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				58540D071530B33C00677F53 /* Foundation.framework */,
-			);
-			name = "Other Frameworks";
 			sourceTree = "<group>";
 		};
 		58540D081530B33C00677F53 /* Source */ = {
@@ -230,7 +218,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -248,12 +236,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "muparser-iphone/include";
-				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "";
 				SDKROOT = iphoneos;
-				VALID_ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 			};
 			name = Debug;
 		};
@@ -261,7 +248,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -273,32 +260,30 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "muparser-iphone/include";
-				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				OTHER_LDFLAGS = "";
 				SDKROOT = iphoneos;
-				VALID_ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 			};
 			name = Release;
 		};
 		58540D111530B33C00677F53 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "pomo-iphone/pomo-iphone-Prefix.pch";
 				GCC_THUMB_SUPPORT = NO;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				VALID_ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 			};
 			name = Debug;
 		};
 		58540D121530B33C00677F53 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "pomo-iphone/pomo-iphone-Prefix.pch";
 				GCC_THUMB_SUPPORT = NO;
@@ -306,7 +291,6 @@
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				VALID_ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 			};
 			name = Release;
 		};
