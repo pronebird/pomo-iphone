@@ -23,7 +23,6 @@
 		self.references = [NSMutableArray new];
 		self.flags = [NSMutableArray new];
 	}
-	
 	return self;
 }
 

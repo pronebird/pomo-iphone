@@ -21,8 +21,6 @@
 + (id)sharedCenter;
 + (NSString*)textDomainFileWithBasePath:(NSString*)path forDomain:(NSString*)domain language:(NSString*)language type:(NSString*)ext;
 
-- (id)init;
-
 - (BOOL)isValidTextDomain:(NSString*)domain;
 
 - (BOOL)loadTextDomain:(NSString*)domain;
