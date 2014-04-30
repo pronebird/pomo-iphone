@@ -1,6 +1,6 @@
 # POMO-iphone
 
-POMO-iphone is a gettext reader for iPhone written in Obj-C/C++. It supposed to be a good substitution for outdated Apple translations system. However I still use default mechanisms to translate settings.bundle and views, so this solution is not 100% perfect.
+POMO-iphone is a gettext translations for iPhone written in Objective-C. It supposed to be a good substitution for outdated Apple translations system. However I still use default mechanisms to translate settings.bundle and Storyboard, so this solution is not 100% perfect.
 
 ## Basic usage
 
@@ -127,7 +127,7 @@ Setup the following keywords for your catalog to make Poedit work with your sour
 
 ## License (MIT)
 
-Copyright (c) 2012 Andrej Mihajlov
+Copyright (c) 2012-2014 Andrej Mihajlov
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
