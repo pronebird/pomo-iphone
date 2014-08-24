@@ -18,7 +18,7 @@
 @property (readwrite, nonatomic, copy) NSString* language;
 @property (readonly, nonatomic, strong) NSMutableDictionary* domains;
 
-+ (id)sharedCenter;
++ (instancetype)sharedCenter;
 + (NSString*)textDomainFileWithBasePath:(NSString*)path forDomain:(NSString*)domain language:(NSString*)language type:(NSString*)ext;
 
 - (BOOL)isValidTextDomain:(NSString*)domain;

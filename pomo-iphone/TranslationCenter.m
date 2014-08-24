@@ -22,7 +22,7 @@ static NOOPTranslations* sharedNOOPTranslations;
 
 @implementation TranslationCenter
 
-+ (id)sharedCenter {
++ (instancetype)sharedCenter {
 	static TranslationCenter* sharedInstance;
 	static dispatch_once_t onceToken;
 	dispatch_once(&onceToken, ^{
