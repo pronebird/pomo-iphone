@@ -4,47 +4,53 @@ POMO-iphone is a gettext translations for iPhone written in Objective-C. It supp
 
 ## Basic usage
 
-See [GettextHelpers.h](https://github.com/pronebird/pomo-iphone/blob/master/pomo-iphone/GettextHelpers.h) and [TranslationCenter.h](https://github.com/pronebird/pomo-iphone/blob/master/pomo-iphone/TranslationCenter.h)
+```objective-c
 
-    // we import TranslationCenter only to load textdomain,
-    // so you'll need it probably once
-    #import "TranslationCenter.h"
+// Import POMO-iPhone with Gettext helper methods
+#import "GettextHelpers.h"
 
-    // include shorthandle functions
-    #import "GettextHelpers.h"
+// Load default textdomain, TEXTDOMAIN constant defined in GettextHelpers.h
+// Make sure you created a default-xx.po file in your app resources
+// Call somewhere in -(BOOL)application:willFinishLaunchingWithOptions:
+[[TranslationCenter sharedCenter] loadTextDomain:TEXTDOMAIN];
 
-    ...
+NSInteger numApples = 10;
 
-    TranslationCenter* translator = [TranslationCenter sharedCenter];
+// Translate single string
+NSLog(@"Gettext translated string: %@", _(@"Hi, this is gettext!"));
 
-    // here we load default textdomain, TEXTDOMAIN constant defined in GettextHelpers.h
-    [translator loadTextDomain:TEXTDOMAIN];
+// Translate plural string
+NSLog(@"Gettext translated plural: %@", _n(@"%d apple", @"%d apples", numApples));
 
-    int num_apples = 10;
+// Translate and format altogether
+NSLog(@"Gettext translated plural: %@", [NSString stringWithFormat:_n(@"%d apple", @"%d apples", numApples), numApples]);
 
-    NSLog(@"Gettext translated string: %@", ___(@"Hi, this is gettext!", TEXTDOMAIN));
-    NSLog(@"Gettext translated plural: %@", __n(@"%d apple", @"%d apples", num_apples, TEXTDOMAIN));
+```
 
-    // translate and format altogether
-    NSLog(@"Gettext translated plural: %@",
-        [NSString stringWithFormat:__n(@"%d apple", @"%d apples", num_apples, TEXTDOMAIN), num_apples]);
+For more information, see:
+
+* [GettextHelpers.h](https://github.com/pronebird/pomo-iphone/blob/master/pomo-iphone/GettextHelpers.h)
+* [TranslationCenter.h](https://github.com/pronebird/pomo-iphone/blob/master/pomo-iphone/TranslationCenter.h)
 
 ## TranslationCenter
 
 TranslationCenter is a manager for textdomains and strings' translations, it has few options that you can override. To obtain a shared center use the following code:
 
-    TranslationCenter* translator = [TranslationCenter sharedCenter];
+```objective-c
+
+TranslationCenter* translator = [TranslationCenter sharedCenter];
+```
 
 - `translator.defaultPath` - by default it's path to your app bundle
 - `translator.language` - by default it's current UI language
 
-You can use TranslationCenter directly to translate strings, however it's not really handy, so I suggest using GettextHelpers which provides shorthandles for the most popular functions.
+You can use TranslationCenter directly to translate strings, however it's not really handy, so I suggest using GettextHelpers which provide shorthandle functions for the frequently used functions.
 
 ## Single textdomain shorthandles
 
 Single textdomain shorthandles use default textdomain and help you to keep your code shorter if you don't need more than one textdomain in your app.
 
-`__(singular)` - single string translation
+`_(singular)` - single string translation
 
 `_n(singular, plural, number)` - plural translation
 
@@ -56,13 +62,13 @@ Single textdomain shorthandles use default textdomain and help you to keep your 
 
 Using following functions you must explicitly specify textdomain, useful if you have many textdomains in your app:
 
-`___(singular, textdomain)` - single string translation
+`_(singular, textdomain)` - single string translation
 
-`__n(singular, plural, number, textdomain)` - plural translation
+`_n(singular, plural, number, textdomain)` - plural translation
 
-`__x(singular, context, textdomain)` - single string translation with context
+`_x(singular, context, textdomain)` - single string translation with context
 
-`__nx(singular, plural, number, context, textdomain)` - plural translation with context
+`_nx(singular, plural, number, context, textdomain)` - plural translation with context
 
 ## Textdomain lookup algorithm
 
@@ -80,11 +86,19 @@ Example path may look like that:
 
 ## Build notes
 
+### Manual
+
 - Link your app against `libstdc++.dylib`
 
 - Pomo-iphone depends on `muparser-iphone`. So at the end you'll have a workspace with `muparser-iphone` and `pomo-iphone` compiled in the same order as mentioned.
 
 - Link your app against `libpomo-iphone`
+
+### Automatic via CocoaPod
+
+Add the following line in your Podfile:
+
+`pod 'pomo-iphone', :git => 'git://github.com/pronebird/pomo-iphone.git'`
 
 ## Poedit Settings
 
@@ -113,19 +127,17 @@ Also you can use `--add-comments=/` flag in Parser commands to enable translator
 
 Setup the following keywords for your catalog to make Poedit work with your source code:
 
-    __
-    _nx:4c,1,2
+    _
     _x:2c,1
+    _nx:4c,1,2
     _n:1,2
     _n_noop:1,2
-    _nx_noop:4c,1,2
-    ___
-    __nx:4c,1,2
-    __x:2c,1
-    __n:1,2
+    _nx_noop:3c,1,2
 
 
 ## License (MIT)
+
+### POMO-iphone
 
 Copyright (c) 2012-2014 Andrej Mihajlov
 
@@ -134,3 +146,24 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+## 3rd-party components
+
+### muParser
+
+Copyright (C) 2004-2011 Ingo Berg
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this 
+software and associated documentation files (the "Software"), to deal in the Software
+without restriction, including without limitation the rights to use, copy, modify, 
+merge, publish, distribute, sublicense, and/or sell copies of the Software, and to 
+permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or 
+substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT
+NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND 
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, 
+DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. 
