@@ -12,7 +12,7 @@ POMO-iphone is a gettext translations for iPhone written in Objective-C. It supp
 // Load default textdomain, TEXTDOMAIN constant defined in GettextHelpers.h
 // Make sure you created a default-xx.po file in your app resources
 // Call somewhere in -(BOOL)application:willFinishLaunchingWithOptions:
-[[TranslationCenter sharedCenter] loadTextDomain:TEXTDOMAIN];
+[[TranslationCenter sharedCenter] loadTextDomain:DEFAULT_TEXTDOMAIN];
 
 NSInteger numApples = 10;
 
