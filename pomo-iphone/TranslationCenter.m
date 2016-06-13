@@ -39,7 +39,15 @@ static NOOPTranslations* sharedNOOPTranslations;
 
 - (id)init {
 	if(self = [super init]) {
-		self.language = [[NSLocale preferredLanguages] firstObject];
+        NSString *preferredLanguage = [[NSLocale preferredLanguages] firstObject];
+        NSScanner *scanner = [[NSScanner alloc] initWithString:preferredLanguage];
+        NSString *twoLetterLanguageCode;
+        
+        if(![scanner scanUpToString:@"-" intoString:&twoLetterLanguageCode]) {
+            twoLetterLanguageCode = preferredLanguage;
+        }
+        
+		self.language = twoLetterLanguageCode;
 		self.defaultPath = [[NSBundle mainBundle] bundlePath];
 		self.domains = [NSMutableDictionary new];
 	}
