@@ -25,8 +25,21 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return a translated string on success, otherwise original string
  */
-NS_INLINE NSString* _(NSString* singular, NSString* domain) OVERLOADABLE_FUNC {
+NS_INLINE NSString *_(NSString *singular, NSString *domain) OVERLOADABLE_FUNC NS_SWIFT_UNAVAILABLE("Use __(singular, domain) instead.") {
 	return [[TranslationCenter sharedCenter] translate:singular domain:domain];
+};
+
+/**
+ *  Translate a string using provided text domain
+ *  This is a swift-friendly version of __(singular, domain)
+ *
+ *  @param singular an original string
+ *  @param domain   a text domain
+ *
+ *  @return a translated string on success, otherwise original string
+ */
+NS_INLINE NSString *__(NSString *singular, NSString *domain) OVERLOADABLE_FUNC {
+    return _(singular, domain);
 };
 
 /**
@@ -36,8 +49,20 @@ NS_INLINE NSString* _(NSString* singular, NSString* domain) OVERLOADABLE_FUNC {
  *
  *  @return a translated string on success, otherwise original string
  */
-NS_INLINE NSString* _(NSString* singular) OVERLOADABLE_FUNC {
+NS_INLINE NSString *_(NSString *singular) OVERLOADABLE_FUNC NS_SWIFT_UNAVAILABLE("Use __(singular) instead.") {
 	return _(singular, DEFAULT_TEXTDOMAIN);
+};
+
+/**
+ *  Translate a string from default text domain.
+ *  This is a swift-friendly version of _(singular)
+ *
+ *  @param singular an original string
+ *
+ *  @return a translated string on success, otherwise original string
+ */
+NS_INLINE NSString *__(NSString *singular) OVERLOADABLE_FUNC {
+    return _(singular, DEFAULT_TEXTDOMAIN);
 };
 
 /**
@@ -49,7 +74,7 @@ NS_INLINE NSString* _(NSString* singular) OVERLOADABLE_FUNC {
  *
  *  @return a translated string on success, otherwise original string
  */
-NS_INLINE NSString* _x(NSString* singular, NSString* context, NSString* domain) OVERLOADABLE_FUNC {
+NS_INLINE NSString *_x(NSString *singular, NSString *context, NSString *domain) OVERLOADABLE_FUNC {
 	return [[TranslationCenter sharedCenter] translate:singular context:context domain:domain];
 };
 
@@ -61,7 +86,7 @@ NS_INLINE NSString* _x(NSString* singular, NSString* context, NSString* domain) 
  *
  *  @return a translated string on success, otherwise original string
  */
-NS_INLINE NSString* _x(NSString* singular, NSString* context) OVERLOADABLE_FUNC {
+NS_INLINE NSString *_x(NSString *singular, NSString *context) OVERLOADABLE_FUNC {
 	return _x(singular, context, DEFAULT_TEXTDOMAIN);
 };
 
@@ -76,7 +101,7 @@ NS_INLINE NSString* _x(NSString* singular, NSString* context) OVERLOADABLE_FUNC 
  *
  *  @return a translated string on success, otherwise original string
  */
-NS_INLINE NSString* _nx(NSString* singular, NSString* plural, NSInteger n, NSString* context, NSString* domain) OVERLOADABLE_FUNC {
+NS_INLINE NSString *_nx(NSString *singular, NSString *plural, NSInteger n, NSString *context, NSString *domain) OVERLOADABLE_FUNC {
 	return [[TranslationCenter sharedCenter] translatePlural:singular plural:plural count:n context:context domain:domain];
 };
 
@@ -89,7 +114,7 @@ NS_INLINE NSString* _nx(NSString* singular, NSString* plural, NSInteger n, NSStr
  *
  *  @return a translated string on success, otherwise original string
  */
-NS_INLINE NSString* _nx(NSString* singular, NSString* plural, NSInteger n, NSString* context) OVERLOADABLE_FUNC {
+NS_INLINE NSString *_nx(NSString *singular, NSString *plural, NSInteger n, NSString *context) OVERLOADABLE_FUNC {
 	return _nx(singular, plural, n, context, DEFAULT_TEXTDOMAIN);
 };
 
@@ -103,7 +128,7 @@ NS_INLINE NSString* _nx(NSString* singular, NSString* plural, NSInteger n, NSStr
  *
  *  @return a translated string on success, otherwise original string
  */
-NS_INLINE NSString* _n(NSString* singular, NSString* plural, NSInteger n, NSString* domain) OVERLOADABLE_FUNC {
+NS_INLINE NSString *_n(NSString *singular, NSString *plural, NSInteger n, NSString *domain) OVERLOADABLE_FUNC {
 	return [[TranslationCenter sharedCenter] translatePlural:singular plural:plural count:n context:nil domain:domain];
 };
 
@@ -116,7 +141,7 @@ NS_INLINE NSString* _n(NSString* singular, NSString* plural, NSInteger n, NSStri
  *
  *  @return a translated string on success, otherwise original string
  */
-NS_INLINE NSString* _n(NSString* singular, NSString* plural, NSInteger n) OVERLOADABLE_FUNC {
+NS_INLINE NSString *_n(NSString *singular, NSString *plural, NSInteger n) OVERLOADABLE_FUNC {
 	return _n(singular, plural, n, DEFAULT_TEXTDOMAIN);
 };
 
