@@ -12,6 +12,7 @@
 		58BF8F9C1D0EC1250038B4A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58BF8F9A1D0EC1250038B4A1 /* Main.storyboard */; };
 		58BF8F9E1D0EC1250038B4A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58BF8F9D1D0EC1250038B4A1 /* Assets.xcassets */; };
 		58BF8FA11D0EC1250038B4A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58BF8F9F1D0EC1250038B4A1 /* LaunchScreen.storyboard */; };
+		58BF8FA91D0EC5310038B4A1 /* Example-ru.mo in Resources */ = {isa = PBXBuildFile; fileRef = 58BF8FA81D0EC5310038B4A1 /* Example-ru.mo */; };
 		FAC8A688B247A74D60140615 /* Pods_Example_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 449D8C0F1D8DB5F173FC3DBB /* Pods_Example_Swift.framework */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +27,7 @@
 		58BF8F9D1D0EC1250038B4A1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		58BF8FA01D0EC1250038B4A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		58BF8FA21D0EC1250038B4A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		58BF8FA81D0EC5310038B4A1 /* Example-ru.mo */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Example-ru.mo"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 		58BF8F951D0EC1250038B4A1 /* Example-Swift */ = {
 			isa = PBXGroup;
 			children = (
+				58BF8FA81D0EC5310038B4A1 /* Example-ru.mo */,
 				58BF8F961D0EC1250038B4A1 /* AppDelegate.swift */,
 				58BF8F981D0EC1250038B4A1 /* ViewController.swift */,
 				58BF8F9A1D0EC1250038B4A1 /* Main.storyboard */,
@@ -152,6 +155,7 @@
 				58BF8FA11D0EC1250038B4A1 /* LaunchScreen.storyboard in Resources */,
 				58BF8F9E1D0EC1250038B4A1 /* Assets.xcassets in Resources */,
 				58BF8F9C1D0EC1250038B4A1 /* Main.storyboard in Resources */,
+				58BF8FA91D0EC5310038B4A1 /* Example-ru.mo in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
