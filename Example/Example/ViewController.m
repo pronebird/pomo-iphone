@@ -10,10 +10,6 @@
 
 @import pomo_iphone;
 
-@interface ViewController ()
-
-@end
-
 @implementation ViewController
 
 - (void)viewDidLoad {
