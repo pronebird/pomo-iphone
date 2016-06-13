@@ -8,6 +8,8 @@
 
 #import "TranslationEntry.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @protocol TranslationsProtocol <NSObject>
 
 - (void)addEntry:(TranslationEntry*)entry;
@@ -22,3 +24,5 @@
 - (NSString*)translatePlural:(NSString*)singular plural:(NSString*)plural count:(NSInteger)count context:(NSString*)context;
 
 @end
+
+NS_ASSUME_NONNULL_END

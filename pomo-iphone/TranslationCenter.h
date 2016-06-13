@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface TranslationCenter : NSObject {
     NSMutableDictionary* _domains;
 	NSString* _defaultPath;
@@ -32,3 +34,5 @@
 - (NSString*)translatePlural:(NSString*)singular plural:(NSString*)plural count:(NSInteger)count context:(NSString*)context domain:(NSString*)domain;
 
 @end
+
+NS_ASSUME_NONNULL_END

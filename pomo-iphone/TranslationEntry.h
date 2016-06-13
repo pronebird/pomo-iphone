@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface TranslationEntry : NSObject
 
 @property (assign) BOOL is_plural;
@@ -28,3 +30,5 @@
 - (void)debugPrint;
 
 @end
+
+NS_ASSUME_NONNULL_END

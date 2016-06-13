@@ -8,6 +8,8 @@
 
 #import "TranslationCenter.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 #define DEFAULT_TEXTDOMAIN @"default"
 #define OVERLOADABLE_FUNC __attribute__((overloadable))
 
@@ -23,7 +25,7 @@
  *
  *  @return a translated string on success, otherwise original string
  */
-static inline NSString* _(NSString* singular, NSString* domain) OVERLOADABLE_FUNC {
+NS_INLINE NSString* _(NSString* singular, NSString* domain) OVERLOADABLE_FUNC {
 	return [[TranslationCenter sharedCenter] translate:singular domain:domain];
 };
 
@@ -34,7 +36,7 @@ static inline NSString* _(NSString* singular, NSString* domain) OVERLOADABLE_FUN
  *
  *  @return a translated string on success, otherwise original string
  */
-static inline NSString* _(NSString* singular) OVERLOADABLE_FUNC {
+NS_INLINE NSString* _(NSString* singular) OVERLOADABLE_FUNC {
 	return _(singular, DEFAULT_TEXTDOMAIN);
 };
 
@@ -47,7 +49,7 @@ static inline NSString* _(NSString* singular) OVERLOADABLE_FUNC {
  *
  *  @return a translated string on success, otherwise original string
  */
-static inline NSString* _x(NSString* singular, NSString* context, NSString* domain) OVERLOADABLE_FUNC {
+NS_INLINE NSString* _x(NSString* singular, NSString* context, NSString* domain) OVERLOADABLE_FUNC {
 	return [[TranslationCenter sharedCenter] translate:singular context:context domain:domain];
 };
 
@@ -59,7 +61,7 @@ static inline NSString* _x(NSString* singular, NSString* context, NSString* doma
  *
  *  @return a translated string on success, otherwise original string
  */
-static inline NSString* _x(NSString* singular, NSString* context) OVERLOADABLE_FUNC {
+NS_INLINE NSString* _x(NSString* singular, NSString* context) OVERLOADABLE_FUNC {
 	return _x(singular, context, DEFAULT_TEXTDOMAIN);
 };
 
@@ -74,7 +76,7 @@ static inline NSString* _x(NSString* singular, NSString* context) OVERLOADABLE_F
  *
  *  @return a translated string on success, otherwise original string
  */
-static inline NSString* _nx(NSString* singular, NSString* plural, NSInteger n, NSString* context, NSString* domain) OVERLOADABLE_FUNC {
+NS_INLINE NSString* _nx(NSString* singular, NSString* plural, NSInteger n, NSString* context, NSString* domain) OVERLOADABLE_FUNC {
 	return [[TranslationCenter sharedCenter] translatePlural:singular plural:plural count:n context:context domain:domain];
 };
 
@@ -87,7 +89,7 @@ static inline NSString* _nx(NSString* singular, NSString* plural, NSInteger n, N
  *
  *  @return a translated string on success, otherwise original string
  */
-static inline NSString* _nx(NSString* singular, NSString* plural, NSInteger n, NSString* context) OVERLOADABLE_FUNC {
+NS_INLINE NSString* _nx(NSString* singular, NSString* plural, NSInteger n, NSString* context) OVERLOADABLE_FUNC {
 	return _nx(singular, plural, n, context, DEFAULT_TEXTDOMAIN);
 };
 
@@ -101,7 +103,7 @@ static inline NSString* _nx(NSString* singular, NSString* plural, NSInteger n, N
  *
  *  @return a translated string on success, otherwise original string
  */
-static inline NSString* _n(NSString* singular, NSString* plural, NSInteger n, NSString* domain) OVERLOADABLE_FUNC {
+NS_INLINE NSString* _n(NSString* singular, NSString* plural, NSInteger n, NSString* domain) OVERLOADABLE_FUNC {
 	return [[TranslationCenter sharedCenter] translatePlural:singular plural:plural count:n context:nil domain:domain];
 };
 
@@ -114,10 +116,12 @@ static inline NSString* _n(NSString* singular, NSString* plural, NSInteger n, NS
  *
  *  @return a translated string on success, otherwise original string
  */
-static inline NSString* _n(NSString* singular, NSString* plural, NSInteger n) OVERLOADABLE_FUNC {
+NS_INLINE NSString* _n(NSString* singular, NSString* plural, NSInteger n) OVERLOADABLE_FUNC {
 	return _n(singular, plural, n, DEFAULT_TEXTDOMAIN);
 };
 
 
 #define _n_noop(singular, plural, domain)
 #define _nx_noop(singular, plural, context, domain)
+
+NS_ASSUME_NONNULL_END

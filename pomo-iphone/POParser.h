@@ -10,6 +10,8 @@
 #import "GettextTranslations.h"
 #import "ParserProtocol.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface POParser : GettextTranslations<ParserProtocol>
 
 - (BOOL)importFileAtPath:(NSString*)filename;
@@ -26,3 +28,5 @@
 
 - (NSArray*)splitString:(NSString*)string separator:(NSString*)separator;
 @end
+
+NS_ASSUME_NONNULL_END
