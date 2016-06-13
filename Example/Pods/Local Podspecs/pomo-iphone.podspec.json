@@ -27,6 +27,6 @@
   "libraries": "c++",
   "requires_arc": true,
   "platforms": {
-    "ios": null
+    "ios": "8.0"
   }
 }

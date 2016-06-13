@@ -7,52 +7,52 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		008B116972CAE9942921634417959C6F /* NOOPTranslations.m in Sources */ = {isa = PBXBuildFile; fileRef = DD5E1E925141B74C1290B313E3A538AE /* NOOPTranslations.m */; };
+		0722780D76224D6D85412729EA8BF3C6 /* GettextTranslations.mm in Sources */ = {isa = PBXBuildFile; fileRef = D636B450808057A401D8920CCD21BC28 /* GettextTranslations.mm */; };
+		0CAE34CD0D9C5C68603BF87267A604EE /* pomo-iphone-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DFCA5AE64B2317B2AC43429AA8A871 /* pomo-iphone-dummy.m */; };
 		0F0B6FDFC745F89CEE3EBD784C60824D /* TranslationCenter.h in Headers */ = {isa = PBXBuildFile; fileRef = AEE768AD472FBD9E808026F0CDB78100 /* TranslationCenter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0F6EC0CA85917163FFECE34EAAD8A860 /* TranslationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 552677B1AC95F1E5C22166152B3937BB /* TranslationCenter.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		11D29592DE34EE2C735B7FC1B27D94C8 /* GettextHelpers.h in Headers */ = {isa = PBXBuildFile; fileRef = 9FD8236FB8F8DDEEEE6B6EE2374EDBF1 /* GettextHelpers.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		16A11365C341C395A03D3E570CAD4349 /* MOParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5380AF53DF29F745DB7818526D95BB0D /* MOParser.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		16FECD37EC11227884247B8A0B491215 /* TranslationsProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = DB628B19A91BC06BAEBFC9E023BFAECA /* TranslationsProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		180ACF680825AD55D761C414FF9263D4 /* muParserFixes.h in Headers */ = {isa = PBXBuildFile; fileRef = DD529E3741959075B88E19C7055372AE /* muParserFixes.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		1B813E23181EF8ACFC4CA96589DF0E97 /* muParserInt.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FE90601473C3B7C5936FFB71369E799 /* muParserInt.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		1C38BB063C5FACED5A148BCAE7E66705 /* muParserCallback.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D4C439000DF5881D8BC39CFAF3C4F4DB /* muParserCallback.cpp */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		1E439DE459B5DF5A7A56182D32C654FF /* Translations.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D838C16609001186E11C4F85E0E10A9 /* Translations.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2AC5E20A095FD2177A96BE9E28FF9FBC /* GettextTranslations.mm in Sources */ = {isa = PBXBuildFile; fileRef = D636B450808057A401D8920CCD21BC28 /* GettextTranslations.mm */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		39AA49B891C3D9AAC339ACA668CE2ED3 /* muParserBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4219B85E365A8A2ED3D63A208E931654 /* muParserBase.cpp */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		3AEB0A01B58BE11F8F8BB6D6B3AF3F18 /* muParserTest.h in Headers */ = {isa = PBXBuildFile; fileRef = CDAE8CA3B41400A6E7F7742B7E2D7196 /* muParserTest.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		3B2BCD26825BAD78D910AD987093F23A /* muParserBytecode.h in Headers */ = {isa = PBXBuildFile; fileRef = BC6C60FA555560FF832BCDECB27CCD5E /* muParserBytecode.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		3C7630FFFB45E66FC7DAF44A05AAB7D0 /* Pods-Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 699118D7DDD5F335E4FB8B17DC0F12D2 /* Pods-Example-dummy.m */; };
 		491CBCC4CB6B162D3E6A56AA8BDD19EB /* Pods-Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C9BDE82371C83FA9AE91B05F77ACAA36 /* Pods-Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4A4D8C44C952D7472DCFFB655EEACEE1 /* POParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 40CFA5CD67E8DB9B0D0EBC42604DBE45 /* POParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4AB1880BEA0F386DF00CBD64C708DC2A /* muParserBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4219B85E365A8A2ED3D63A208E931654 /* muParserBase.cpp */; };
 		543E4EDCD8EA85FE1371A56E075E7190 /* NOOPTranslations.h in Headers */ = {isa = PBXBuildFile; fileRef = CE0B12B873F1E551A86074298E4A68AC /* NOOPTranslations.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		54FF4827D9A2296E116D09C2D7DA3211 /* TranslationEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 7156E08A102D1DF7E12E26A70B9C2CF7 /* TranslationEntry.m */; };
+		57758BC1D2D334596593AED059CB45ED /* muParserTokenReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 654BC1C55725944537DA0A425D2081B9 /* muParserTokenReader.cpp */; };
 		599F56F337744A1EDCC1E4FC23F517BD /* TranslationEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = CD90A0AB642FD52F10D32545F8BDED1A /* TranslationEntry.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5AF88A617CDBF8470F6F6F0A4B99AD53 /* muParserError.h in Headers */ = {isa = PBXBuildFile; fileRef = 026753802160FCD373552F58298ED2E1 /* muParserError.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		5C2D836BBFBE64EFB6037F5BC21D4879 /* muParserError.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B14C7C07ED933107B7A05A48131FC795 /* muParserError.cpp */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		67312DF922A1790184D013B968CB05E2 /* muParserBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 6DA728F85695C8699FD987C14D41C90E /* muParserBase.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		6B93CFDB3E3AD71B7C2443E9870BC731 /* muParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 6665BEC718E00990EE4E5678856E350A /* muParser.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		6DACB692519B454631920EEBA4B12ACA /* muParserTokenReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 654BC1C55725944537DA0A425D2081B9 /* muParserTokenReader.cpp */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		7275CBD07302B86353C9EBB6F3883C06 /* NOOPTranslations.m in Sources */ = {isa = PBXBuildFile; fileRef = DD5E1E925141B74C1290B313E3A538AE /* NOOPTranslations.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		73178861584E544372A43019827D5AC9 /* TranslationEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 7156E08A102D1DF7E12E26A70B9C2CF7 /* TranslationEntry.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		6F07B9FD8BC389BAAE008C1DB21FA91F /* TranslationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 552677B1AC95F1E5C22166152B3937BB /* TranslationCenter.m */; };
+		73C43F6CA29B8203BA13AA1C28E14323 /* muParserError.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B14C7C07ED933107B7A05A48131FC795 /* muParserError.cpp */; };
 		74965B485724209694B317F265479203 /* muParserTemplateMagic.h in Headers */ = {isa = PBXBuildFile; fileRef = E6D8F42B9D6D92D2FDAC23850289E000 /* muParserTemplateMagic.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		7CFEDAB3FE95A96775597A0DD00A997F /* muParserInt.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D880272B2252740268BDC78A49C9B12 /* muParserInt.cpp */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		7B579F1D07200AB3C5F4A0B486F3E283 /* GettextHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 183F50B49E40ABAA210341B246C1E5DE /* GettextHelpers.m */; };
 		7FA6D847BD24A4ADC89C3DB3454A4ECA /* muParserStack.h in Headers */ = {isa = PBXBuildFile; fileRef = 000D59079DF9C6CF61F02B63A967EB47 /* muParserStack.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		8ACCFE247AF52B292934A061C973DFA2 /* Translations.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CF24E1B3BB3BD500044AC4944B8129C /* Translations.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		913672840923AF47C2E6500EB050DAE6 /* muParserToken.h in Headers */ = {isa = PBXBuildFile; fileRef = C310939A0F3459548EAAE94E479270C3 /* muParserToken.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		95D23D3D1D05B2D5A839372883710BE3 /* muParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F0F4135B041D4B490EFD698D0E0A2244 /* muParser.cpp */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		99889F92124F4D50F8424B40B0DAEBFF /* muParserDLL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE2DA6DAECB4888ADABED32641A765E7 /* muParserDLL.cpp */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		A19D65BB110D51498B6025D8CBB447EB /* MOParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5380AF53DF29F745DB7818526D95BB0D /* MOParser.m */; };
 		A92C2C673B5980F68984E2A6B87E8019 /* muParserDLL.h in Headers */ = {isa = PBXBuildFile; fileRef = 880BB5C6A84D8471CA4566A5A911420F /* muParserDLL.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		A9862F65F29AD3B0E9F51331CF9BBFB3 /* muParserTokenReader.h in Headers */ = {isa = PBXBuildFile; fileRef = EACCEBE3DEAA839677A846E2D144414E /* muParserTokenReader.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		AE334F793F5AEE366E621CE2FAC61E65 /* muParserCallback.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D4C439000DF5881D8BC39CFAF3C4F4DB /* muParserCallback.cpp */; };
+		AF154755B48AF2A0636D7D85CC924FDB /* POParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AE5B9995365D0755FB3B9ADC2F4FDC9 /* POParser.m */; };
 		BD934263ECB9EC9535BC130C7CD4A8D5 /* pomo-iphone-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 305E1BBAA6378041D285574950D6ABB5 /* pomo-iphone-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BEC74AE8335857F67D58D9BA5C27195D /* muParserDef.h in Headers */ = {isa = PBXBuildFile; fileRef = 7FC0FD865AD276EEFA64334E23A142D1 /* muParserDef.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		C0E5CE4FDE5B495FF9ABEED1BA239BF6 /* pomo-iphone-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DFCA5AE64B2317B2AC43429AA8A871 /* pomo-iphone-dummy.m */; };
 		C226C71232050101052DCAF17345E873 /* muParserCallback.h in Headers */ = {isa = PBXBuildFile; fileRef = 65A07DA0BEC94214B0A4270707B63397 /* muParserCallback.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		C7616328D6AF986C394F5FDC97DE6FBC /* muParserBytecode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 983AFCDE71CC2C0210925E416AEF058C /* muParserBytecode.cpp */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		CF515AFC64B83FD59E802804658829BA /* muParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F0F4135B041D4B490EFD698D0E0A2244 /* muParser.cpp */; };
+		CF962010B0DB588BC9096C4B7D1E9A64 /* muParserDLL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE2DA6DAECB4888ADABED32641A765E7 /* muParserDLL.cpp */; };
 		D5D53AB76D517D4FCC79859C30BDCA4A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3997E5D2953ECDF377B85B234FDF550D /* Foundation.framework */; };
 		D6D7A49AE7BBB3450FF761871B76157E /* MOParser.h in Headers */ = {isa = PBXBuildFile; fileRef = D8A74D3D5076EEDFE64278A5D041B953 /* MOParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D9E0F2DEC0BAD8AB968B38E303FE125B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3997E5D2953ECDF377B85B234FDF550D /* Foundation.framework */; };
-		DC2795DB120FF90773B8EF5E07639845 /* GettextHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 183F50B49E40ABAA210341B246C1E5DE /* GettextHelpers.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		EDCBF8D1EB9E53EEA73F46C682772442 /* muParserInt.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D880272B2252740268BDC78A49C9B12 /* muParserInt.cpp */; };
+		EE38E5B3309FC8312EC8882BEA261880 /* Translations.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CF24E1B3BB3BD500044AC4944B8129C /* Translations.m */; };
 		F67E81E78430CDA01778F7DE6456258B /* GettextTranslations.h in Headers */ = {isa = PBXBuildFile; fileRef = 0D584FEFEAA7F3DD3D8F9F8EE919E6DF /* GettextTranslations.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F6BCE2D17B581DB84BDB3DA30EB7582D /* ParserProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = DDD3AEF33A61BF0A0EC26CDE5BDF3FAA /* ParserProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FD90478341B27D0FAFFDBAA75690A481 /* POParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AE5B9995365D0755FB3B9ADC2F4FDC9 /* POParser.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		FA9E50904D8AEA27DF89C555C6CBD0D1 /* muParserBytecode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 983AFCDE71CC2C0210925E416AEF058C /* muParserBytecode.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -371,7 +371,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 092ECE47486F226729EF0B49D79C7EC6 /* Build configuration list for PBXNativeTarget "pomo-iphone" */;
 			buildPhases = (
-				3664774604526FF706E73225EA4FD318 /* Sources */,
+				3FD0009C2367C0B3F516AC172AE5B5B8 /* Sources */,
 				64AFECE3EA1C8EEEEE9645A18B6C466C /* Frameworks */,
 				DF677DB74E0096BDFE9DAF396A78F2D3 /* Headers */,
 			);
@@ -430,27 +430,27 @@
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		3664774604526FF706E73225EA4FD318 /* Sources */ = {
+		3FD0009C2367C0B3F516AC172AE5B5B8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC2795DB120FF90773B8EF5E07639845 /* GettextHelpers.m in Sources */,
-				2AC5E20A095FD2177A96BE9E28FF9FBC /* GettextTranslations.mm in Sources */,
-				16A11365C341C395A03D3E570CAD4349 /* MOParser.m in Sources */,
-				95D23D3D1D05B2D5A839372883710BE3 /* muParser.cpp in Sources */,
-				39AA49B891C3D9AAC339ACA668CE2ED3 /* muParserBase.cpp in Sources */,
-				C7616328D6AF986C394F5FDC97DE6FBC /* muParserBytecode.cpp in Sources */,
-				1C38BB063C5FACED5A148BCAE7E66705 /* muParserCallback.cpp in Sources */,
-				99889F92124F4D50F8424B40B0DAEBFF /* muParserDLL.cpp in Sources */,
-				5C2D836BBFBE64EFB6037F5BC21D4879 /* muParserError.cpp in Sources */,
-				7CFEDAB3FE95A96775597A0DD00A997F /* muParserInt.cpp in Sources */,
-				6DACB692519B454631920EEBA4B12ACA /* muParserTokenReader.cpp in Sources */,
-				7275CBD07302B86353C9EBB6F3883C06 /* NOOPTranslations.m in Sources */,
-				C0E5CE4FDE5B495FF9ABEED1BA239BF6 /* pomo-iphone-dummy.m in Sources */,
-				FD90478341B27D0FAFFDBAA75690A481 /* POParser.m in Sources */,
-				0F6EC0CA85917163FFECE34EAAD8A860 /* TranslationCenter.m in Sources */,
-				73178861584E544372A43019827D5AC9 /* TranslationEntry.m in Sources */,
-				8ACCFE247AF52B292934A061C973DFA2 /* Translations.m in Sources */,
+				7B579F1D07200AB3C5F4A0B486F3E283 /* GettextHelpers.m in Sources */,
+				0722780D76224D6D85412729EA8BF3C6 /* GettextTranslations.mm in Sources */,
+				A19D65BB110D51498B6025D8CBB447EB /* MOParser.m in Sources */,
+				CF515AFC64B83FD59E802804658829BA /* muParser.cpp in Sources */,
+				4AB1880BEA0F386DF00CBD64C708DC2A /* muParserBase.cpp in Sources */,
+				FA9E50904D8AEA27DF89C555C6CBD0D1 /* muParserBytecode.cpp in Sources */,
+				AE334F793F5AEE366E621CE2FAC61E65 /* muParserCallback.cpp in Sources */,
+				CF962010B0DB588BC9096C4B7D1E9A64 /* muParserDLL.cpp in Sources */,
+				73C43F6CA29B8203BA13AA1C28E14323 /* muParserError.cpp in Sources */,
+				EDCBF8D1EB9E53EEA73F46C682772442 /* muParserInt.cpp in Sources */,
+				57758BC1D2D334596593AED059CB45ED /* muParserTokenReader.cpp in Sources */,
+				008B116972CAE9942921634417959C6F /* NOOPTranslations.m in Sources */,
+				0CAE34CD0D9C5C68603BF87267A604EE /* pomo-iphone-dummy.m in Sources */,
+				AF154755B48AF2A0636D7D85CC924FDB /* POParser.m in Sources */,
+				6F07B9FD8BC389BAAE008C1DB21FA91F /* TranslationCenter.m in Sources */,
+				54FF4827D9A2296E116D09C2D7DA3211 /* TranslationEntry.m in Sources */,
+				EE38E5B3309FC8312EC8882BEA261880 /* Translations.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

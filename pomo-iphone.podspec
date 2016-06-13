@@ -6,7 +6,7 @@ Pod::Spec.new do |spec|
   spec.authors       = { 'Andrej Mihajlov' => 'and@codeispoetry.ru' }
   spec.summary       = 'Gettext translations for iOS.'
   spec.source        = { :git => 'https://github.com/pronebird/pomo-iphone.git', :tag => '0.0.2' }
-  
+
   spec.source_files  = 'pomo-iphone/*.{h,m,mm}', 'vendor/muparser/src/*.cpp', 'vendor/muparser/include/*.h'
   spec.exclude_files = 'vendor/muparser/src/muParserTest.cpp', 'vendor/muparser/src/muParserTest.h'
   spec.private_header_files = 'vendor/muparser/include/*.h'
@@ -14,6 +14,6 @@ Pod::Spec.new do |spec|
   spec.framework     = 'Foundation'
   spec.libraries     = 'c++'
   spec.requires_arc  = true
-  spec.platform      = :ios
+  spec.platform      = :ios, '8.0'
 
 end
