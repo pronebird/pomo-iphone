@@ -102,7 +102,7 @@ static inline NSString* _nx(NSString* singular, NSString* plural, NSInteger n, N
  *  @return a translated string on success, otherwise original string
  */
 static inline NSString* _n(NSString* singular, NSString* plural, NSInteger n, NSString* domain) OVERLOADABLE_FUNC {
-	return [[TranslationCenter sharedCenter] translatePlural:singular plural:plural count:n context:nil domain:DEFAULT_TEXTDOMAIN];
+	return [[TranslationCenter sharedCenter] translatePlural:singular plural:plural count:n context:nil domain:domain];
 };
 
 /**
