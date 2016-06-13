@@ -23,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)sharedCenter;
 + (NSString *)textDomainFileWithBasePath:(NSString *)path forDomain:(NSString *)domain language:(NSString *)language type:(NSString *)ext;
 
-- (BOOL)isValidTextDomain:(NSString *)domain;
+- (BOOL)isValidTextDomain:(nullable NSString *)domain;
 
 - (BOOL)loadTextDomain:(NSString *)domain;
 - (BOOL)loadTextDomain:(NSString *)domain path:(NSString *)path;
