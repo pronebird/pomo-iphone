@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 
+@import pomo_iphone;
+
 @interface AppDelegate ()
 
 @end
@@ -17,6 +19,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    [[TranslationCenter sharedCenter] loadTextDomain:@"Example"];
+    
     return YES;
 }
 

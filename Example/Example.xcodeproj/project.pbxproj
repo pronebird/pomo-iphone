@@ -13,6 +13,7 @@
 		58BF8F7C1D0EA6C10038B4A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58BF8F7A1D0EA6C10038B4A1 /* Main.storyboard */; };
 		58BF8F7E1D0EA6C10038B4A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58BF8F7D1D0EA6C10038B4A1 /* Assets.xcassets */; };
 		58BF8F811D0EA6C10038B4A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58BF8F7F1D0EA6C10038B4A1 /* LaunchScreen.storyboard */; };
+		58BF8F891D0EBC890038B4A1 /* Example-ru.mo in Resources */ = {isa = PBXBuildFile; fileRef = 58BF8F881D0EBC890038B4A1 /* Example-ru.mo */; };
 		F06E706F8DEE69CBF9024F12 /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF8CE8324AE70B747BA6F0C0 /* Pods_Example.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +29,7 @@
 		58BF8F7D1D0EA6C10038B4A1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		58BF8F801D0EA6C10038B4A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		58BF8F821D0EA6C10038B4A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		58BF8F881D0EBC890038B4A1 /* Example-ru.mo */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Example-ru.mo"; sourceTree = SOURCE_ROOT; };
 		6869632C69EE14A0974258DF /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Example/Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
 		AF8CE8324AE70B747BA6F0C0 /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -65,6 +67,7 @@
 		58BF8F701D0EA6C10038B4A1 /* Example */ = {
 			isa = PBXGroup;
 			children = (
+				58BF8F881D0EBC890038B4A1 /* Example-ru.mo */,
 				58BF8F741D0EA6C10038B4A1 /* AppDelegate.h */,
 				58BF8F751D0EA6C10038B4A1 /* AppDelegate.m */,
 				58BF8F771D0EA6C10038B4A1 /* ViewController.h */,
@@ -166,6 +169,7 @@
 				58BF8F811D0EA6C10038B4A1 /* LaunchScreen.storyboard in Resources */,
 				58BF8F7E1D0EA6C10038B4A1 /* Assets.xcassets in Resources */,
 				58BF8F7C1D0EA6C10038B4A1 /* Main.storyboard in Resources */,
+				58BF8F891D0EBC890038B4A1 /* Example-ru.mo in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

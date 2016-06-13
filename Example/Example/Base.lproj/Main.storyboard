@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -17,30 +18,59 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose number of apples:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1c5-1S-ga7">
-                                <rect key="frame" x="199" y="48" width="202" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Qpr-2H-zT9">
-                                <rect key="frame" x="18" y="77" width="564" height="31"/>
-                                <connections>
-                                    <action selector="sliderValueDidChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="DgB-CE-1l0"/>
-                                </connections>
-                            </slider>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dUr-gG-aWt">
+                                <rect key="frame" x="40" y="225.5" width="520" height="149"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose number of apples" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1c5-1S-ga7">
+                                        <rect key="frame" x="20" y="20" width="480" height="19.5"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Qpr-2H-zT9">
+                                        <rect key="frame" x="18" y="59.5" width="484" height="31"/>
+                                        <connections>
+                                            <action selector="sliderValueDidChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="DgB-CE-1l0"/>
+                                        </connections>
+                                    </slider>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="{number of apples}" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EZU-OS-20C">
+                                        <rect key="frame" x="20" y="109.5" width="480" height="19.5"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="Qpr-2H-zT9" firstAttribute="leading" secondItem="dUr-gG-aWt" secondAttribute="leading" constant="20" symbolic="YES" id="0rq-55-ym6"/>
+                                    <constraint firstItem="Qpr-2H-zT9" firstAttribute="top" secondItem="1c5-1S-ga7" secondAttribute="bottom" constant="20" id="DYL-lc-jc3"/>
+                                    <constraint firstAttribute="trailing" secondItem="Qpr-2H-zT9" secondAttribute="trailing" constant="20" symbolic="YES" id="IAx-VB-N6L"/>
+                                    <constraint firstItem="1c5-1S-ga7" firstAttribute="top" secondItem="dUr-gG-aWt" secondAttribute="top" constant="20" symbolic="YES" id="LUF-EJ-SXa"/>
+                                    <constraint firstItem="EZU-OS-20C" firstAttribute="top" secondItem="Qpr-2H-zT9" secondAttribute="bottom" constant="20" id="Mrh-A7-r4v"/>
+                                    <constraint firstAttribute="trailing" secondItem="1c5-1S-ga7" secondAttribute="trailing" constant="20" symbolic="YES" id="Ufh-mt-86q"/>
+                                    <constraint firstItem="1c5-1S-ga7" firstAttribute="leading" secondItem="dUr-gG-aWt" secondAttribute="leading" constant="20" symbolic="YES" id="V1x-me-ehG"/>
+                                    <constraint firstAttribute="bottom" secondItem="EZU-OS-20C" secondAttribute="bottom" constant="20" symbolic="YES" id="bvT-yT-8yR"/>
+                                    <constraint firstAttribute="trailing" secondItem="EZU-OS-20C" secondAttribute="trailing" constant="20" symbolic="YES" id="lJy-Bf-YU4"/>
+                                    <constraint firstItem="EZU-OS-20C" firstAttribute="centerX" secondItem="Qpr-2H-zT9" secondAttribute="centerX" id="o9o-PS-GlV"/>
+                                    <constraint firstItem="EZU-OS-20C" firstAttribute="leading" secondItem="dUr-gG-aWt" secondAttribute="leading" constant="20" symbolic="YES" id="uyu-eD-1A6"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="o9o-PS-GlV"/>
+                                    </mask>
+                                </variation>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="1c5-1S-ga7" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0jR-a8-Igc"/>
-                            <constraint firstItem="Qpr-2H-zT9" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" symbolic="YES" id="3iP-UQ-6xP"/>
-                            <constraint firstItem="Qpr-2H-zT9" firstAttribute="top" secondItem="1c5-1S-ga7" secondAttribute="bottom" constant="8" symbolic="YES" id="4gN-dT-xGu"/>
-                            <constraint firstAttribute="trailing" secondItem="Qpr-2H-zT9" secondAttribute="trailing" constant="20" symbolic="YES" id="OWl-m4-ROn"/>
-                            <constraint firstItem="1c5-1S-ga7" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="28" id="sSP-B1-guK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="dUr-gG-aWt" secondAttribute="trailing" constant="20" id="0dh-z6-6mz"/>
+                            <constraint firstItem="dUr-gG-aWt" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Kpw-8R-Vxg"/>
+                            <constraint firstItem="dUr-gG-aWt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="pvG-BH-klg"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="slider" destination="Qpr-2H-zT9" id="UqQ-l2-8nA"/>
+                        <outlet property="subTitleLabel" destination="EZU-OS-20C" id="puA-zC-9Dz"/>
                         <outlet property="titleLabel" destination="1c5-1S-ga7" id="YgN-el-h9P"/>
                     </connections>
                 </viewController>
