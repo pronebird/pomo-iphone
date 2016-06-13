@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "913045BABDA037ED2C3DF117DC1259F2F0C1B1F7",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "913045BABDA037ED2C3DF117DC1259F2F0C1B1F7" : 0,
+    "4E2741D60B1129FE6064C2A244816E0AD23F447D" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "449859FC-F7AC-4E96-B00C-FDE2BBECD1F1",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "913045BABDA037ED2C3DF117DC1259F2F0C1B1F7" : "pomo-iphone\/",
+    "4E2741D60B1129FE6064C2A244816E0AD23F447D" : "pomo-iphone\/vendor\/muparser\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Example-Swift",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Example-Swift\/Example-Swift.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/beltoforion\/muparser.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "4E2741D60B1129FE6064C2A244816E0AD23F447D"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/pronebird\/pomo-iphone.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "913045BABDA037ED2C3DF117DC1259F2F0C1B1F7"
+    }
+  ]
+}

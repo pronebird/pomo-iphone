@@ -1,0 +1,16 @@
+PODS:
+  - pomo-iphone (0.0.2)
+
+DEPENDENCIES:
+  - pomo-iphone (from `../`)
+
+EXTERNAL SOURCES:
+  pomo-iphone:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  pomo-iphone: 02dede18c1161fc10ddf11def4ea31fba0ddcf63
+
+PODFILE CHECKSUM: 1dccc1580e90ea330f4eb4f0994aba65a7ee2b3f
+
+COCOAPODS: 1.0.0.beta.8

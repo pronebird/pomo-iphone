@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Example_Swift" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c0I-ey-fjC">
+                                <rect key="frame" x="40" y="225.5" width="520" height="149"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose number of apples" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z6J-Nu-96Z">
+                                        <rect key="frame" x="20" y="20" width="480" height="19.5"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="qRg-bQ-C0U">
+                                        <rect key="frame" x="18" y="59" width="484" height="31"/>
+                                        <connections>
+                                            <action selector="sliderValueDidChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="Rtd-jx-bfw"/>
+                                        </connections>
+                                    </slider>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="{number of apples}" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zlD-x5-xFY">
+                                        <rect key="frame" x="20" y="109" width="480" height="19.5"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="zlD-x5-xFY" secondAttribute="bottom" constant="20" symbolic="YES" id="4KQ-l3-qdr"/>
+                                    <constraint firstItem="Z6J-Nu-96Z" firstAttribute="top" secondItem="c0I-ey-fjC" secondAttribute="top" constant="20" symbolic="YES" id="EKc-Z1-hg8"/>
+                                    <constraint firstAttribute="trailing" secondItem="Z6J-Nu-96Z" secondAttribute="trailing" constant="20" symbolic="YES" id="FKS-Y5-qes"/>
+                                    <constraint firstItem="qRg-bQ-C0U" firstAttribute="leading" secondItem="c0I-ey-fjC" secondAttribute="leading" constant="20" symbolic="YES" id="ObD-Vs-GAk"/>
+                                    <constraint firstItem="Z6J-Nu-96Z" firstAttribute="leading" secondItem="c0I-ey-fjC" secondAttribute="leading" constant="20" symbolic="YES" id="Pcr-nl-Fs7"/>
+                                    <constraint firstAttribute="trailing" secondItem="qRg-bQ-C0U" secondAttribute="trailing" constant="20" symbolic="YES" id="TWh-DW-jHN"/>
+                                    <constraint firstItem="zlD-x5-xFY" firstAttribute="centerX" secondItem="qRg-bQ-C0U" secondAttribute="centerX" id="YIu-kg-j1B"/>
+                                    <constraint firstItem="zlD-x5-xFY" firstAttribute="leading" secondItem="c0I-ey-fjC" secondAttribute="leading" constant="20" symbolic="YES" id="hBz-js-kFC"/>
+                                    <constraint firstAttribute="trailing" secondItem="zlD-x5-xFY" secondAttribute="trailing" constant="20" symbolic="YES" id="lZc-lO-ram"/>
+                                    <constraint firstItem="qRg-bQ-C0U" firstAttribute="top" secondItem="Z6J-Nu-96Z" secondAttribute="bottom" constant="20" id="m1W-2y-Sf1"/>
+                                    <constraint firstItem="zlD-x5-xFY" firstAttribute="top" secondItem="qRg-bQ-C0U" secondAttribute="bottom" constant="20" id="n1I-Pl-gqZ"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="YIu-kg-j1B"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="c0I-ey-fjC" secondAttribute="trailing" constant="20" id="ZMV-Cm-hrk"/>
+                            <constraint firstItem="c0I-ey-fjC" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="b3p-Pv-r6F"/>
+                            <constraint firstItem="c0I-ey-fjC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="ctb-pb-z7N"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="slider" destination="qRg-bQ-C0U" id="eOf-ih-zsk"/>
+                        <outlet property="subTitleLabel" destination="zlD-x5-xFY" id="0Cx-fm-1lx"/>
+                        <outlet property="titleLabel" destination="Z6J-Nu-96Z" id="0X4-OE-Xtu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>
