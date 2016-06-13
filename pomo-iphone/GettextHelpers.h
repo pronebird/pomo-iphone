@@ -31,7 +31,7 @@ NS_INLINE NSString *_(NSString *singular, NSString *domain) OVERLOADABLE_FUNC NS
 
 /**
  *  Translate a string using provided text domain
- *  This is a swift-friendly version of __(singular, domain)
+ *  This is a swift-friendly version of _(singular, domain)
  *
  *  @param singular an original string
  *  @param domain   a text domain
