@@ -15,9 +15,14 @@
   },
   "source_files": [
     "pomo-iphone/*.{h,m,mm}",
-    "vendor/muparser/{include,src}/*.{cpp,h}"
+    "vendor/muparser/src/*.cpp",
+    "vendor/muparser/include/*.h"
   ],
-  "exclude_files": "vendor/muparser/{include,src}/muParserTest.{cpp,h}",
+  "exclude_files": [
+    "vendor/muparser/src/muParserTest.cpp",
+    "vendor/muparser/src/muParserTest.h"
+  ],
+  "private_header_files": "vendor/muparser/include/*.h",
   "frameworks": "Foundation",
   "libraries": "c++",
   "requires_arc": true,

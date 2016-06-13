@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 
-#import <pomo_iphone/GettextHelpers.h>
+@import pomo_iphone;
 
 @interface ViewController ()
 
