@@ -25,7 +25,7 @@ class ViewController: UIViewController {
         let count = Int(slider.value)
         let format = _n("%@ apple", "%@ apples", count, "Example")
         
-        subTitleLabel.text = String(format: format, NSNumber(value: count as Int))
+        subTitleLabel.text = String(format: format, NSNumber(value: count))
     }
     
 }
