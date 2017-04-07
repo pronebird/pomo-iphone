@@ -5,7 +5,7 @@ use_frameworks!
 
 target 'Example-Swift' do
 
-pod 'pomo-iphone', :path => '../'
+pod 'pomo-iphone', :path => '../', :submodules => true
 
 end
 
