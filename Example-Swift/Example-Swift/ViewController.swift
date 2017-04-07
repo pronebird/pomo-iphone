@@ -17,12 +17,16 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        /// Title label
         titleLabel.text = __("Choose number of apples", "Example")
+        
         subTitleLabel.text = " "
     }
 
     @IBAction func sliderValueDidChange(_ sender: AnyObject) {
         let count = Int(slider.value)
+        
+        /// Sub-title with number of apples
         let format = _n("%@ apple", "%@ apples", count, "Example")
         
         subTitleLabel.text = String(format: format, NSNumber(value: count))

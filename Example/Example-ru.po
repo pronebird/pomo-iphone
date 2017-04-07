@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Example\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-13 11:20+0100\n"
-"PO-Revision-Date: 2016-06-13 11:20+0100\n"
+"POT-Creation-Date: 2017-04-07 12:07+0100\n"
+"PO-Revision-Date: 2017-04-07 12:07+0100\n"
 "Last-Translator: Andrej Mihajlov <and@codeispoetry.ru>\n"
 "Language-Team: \n"
 "Language: ru\n"
@@ -21,13 +21,16 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Poedit-Basepath: Example\n"
+"X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: ViewController.m:22
+#. / Title label
+#: ViewController.m:19
 msgid "Choose number of apples"
 msgstr "Выберите количество яблок"
 
-#: ViewController.m:27
+#. / Sub-title with number of apples
+#: ViewController.m:26
 #, objc-format
 msgid "%@ apple"
 msgid_plural "%@ apples"
