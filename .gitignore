@@ -5,3 +5,5 @@ xcuserdata
 *.xcscheme
 *.xcsettings
 .DS_Store
+Podfile.lock
+Pods
