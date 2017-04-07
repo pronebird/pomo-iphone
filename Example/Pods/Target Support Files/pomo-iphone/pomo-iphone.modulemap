@@ -1,6 +1,0 @@
-framework module pomo_iphone {
-  umbrella header "pomo-iphone-umbrella.h"
-
-  export *
-  module * { export * }
-}
