@@ -21,11 +21,11 @@ class ViewController: UIViewController {
         subTitleLabel.text = " "
     }
 
-    @IBAction func sliderValueDidChange(sender: AnyObject) {
+    @IBAction func sliderValueDidChange(_ sender: AnyObject) {
         let count = Int(slider.value)
         let format = _n("%@ apple", "%@ apples", count, "Example")
         
-        subTitleLabel.text = String(format: format, NSNumber(integer: count))
+        subTitleLabel.text = String(format: format, NSNumber(value: count as Int))
     }
     
 }
