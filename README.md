@@ -98,7 +98,7 @@ Example path may look like that:
 
 Add the following line in your Podfile:
 
-`pod 'pomo-iphone', :git => 'git://github.com/pronebird/pomo-iphone.git'`
+`pod 'pomo-iphone', :git => 'git://github.com/pronebird/pomo-iphone.git', :submodules => true`
 
 ## Poedit Settings
 
