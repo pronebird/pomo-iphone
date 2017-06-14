@@ -14,14 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MOParser : GettextTranslations<ParserProtocol>
 
-- (BOOL)importFileAtPath:(NSString*)filename;
-
-@end
-
-
-@interface MOParser(ProtectedMethods)
-
-- (NSArray*)splitString:(NSString*)string separator:(NSString*)separator;
+- (BOOL)importFileAtPath:(NSString *)filename;
 
 @end
 

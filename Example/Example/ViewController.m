@@ -23,9 +23,10 @@
 
 - (IBAction)sliderValueDidChange:(id)sender {
     /// Sub-title with number of apples
-    NSString *format = _n(@"%@ apple", @"%@ apples", self.slider.value, @"Example");
+    NSInteger numApples = self.slider.value;
+    NSString *format = _n(@"%@ apple", @"%@ apples", numApples, @"Example");
     
-    self.subTitleLabel.text = [NSString stringWithFormat:format, [NSNumber numberWithInteger:self.slider.value]];
+    self.subTitleLabel.text = [NSString stringWithFormat:format, numApples];
 }
 
 @end

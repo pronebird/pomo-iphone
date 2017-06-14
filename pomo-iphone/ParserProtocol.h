@@ -8,6 +8,6 @@
 
 @protocol ParserProtocol <NSObject>
 
-- (BOOL)importFileAtPath:(NSString*)filename;
+- (BOOL)importFileAtPath:(NSString *)filename;
 
 @end

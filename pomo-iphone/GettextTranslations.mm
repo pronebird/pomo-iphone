@@ -3,7 +3,7 @@
 //  pomo
 //
 //  Created by pronebird on 3/28/11.
-//  Copyright 2011 Andrej Mihajlov. All rights reserved.
+//  Copyright 2011-2017 Andrej Mihajlov. All rights reserved.
 //
 
 #import "GettextTranslations.h"
@@ -12,93 +12,88 @@
 @interface GettextTranslations()
 
 @property (readwrite, assign) NSUInteger numPlurals;
-@property (readwrite, strong) NSString* pluralRule;
+@property (readwrite) NSString *pluralRule;
 
 @end
 
 @implementation GettextTranslations {
-	mu::ParserInt * mParser;
+    mu::ParserInt *_muParser;
 }
 
-- (id)init {
-	if(self = [super init]) {
-		self.numPlurals = 0;
-		self.pluralRule = nil;
-		
-		mParser = new mu::ParserInt();
-		mParser->EnableBuiltInOprt();
-		mParser->DefineOprt("%", fmod, 5);
-	}
-	return self;
+- (instancetype)init {
+    self = [super init];
+    if(!self) {
+        return nil;
+    }
+    
+    self.numPlurals = 0;
+    self.pluralRule = nil;
+    
+    _muParser = new mu::ParserInt();
+    _muParser->EnableBuiltInOprt();
+    _muParser->DefineOprt("%", fmod, 5);
+    
+    return self;
 }
 
 - (void)dealloc {
-	delete mParser;
-	mParser = NULL;
+    delete _muParser;
+    _muParser = NULL;
 }
 
-- (NSDictionary*)_scanPluralFormsString:(NSString*)src {
-	NSMutableDictionary* result = [NSMutableDictionary new];
-	NSArray* strings = [src componentsSeparatedByString:@";"];
-	NSCharacterSet* charset = [NSCharacterSet whitespaceAndNewlineCharacterSet];
-	
-	for(NSString* str in strings)  {
-		NSScanner* scanner = [NSScanner scannerWithString:str];
-		NSString* key = nil;
-		
-		if([scanner scanUpToString:@"=" intoString:&key]) {
-			[result setObject:[[str substringFromIndex:scanner.scanLocation+1] stringByTrimmingCharactersInSet:charset] 
-					   forKey:[key stringByTrimmingCharactersInSet:charset]];
-		}
-	}
-	
-	return result;
+- (NSDictionary *)_scanPluralFormsString:(NSString *)src {
+    NSMutableDictionary<NSString *, NSString *>  *result = [[NSMutableDictionary alloc] init];
+    NSArray<NSString *> *strings = [src componentsSeparatedByString:@";"];
+    NSCharacterSet *charset = [NSCharacterSet whitespaceAndNewlineCharacterSet];
+    
+    for(NSString *str in strings)  {
+        NSScanner *scanner = [NSScanner scannerWithString:str];
+        NSString *key = nil;
+        
+        if([scanner scanUpToString:@"=" intoString:&key]) {
+            NSString *trimmedValue = [[str substringFromIndex:scanner.scanLocation + 1] stringByTrimmingCharactersInSet:charset];
+            NSString *trimmedKey = [key stringByTrimmingCharactersInSet:charset];
+            
+            result[trimmedKey] = trimmedValue;
+        }
+    }
+    
+    return [result copy];
 }
 
 - (void)setHeader:(NSString*)header value:(NSString*)value {
-	[super setHeader:header value:value];
-	
-	if([header isEqualToString:@"Plural-Forms"]) {
-		NSDictionary* dict = [self _scanPluralFormsString:[self header:header]];		
-		NSString* nplurals = [dict objectForKey:@"nplurals"];
-		NSString* rule = [dict objectForKey:@"plural"];
-		
-		if(nplurals)
-			self.numPlurals = (NSUInteger)[nplurals integerValue];
-		else
-			self.numPlurals = 0;
-		
-		if(rule) {
-			self.pluralRule = [rule stringByReplacingOccurrencesOfString:@";" withString:@""];
-			
-			mParser->SetExpr([self.pluralRule UTF8String]);
-		} else {
-			self.pluralRule = nil;
-		}
-		
-		NSLog(@"nplurals: %@. rule: %@", nplurals, rule);
-	}
+    [super setHeader:header value:value];
+    
+    if(![header isEqualToString:@"Plural-Forms"]) {
+        return;
+    }
+    
+    NSDictionary<NSString *, NSString *> *dict = [self _scanPluralFormsString:[self header:header]];
+    NSString *nplurals = dict[@"nplurals"];
+    NSString *rule = dict[@"plural"];
+    
+    self.numPlurals = (NSUInteger)nplurals.integerValue;
+    
+    if(rule) {
+        self.pluralRule = [rule stringByReplacingOccurrencesOfString:@";" withString:@""];
+        _muParser->SetExpr(self.pluralRule.UTF8String);
+    } else {
+        self.pluralRule = nil;
+    }
 }
 
 - (NSUInteger)selectPluralForm:(NSInteger)count {
-	double retval;
-	
-	if(self.pluralRule) {
-		mParser->DefineConst("n", count);
-		
-		try {
-			retval = mParser->Eval();
-			//std::cout << "retval for " << count << " is " << retval << std::endl;
-			
-			return (NSUInteger)retval;
-		}
-		catch (mu::ParserInt::exception_type &e)
-		{
-			std::cout << "Gettext parser error: " << e.GetMsg() << std::endl;
-		}
-	}
-	
-	return [super selectPluralForm:count];
+    if(self.pluralRule) {
+        _muParser->DefineConst("n", count);
+        
+        try {
+            return (NSUInteger)_muParser->Eval();
+        } catch (mu::ParserInt::exception_type &e) {
+            NSLog(@"muParser error: %s", e.GetMsg().c_str());
+        }
+    }
+    
+    return [super selectPluralForm:count];
 }
 
 @end
